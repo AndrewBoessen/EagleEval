@@ -1,6 +1,7 @@
 // Import necessary modules and functions
 import { cacheReviews } from "./cacheReviews.js";
 import { Course } from "../models/courseSchema.js";
+import { Professor } from "../models/profSchema.js";
 import { Review } from "../models/reviewSchema.js";
 import { getReviews } from "./fetchReviews.js";
 import { getDrillDown } from "./fetchDrillDown.js";
@@ -12,11 +13,11 @@ const MAX_BATCHES = 1000; // Maximum number of batches to process
 
 // Function to scrape professor data
 // This function retrieves professor data and their reviews in batches.
-export async function scrapeProfessors() {
+export async function scrapeProfessors(Model) {
   try {
     console.log("Scraping reviews from BC API");
     // Get the total number of professors in the database
-    const count = await Course.count({});
+    const count = await Model.count({});
 
     // Calculate the number of batches needed (limited by MAX_BATCHES)
     const batches = Math.min(MAX_BATCHES, Math.ceil(count / BATCH_SIZE));
@@ -26,14 +27,20 @@ export async function scrapeProfessors() {
       let promises = [];
 
       // Retrieve a batch of professors from the database
-      const curr_batch = await Course.find({}, null, {
+      const curr_batch = await Model.find({}, null, {
         limit: BATCH_SIZE,
         skip: BATCH_SIZE * i,
       }).exec();
 
       // Fetch reviews for each professor in the current batch
       for (const prof of curr_batch) {
-        const title = prof.crs_code;
+        let title;
+        if (Model == Professor) {
+          title = prof.title.replace(/\S\./g, "").replace(/\s+/g, " ");
+        } else if (Model == Course) {
+          title = prof.crs_code;
+        }
+
         console.log("Getting review data for: ", title);
         promises.push(getReviews(title));
       }
@@ -51,6 +58,7 @@ export async function scrapeProfessors() {
       }
     }
   } catch (error) {
+    console.log(error);
     // Handle any errors that occur during the scraping process
     throw new Error("Error scraping professor reviews");
   }

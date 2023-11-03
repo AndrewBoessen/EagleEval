@@ -175,7 +175,6 @@ export async function searchReviews(model, query) {
     //  },
     //};
     const formattedName = query.replace(/\S\./g, "").replace(/\s+/g, " ");
-    console.log(formattedName.trim());
 
     const pipeline = {
       instructor: new RegExp(formattedName, "i"),
