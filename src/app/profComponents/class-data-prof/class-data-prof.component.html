@@ -13,20 +13,20 @@
       <!-- GRID LEFT -->
       <div class="w-layout-grid grid">
 
-        <div *ngFor="let class of professorCourses" class="class whitecard">
+        <div *ngFor="let class of firstHalfCourses" class="class whitecard">
                <!-- Repeatable class card -->
           <h1 class="classnameprof">{{class.title}}</h1>
           <div class="smlldiv"></div>
           <div class="classdatascorediv">
             <div class="classdatawrapper">
-              <div class="subject">Computer Science</div>
-              <div class="classcodecollegetxt">CSCI2247 | MCAS</div>
+              <div class="subject">{{class.subject}}</div>
+              <div class="classcodecollegetxt">{{class.crs_code}} | {{class.school}}</div>
             </div>
             <div class="veritcal-divider"></div>
             <div class="classscoreknobproftable">
   
               <p-knob
-              [(ngModel)]="courseOvl"
+              [(ngModel)]="class.course_overall"
               [size] = "110"
               [readonly] = "true"
               [strokeWidth]="12.5"
