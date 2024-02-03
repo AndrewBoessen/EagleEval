@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-interface Comment {
+export interface Comment {
   user_id?: string;
   message: string;
   createdAt: Date;
@@ -10,7 +10,7 @@ interface Comment {
   course_id?: string;
 }
 
-interface ProfileData {
+export interface ProfileData {
   name: string;
   email: string;
 }
