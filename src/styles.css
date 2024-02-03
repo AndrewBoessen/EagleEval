@@ -356,7 +356,7 @@ a {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   grid-template-columns: 1fr;
-  width: 45%;
+  width: 49%;
   height: fit-content;
 }
 
@@ -416,6 +416,15 @@ a {
   .card {
     box-shadow: 0 2px 12px rgba(20, 20, 43, 0.04);
   }
+
+  .grid {
+    width: 100%;
+  }
+
+  .professorclasstablewrapper{
+
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -436,9 +445,7 @@ a {
     padding-right: 0;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
+
 
   .professorscorebarwrapper {
     height: auto;
