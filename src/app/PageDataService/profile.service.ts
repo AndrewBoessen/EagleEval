@@ -10,7 +10,7 @@ interface Comment {
   course_id?: string;
 }
 
-interface ProfileData {
+export interface ProfileData {
   name: string;
   email: string;
 }
