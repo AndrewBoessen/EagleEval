@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {
   ProfessorService,
   ProfPageData,
-  CourseTableData
+  CourseTableData,
+  Comment
 } from 'src/app/PageDataService/professor.service';
 
 @Component({
@@ -14,16 +15,21 @@ export class ClassDataProfComponent implements OnInit {
 
   strokeColor: string = '#6d1f22';
   profName: string | undefined = undefined;
+  comments: { [course: string]: Comment[] } | undefined = undefined;
 
   professorCourses: CourseTableData[] | undefined = undefined;
   firstHalfCourses: CourseTableData[] = [];
   secondHalfCourses: CourseTableData[] = [];
+
+
 
   constructor(private prof: ProfessorService) {}
 
 
   ngOnInit() {
     this.prof.getProfPageData().subscribe((data: ProfPageData | null) => {
+      this.comments = data?.comments || undefined;
+      
       this.profName = data?.name || undefined;
       if (this.profName){
          this.profName = this.profName + "'s Class Statistics";
@@ -45,6 +51,14 @@ export class ClassDataProfComponent implements OnInit {
       }
 
     });
+
+
+
+
+    
+
+
+
   }
 
 
