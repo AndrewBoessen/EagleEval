@@ -1,4 +1,5 @@
 <div class="professorclasstablewrapper">
+    <!-- Grid Left -->
     <div class="w-layout-grid grid">
       <div class="class whitecard">
         <h1 class="classnameprof">Carl McTague</h1>
@@ -19,13 +20,7 @@
           </div>
         </div>
        
-       
-    
-
-        
         <div class="reviewaccordian">
-
-
           <p-accordion [activeIndex]="1">
             <p-accordionTab header="Professor Reviews">
               <div class="review">
@@ -44,9 +39,53 @@
 
 
 
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid Right -->
+    <div class="w-layout-grid grid">
+      <div class="class whitecard">
+        <h1 class="classnameprof">Carl McTague</h1>
+        <div class="smllprofessorimgwrapper">
+          <div class="smllprofessorimg card"></div>
+          <div class="veritcal-divider"></div>
+          <div class="professorovlcourseknob">
+
+            <p-knob
+            [(ngModel)]="classScoreForProfOvl"
+            [size] = "160"
+            [readonly] = "true"
+            [strokeWidth]="12.5"
+            [valueColor]="strokeColor"
+          ></p-knob>
+
+
+          </div>
+        </div>
+       
+        <div class="reviewaccordian">
+          <p-accordion [activeIndex]="1">
+            <p-accordionTab header="Professor Reviews">
+              <div class="review">
+                <div class="reviewheader">
+                  <div class="reviewinfo">August 23rd, 2024</div>
+                  <div class="reviewinfo">Would Recommend: Yes</div>
+                </div>
+                <div class="smlldiv"></div>
+                <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
+                <div class="fildwidthdiv"></div>
+              </div>
+            </p-accordionTab>
+            
+            
+        </p-accordion>
+
 
 
         </div>
       </div>
     </div>
+
+
   </div>
