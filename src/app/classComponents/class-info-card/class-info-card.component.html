@@ -1,26 +1,39 @@
 <div class="profimgdatawrapper">
     <div class="professordividertop"></div>
-    <h1 class="classname">Computer System</h1>
+    <h1 class="classname">{{courseName}}</h1>
     <div class="smlldiv"></div>
-    <div class="contact-edutextheader">CSCI2271</div>
+    <div class="contact-edutextheader">{{courseCode}}</div>
     <div class="professordividerbtm"></div>
-    <div class="hrsweeklywrapper">
-      <div class="hoursweeklywrapper">
-        <h1 class="hoursofwork">7.5</h1>
-        <div class="hrs">hrs/week</div>
-      </div>
-      <div class="text-block">Avg. reported time spent on homework </div>
-      <div class="smlldiv"></div>
-    </div>
-    <div class="whitecard whitecontact">
-      <div class="professorinfowrapper">
-        <div class="contact">
-          <div class="contact-edutextheader">Course Description</div>
-          <div class="smlldiv"></div>
+    
+    <ng-container *ngIf="hoursWeek">
+
+      <div class="hrsweeklywrapper">
+        <div class="hoursweeklywrapper">
+          <h1 class="hoursofwork">{{hoursWeek}}</h1>
+          <div class="hrs">hrs/week</div>
         </div>
-        <div class="coursedescriptwrapper">
-          <div class="crsdesct">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#x27;Content here, content here&#x27;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#x27;lorem ipsum&#x27; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div>
+        <div class="text-block">Avg. reported time spent on homework </div>
+        <div class="smlldiv"></div>
+      </div>
+    
+    </ng-container>
+  
+
+    <ng-container *ngIf="description">
+
+      <div class="whitecard whitecontact">
+        <div class="professorinfowrapper">
+          <div class="contact">
+            <div class="contact-edutextheader">Course Description</div>
+            <div class="smlldiv"></div>
+          </div>
+          <div class="coursedescriptwrapper">
+            <div class="crsdesct">{{description}}</div>
+          </div>
         </div>
       </div>
-    </div>
+    
+    </ng-container>
+
+
   </div>
