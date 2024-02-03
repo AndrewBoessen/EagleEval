@@ -195,6 +195,7 @@ a {
   justify-content: space-between;
   padding: 10px 20px 20px;
   display: flex;
+  flex-direction: row;
 }
 
 .nameandstatheader {
@@ -354,6 +355,9 @@ a {
   width: 100%;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  grid-template-columns: 1fr;
+  width: 45%;
+  height: fit-content;
 }
 
 .whitecard {
