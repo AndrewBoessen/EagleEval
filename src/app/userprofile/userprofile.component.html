@@ -1,64 +1,84 @@
 <app-home-bar></app-home-bar>
 <div class="contentwrapper">
-    <div class="profilecard card">
-      <div class="accountdetailswrapper whitecard">
-        <div class="profileheaderwrapper">
+  <div class="profilecard card">
+    <div class="accountdetailswrapper whitecard">
+      <div class="profileheaderwrapper">
+        <h1 class="nameandstatheader">Hello {{ user_name }}</h1>
 
-        
-            <h1 class="nameandstatheader">Hello Andrew Boessen</h1>
-            
-            
-          
-            <p-confirmDialog> </p-confirmDialog>
-            <p-button (click)="removeAccount()" icon="pi pi-times" label="Remove Account"></p-button>
-       
+        <p-confirmDialog> </p-confirmDialog>
+        <p-button
+          (click)="removeAccount()"
+          icon="pi pi-times"
+          label="Remove Account"
+        ></p-button>
+      </div>
+      <h1 class="useremail">{{ user_email }}</h1>
+
+      <div class="smlldiv"></div>
+      <h1 class="reviewsheader">Reviews</h1>
+      <div class="fildwidthdiv"></div>
+      <div class="w-layout-grid usergrid">
+        <!-- Repeatable review -->
+        <div
+          id="w-node-_355392ae-e42b-b188-09b5-f15bacd4a3cb-b8492c38"
+          class="userreviewcell whitecard"
+        >
+          <div class="review">
+            <div class="reviewheader">
+              <div class="reviewinfo">August 23rd, 2024</div>
+              <div class="reviewinfo">Would Recommend: Yes</div>
+
+              <div class="trashbutton">
+                <p-button
+                  icon="pi pi-trash"
+                  (click)="removeReview()"
+                  size="small"
+                ></p-button>
+              </div>
+            </div>
+            <div class="smlldiv"></div>
+            <div class="crsdesct">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem
+              ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit
+              sed, consequat non nulla.
+            </div>
+            <div class="fildwidthdiv"></div>
+          </div>
         </div>
-        <h1 class="useremail">aboessen@gmail.com</h1>
-        
-        <div class="smlldiv"></div>
-        <h1 class="reviewsheader">Reviews</h1>
-        <div class="fildwidthdiv"></div>
-        <div class="w-layout-grid usergrid">
 
-            <!-- Repeatable review -->
-          <div id="w-node-_355392ae-e42b-b188-09b5-f15bacd4a3cb-b8492c38" class="userreviewcell whitecard">
-
-            <div class="review">
-                <div class="reviewheader">
-                  <div class="reviewinfo">August 23rd, 2024</div>
-                  <div class="reviewinfo">Would Recommend: Yes</div>
-                  
-                  <div class="trashbutton"><p-button icon="pi pi-trash" (click)="removeReview()" size="small" ></p-button></div>
-                </div>
-                <div class="smlldiv"></div>
-                <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-                <div class="fildwidthdiv"></div>
+        <!-- ************ -->
+        <div
+          id="w-node-_355392ae-e42b-b188-09b5-f15bacd4a3cb-b8492c38"
+          class="userreviewcell whitecard"
+        >
+          <div class="review">
+            <div class="reviewheader">
+              <div class="reviewinfo">August 23rd, 2024</div>
+              <div class="reviewinfo">Would Recommend: Yes</div>
+              <div class="trashbutton">
+                <p-button
+                  icon="pi pi-trash"
+                  (click)="removeReview()"
+                  size="small"
+                ></p-button>
               </div>
-            
             </div>
-
-          <!-- ************ -->
-          <div id="w-node-_355392ae-e42b-b188-09b5-f15bacd4a3cb-b8492c38" class="userreviewcell whitecard">
-
-            <div class="review">
-                <div class="reviewheader">
-                  <div class="reviewinfo">August 23rd, 2024</div>
-                  <div class="reviewinfo">Would Recommend: Yes</div>
-                  <div class="trashbutton"><p-button icon="pi pi-trash" (click)="removeReview()" size="small" ></p-button></div>
-                </div>
-                <div class="smlldiv"></div>
-                <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-                <div class="fildwidthdiv"></div>
-              </div>
-            
+            <div class="smlldiv"></div>
+            <div class="crsdesct">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem
+              ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius
+              natoque penatibus et magnis dis parturient montes, nascetur
+              ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit
+              sed, consequat non nulla.
             </div>
-
-
-
-          
+            <div class="fildwidthdiv"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <app-footer></app-footer>
+<app-footer></app-footer>

@@ -4,6 +4,8 @@ import {
   ProfileService,
   ProfileData,
 } from '../PageDataService/profile.service';
+import { PageServiceService } from '../page-service.service';
+
 @Component({
   selector: 'app-sign-in-button',
   templateUrl: './sign-in-button.component.html',
@@ -15,7 +17,8 @@ export class SignInButtonComponent {
 
   constructor(
     private data: CollectDataService,
-    private profile: ProfileService
+    private profile: ProfileService,
+    public _pageService: PageServiceService
   ) {}
   ngOnInit() {
     this.profile.setProfilePageData(null);
@@ -25,7 +28,7 @@ export class SignInButtonComponent {
     this.profile.getProfilePageData().subscribe((data: ProfileData | null) => {
       if (data) {
         this.status = 'Profile';
-        this.redirectUrl = '/profile';
+        this.redirectUrl = '/#/profile';
       } else {
         this.status = 'Sign In';
         this.redirectUrl = '/auth/google';
