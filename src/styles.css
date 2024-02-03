@@ -141,6 +141,13 @@ a {
   border-color: #000000;
 }
 
+.p-accordion
+  .p-accordion-header:not(.p-disabled)
+  .p-accordion-header-link:focus {
+  box-shadow: 0px 0px 0px 0.2rem #6c757d;
+  border-color: #000000;
+}
+
 /* *************** */
 
 .reviewaccordian {
@@ -195,6 +202,7 @@ a {
   justify-content: space-between;
   padding: 10px 20px 20px;
   display: flex;
+  flex-direction: row;
 }
 
 .nameandstatheader {
@@ -351,9 +359,13 @@ a {
 }
 
 .grid {
-  width: 100%;
+  width: 49%;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  grid-template-columns: 100%;
+
+  height: fit-content;
+  grid-template-rows: auto;
 }
 
 .whitecard {
@@ -412,6 +424,16 @@ a {
   .card {
     box-shadow: 0 2px 12px rgba(20, 20, 43, 0.04);
   }
+
+  .grid {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .professorclasstablewrapper {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -430,10 +452,6 @@ a {
   .contentwrapper {
     padding-left: 0;
     padding-right: 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
   }
 
   .professorscorebarwrapper {

@@ -12,6 +12,11 @@
   justify-content: space-between;
 }
 
+.addbtmMargin{
+  margin-top: 25px;
+
+  margin-bottom: 25px;
+}
 
 .removeTopPadding{
   padding-top: 0px;

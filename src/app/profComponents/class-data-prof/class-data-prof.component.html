@@ -1,139 +1,133 @@
-
-
 <p-tabView styleClass="custom-tabview">
   <p-tabPanel header="Class Statistics">
-
     <div class="professorclassheaderdiv removeTopPadding">
-      <h1 class="nameandstatheader">Jeremy Wilkin&#x27;s Class Statistics </h1>
+      <h1 class="nameandstatheader">{{ profName }}</h1>
       <div class="fildwidthdiv"></div>
     </div>
-  
-  
-    
+
     <div class="professorclasstablewrapper removeBtmPadding">
+      <!-- GRID LEFT -->
       <div class="w-layout-grid grid">
-  
+        <div
+          *ngFor="let class of professorCourses | slice : 0 : halfLength"
+          class="class whitecard"
+        >
           <!-- Repeatable class card -->
-        <div class="class whitecard">
-          <h1 class="classnameprof">Western Perspectives I </h1>
+          <h1 class="classnameprof">{{ class.title }}</h1>
           <div class="smlldiv"></div>
           <div class="classdatascorediv">
             <div class="classdatawrapper">
-              <div class="subject">Computer Science</div>
-              <div class="classcodecollegetxt">CSCI2247 | MCAS</div>
+              <div class="subject">{{ class.subject }}</div>
+              <div class="classcodecollegetxt">
+                {{ class.crs_code }} | {{ class.school }}
+              </div>
             </div>
             <div class="veritcal-divider"></div>
             <div class="classscoreknobproftable">
-  
               <p-knob
-              [(ngModel)]="courseOvl"
-              [size] = "110"
-              [readonly] = "true"
-              [strokeWidth]="12.5"
-              [valueColor]="strokeColor"
-            ></p-knob>
-      
-  
-   
-  
-  
-  
+                [(ngModel)]="class.course_overall"
+                [size]="110"
+                [readonly]="true"
+                [strokeWidth]="12.5"
+                [valueColor]="strokeColor"
+              ></p-knob>
             </div>
           </div>
-  
+
           <div class="reviewaccordian">
-  
-  
+            <p-accordion [activeIndex]="">
+              <p-accordionTab header="Course Description">
+                <div class="crsdesct">{{ class.description }}</div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+
+          <!-- ******************* -->
+        </div>
+      </div>
+
+      <!-- GRID Right -->
+      <div class="w-layout-grid grid">
+        <!-- Repeatable class card -->
+
+        <!-- Repeatable class card -->
+
+        <div
+          *ngFor="let classsecond of professorCourses | slice : halfLength"
+          class="class whitecard"
+        >
+          <h1 class="classnameprof">{{ classsecond.title }}</h1>
+          <div class="smlldiv"></div>
+          <div class="classdatascorediv">
+            <div class="classdatawrapper">
+              <div class="subject">{{ classsecond.subject }}</div>
+              <div class="classcodecollegetxt">
+                {{ classsecond.crs_code }} | {{ classsecond.school }}
+              </div>
+            </div>
+            <div class="veritcal-divider"></div>
+            <div class="classscoreknobproftable">
+              <p-knob
+                [(ngModel)]="classsecond.course_overall"
+                [size]="110"
+                [readonly]="true"
+                [strokeWidth]="12.5"
+                [valueColor]="strokeColor"
+              ></p-knob>
+            </div>
+          </div>
+
+          <div class="reviewaccordian">
             <p-accordion [activeIndex]="1">
               <p-accordionTab header="Course Description">
                 <div class="crsdesct">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </div>
+                  {{ classsecond.description }}
+                </div>
               </p-accordionTab>
-              
-              
-          </p-accordion>
-  
-  
+            </p-accordion>
           </div>
-  
-        <!-- ******************* -->
+
+          <!-- ******************* -->
+        </div>
       </div>
     </div>
-    </div>
-     
   </p-tabPanel>
   <p-tabPanel header="Reviews">
-    
     <div class="addreviewwrapper"></div>
     <div class="professorclassheaderdiv removeTopPadding">
       <div class="addreviewwrapper">
-      <h1 class="nameandstatheader">Reviews</h1>
-      <div class="addReviewButton">
-
-        <app-add-review-button></app-add-review-button>
+        <h1 class="nameandstatheader">Reviews</h1>
+        <div class="addReviewButton">
+          <app-add-review-button></app-add-review-button>
+        </div>
       </div>
-    </div>
       <div class="fildwidthdiv"></div>
     </div>
 
     <div class="professorReviewWrapper">
-    <p-accordion [activeIndex]="0" >
-      <p-accordionTab header="(5) Perspective in Western Culture • PHIL10115">
-          <!-- REPEATABLE REVIEW -->
-          <div class="review">
-            <div class="reviewheader">
-              <div class="reviewinfo">August 23rd, 2024</div>
-              <div class="reviewinfo">Would Recommend: Yes</div>
+      <p-accordion [activeIndex]="0">
+        <div *ngFor="let reviews of comments | keyvalue">
+          <p-accordionTab
+            header="({{ reviews.value.length }}) {{
+              course_names[reviews.key]
+            }}"
+          >
+            <div *ngFor="let review of reviews.value" class="review">
+              <div class="reviewheader">
+                <div class="reviewinfo">
+                  {{ formatTimestamp(review.createdAt) }}
+                </div>
+                <div class="reviewinfo">
+                  Would Recommend: {{ review.wouldTakeAgain ? "Yes" : "No" }}
+                </div>
+              </div>
+              <div class="smlldiv"></div>
+              <div class="crsdesct">{{ review.message }}</div>
+              <div class="fildwidthdiv addbtmMargin"></div>
             </div>
-            <div class="smlldiv"></div>
-            <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-            <div class="fildwidthdiv"></div>
-          </div>
-
-          <div class="review">
-            <div class="reviewheader">
-              <div class="reviewinfo">August 23rd, 2024</div>
-              <div class="reviewinfo">Would Recommend: Yes</div>
-            </div>
-            <div class="smlldiv"></div>
-            <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-            <div class="fildwidthdiv"></div>
-          </div>
-
-          <div class="review">
-            <div class="reviewheader">
-              <div class="reviewinfo">August 23rd, 2024</div>
-              <div class="reviewinfo">Would Recommend: Yes</div>
-            </div>
-            <div class="smlldiv"></div>
-            <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-            <div class="fildwidthdiv"></div>
-          </div>
-
-          <!-- ****************** -->
-
-      </p-accordionTab>
-      <p-accordionTab header="Understanding of God • PHIL1011">
-          <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-          </p>
-      </p-accordionTab>
-      <p-accordionTab header="God self and Society • PHIL1011">
-          <p>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-              qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-          </p>
-      </p-accordionTab>
-  </p-accordion>
-  </div>
+          </p-accordionTab>
+        </div>
+      </p-accordion>
+    </div>
   </p-tabPanel>
 </p-tabView>
-
-
-
-
-
-
