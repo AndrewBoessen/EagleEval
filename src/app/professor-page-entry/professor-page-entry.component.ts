@@ -30,6 +30,7 @@ export class ProfessorPageEntryComponent {
     this.route.paramMap.subscribe((routeParams) => {
       // Set prof data to null
       this.professorService.setProfPageData(null);
+      this.professorService.setcrsTableData(null);
 
       const id = String(routeParams.get('profId'));
 
