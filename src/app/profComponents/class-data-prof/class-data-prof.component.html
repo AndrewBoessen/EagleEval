@@ -1,164 +1,130 @@
-
-
 <p-tabView styleClass="custom-tabview">
   <p-tabPanel header="Class Statistics">
-
     <div class="professorclassheaderdiv removeTopPadding">
-      <h1 class="nameandstatheader">{{profName}}</h1>
+      <h1 class="nameandstatheader">{{ profName }}</h1>
       <div class="fildwidthdiv"></div>
     </div>
-  
-    <div class="professorclasstablewrapper removeBtmPadding">
 
+    <div class="professorclasstablewrapper removeBtmPadding">
       <!-- GRID LEFT -->
       <div class="w-layout-grid grid">
-
         <div *ngFor="let class of firstHalfCourses" class="class whitecard">
-               <!-- Repeatable class card -->
-          <h1 class="classnameprof">{{class.title}}</h1>
+          <!-- Repeatable class card -->
+          <h1 class="classnameprof">{{ class.title }}</h1>
           <div class="smlldiv"></div>
           <div class="classdatascorediv">
             <div class="classdatawrapper">
-              <div class="subject">{{class.subject}}</div>
-              <div class="classcodecollegetxt">{{class.crs_code}} | {{class.school}}</div>
+              <div class="subject">{{ class.subject }}</div>
+              <div class="classcodecollegetxt">
+                {{ class.crs_code }} | {{ class.school }}
+              </div>
             </div>
             <div class="veritcal-divider"></div>
             <div class="classscoreknobproftable">
-  
               <p-knob
-              [(ngModel)]="class.course_overall"
-              [size] = "110"
-              [readonly] = "true"
-              [strokeWidth]="12.5"
-              [valueColor]="strokeColor"
-            ></p-knob>
-      
-            </div>
-          </div>
-  
-          <div class="reviewaccordian">
-            <p-accordion [activeIndex]="">
-              <p-accordionTab header="Course Description">
-                <div class="crsdesct">{{class.description}}</div>
-              </p-accordionTab>    
-          </p-accordion>
-  
-          </div>
-  
-      <!-- ******************* -->
-        
-        
-        </div>
-  
-    
-    </div>
-
-    <!-- GRID Right -->
-    <div class="w-layout-grid grid">
-  
-      <!-- Repeatable class card -->
-
-           <!-- Repeatable class card -->
-
-           <div *ngFor="let classsecond of secondHalfCourses" class="class whitecard">
-
-
-            <h1 class="classnameprof">{{classsecond.title}}</h1>
-            <div class="smlldiv"></div>
-            <div class="classdatascorediv">
-              <div class="classdatawrapper">
-                <div class="subject">{{classsecond.subject}}</div>
-                <div class="classcodecollegetxt">{{classsecond.crs_code}} | {{classsecond.school}}</div>
-              </div>
-              <div class="veritcal-divider"></div>
-              <div class="classscoreknobproftable">
-    
-                <p-knob
-                [(ngModel)]="classsecond.course_overall"
-                [size] = "110"
-                [readonly] = "true"
+                [(ngModel)]="class.course_overall"
+                [size]="110"
+                [readonly]="true"
                 [strokeWidth]="12.5"
                 [valueColor]="strokeColor"
               ></p-knob>
-        
+            </div>
+          </div>
+
+          <div class="reviewaccordian">
+            <p-accordion [activeIndex]="">
+              <p-accordionTab header="Course Description">
+                <div class="crsdesct">{{ class.description }}</div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+
+          <!-- ******************* -->
+        </div>
+      </div>
+
+      <!-- GRID Right -->
+      <div class="w-layout-grid grid">
+        <!-- Repeatable class card -->
+
+        <!-- Repeatable class card -->
+
+        <div
+          *ngFor="let classsecond of secondHalfCourses"
+          class="class whitecard"
+        >
+          <h1 class="classnameprof">{{ classsecond.title }}</h1>
+          <div class="smlldiv"></div>
+          <div class="classdatascorediv">
+            <div class="classdatawrapper">
+              <div class="subject">{{ classsecond.subject }}</div>
+              <div class="classcodecollegetxt">
+                {{ classsecond.crs_code }} | {{ classsecond.school }}
               </div>
             </div>
-    
-            <div class="reviewaccordian">
-              <p-accordion [activeIndex]="1">
-                <p-accordionTab header="Course Description">
-                  <div class="crsdesct">
-                    {{classsecond.description}}
-                    </div>
-                </p-accordionTab>    
-            </p-accordion>
-    
+            <div class="veritcal-divider"></div>
+            <div class="classscoreknobproftable">
+              <p-knob
+                [(ngModel)]="classsecond.course_overall"
+                [size]="110"
+                [readonly]="true"
+                [strokeWidth]="12.5"
+                [valueColor]="strokeColor"
+              ></p-knob>
             </div>
-    
-        <!-- ******************* -->
-          
           </div>
-  
-            
-  
-</div>
 
+          <div class="reviewaccordian">
+            <p-accordion [activeIndex]="1">
+              <p-accordionTab header="Course Description">
+                <div class="crsdesct">
+                  {{ classsecond.description }}
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
 
-
+          <!-- ******************* -->
+        </div>
+      </div>
     </div>
-     
   </p-tabPanel>
   <p-tabPanel header="Reviews">
-    
     <div class="addreviewwrapper"></div>
     <div class="professorclassheaderdiv removeTopPadding">
       <div class="addreviewwrapper">
-      <h1 class="nameandstatheader">Reviews</h1>
-      <div class="addReviewButton">
-
-        <app-add-review-button></app-add-review-button>
+        <h1 class="nameandstatheader">Reviews</h1>
+        <div class="addReviewButton">
+          <app-add-review-button></app-add-review-button>
+        </div>
       </div>
-    </div>
       <div class="fildwidthdiv"></div>
     </div>
 
     <div class="professorReviewWrapper">
-    <p-accordion [activeIndex]="0" >
-
-      <div *ngFor="let reviews of comments | keyvalue">
-        <p-accordionTab header="({{reviews.value.length}}) {{reviews.key}}">
-
-
-          <div *ngFor="let review of reviews.value" class="review">
-
-            <div class="reviewheader">
-              <div class="reviewinfo">{{formatTimestamp(review.createdAt) }}</div>
-              <div class="reviewinfo">Would Recommend: {{review.wouldTakeAgain ? "Yes" : "No"}}</div>
+      <p-accordion [activeIndex]="0">
+        <div *ngFor="let reviews of comments | keyvalue">
+          <p-accordionTab
+            header="({{ reviews.value.length }}) {{
+              course_names[reviews.key]
+            }}"
+          >
+            <div *ngFor="let review of reviews.value" class="review">
+              <div class="reviewheader">
+                <div class="reviewinfo">
+                  {{ formatTimestamp(review.createdAt) }}
+                </div>
+                <div class="reviewinfo">
+                  Would Recommend: {{ review.wouldTakeAgain ? "Yes" : "No" }}
+                </div>
+              </div>
+              <div class="smlldiv"></div>
+              <div class="crsdesct">{{ review.message }}</div>
+              <div class="fildwidthdiv addbtmMargin"></div>
             </div>
-            <div class="smlldiv"></div>
-            <div class="crsdesct">{{review.message}}</div>
-            <div class="fildwidthdiv addbtmMargin"></div>
-          
-          </div>
-        
-            
-        
-
-      </p-accordionTab>
-      
-      </div>
-    
-     
-          
-
-
-  </p-accordion>
-  </div>
+          </p-accordionTab>
+        </div>
+      </p-accordion>
+    </div>
   </p-tabPanel>
 </p-tabView>
-
-
-
-
-
-

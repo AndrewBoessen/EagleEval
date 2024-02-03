@@ -149,7 +149,7 @@ export class CollectDataService {
    * @param id - The ID of the course.
    * @returns An observable containing the course data.
    */
-  private getCourseData(id: string): Observable<CourseData> {
+  getCourseData(id: string): Observable<CourseData> {
     const url = API_ENDPOINT + 'fetch/database/course';
     return this.api.getSearchById(id, url);
   }
