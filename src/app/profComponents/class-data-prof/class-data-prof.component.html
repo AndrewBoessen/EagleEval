@@ -126,7 +126,7 @@
     <p-accordion [activeIndex]="0" >
 
       <div *ngFor="let reviews of comments | keyvalue">
-        <p-accordionTab header="(5) {{reviews.key}}">
+        <p-accordionTab header="({{reviews.value.length}}) {{reviews.key}}">
 
 
           <div *ngFor="let review of reviews.value" class="review">
