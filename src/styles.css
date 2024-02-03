@@ -352,12 +352,13 @@ a {
 }
 
 .grid {
-  width: 100%;
+  width: 49%;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  grid-template-columns: 1fr;
-  width: 49%;
+  grid-template-columns: 100%;
+
   height: fit-content;
+  grid-template-rows: auto;
 }
 
 .whitecard {
