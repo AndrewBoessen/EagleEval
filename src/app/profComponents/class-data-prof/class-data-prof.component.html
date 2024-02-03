@@ -125,40 +125,24 @@
     <div class="professorReviewWrapper">
     <p-accordion [activeIndex]="0" >
 
-      <div *ngFor="let review of comments | keyvalue">
-        <p-accordionTab header="(5) {{review.key}}">
-          <!-- REPEATABLE REVIEW -->
-          <div class="review">
+      <div *ngFor="let reviews of comments | keyvalue">
+        <p-accordionTab header="(5) {{reviews.key}}">
+
+
+          <div *ngFor="let review of reviews.value" class="review">
+
             <div class="reviewheader">
-              <div class="reviewinfo">August 23rd, 2024</div>
-              <div class="reviewinfo">Would Recommend: Yes</div>
+              <div class="reviewinfo">{{review.createdAt}}</div>
+              <div class="reviewinfo">Would Recommend: {{review.wouldTakeAgain}}</div>
             </div>
             <div class="smlldiv"></div>
-            <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
+            <div class="crsdesct">{{review.message}}</div>
             <div class="fildwidthdiv"></div>
+          
           </div>
-
-          <div class="review">
-            <div class="reviewheader">
-              <div class="reviewinfo">August 23rd, 2024</div>
-              <div class="reviewinfo">Would Recommend: Yes</div>
-            </div>
-            <div class="smlldiv"></div>
-            <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-            <div class="fildwidthdiv"></div>
-          </div>
-
-          <div class="review">
-            <div class="reviewheader">
-              <div class="reviewinfo">August 23rd, 2024</div>
-              <div class="reviewinfo">Would Recommend: Yes</div>
-            </div>
-            <div class="smlldiv"></div>
-            <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-            <div class="fildwidthdiv"></div>
-          </div>
-
-          <!-- ****************** -->
+        
+            
+        
 
       </p-accordionTab>
       
