@@ -30,8 +30,7 @@ export class ClassDataProfComponent implements OnInit {
   course_names: { [id: string]: string } = { general: 'General' };
 
   professorCourses: CourseTableData[] | undefined = undefined;
-  firstHalfCourses: CourseTableData[] = [];
-  secondHalfCourses: CourseTableData[] = [];
+  halfLength: number = 0;
 
   constructor(
     private prof: ProfessorService,
@@ -73,11 +72,7 @@ export class ClassDataProfComponent implements OnInit {
       this.professorCourses = data || undefined;
 
       if (this.professorCourses) {
-        const halfLength = Math.ceil(this.professorCourses.length / 2);
-
-        // Slice the array into two halves
-        this.firstHalfCourses = this.professorCourses.slice(0, halfLength);
-        this.secondHalfCourses = this.professorCourses.slice(halfLength);
+        this.halfLength = Math.ceil(this.professorCourses.length / 2);
       }
     });
   }

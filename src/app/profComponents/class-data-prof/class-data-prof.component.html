@@ -8,7 +8,10 @@
     <div class="professorclasstablewrapper removeBtmPadding">
       <!-- GRID LEFT -->
       <div class="w-layout-grid grid">
-        <div *ngFor="let class of firstHalfCourses" class="class whitecard">
+        <div
+          *ngFor="let class of professorCourses | slice : 0 : halfLength"
+          class="class whitecard"
+        >
           <!-- Repeatable class card -->
           <h1 class="classnameprof">{{ class.title }}</h1>
           <div class="smlldiv"></div>
@@ -50,7 +53,7 @@
         <!-- Repeatable class card -->
 
         <div
-          *ngFor="let classsecond of secondHalfCourses"
+          *ngFor="let classsecond of professorCourses | slice : halfLength"
           class="class whitecard"
         >
           <h1 class="classnameprof">{{ classsecond.title }}</h1>

@@ -141,6 +141,13 @@ a {
   border-color: #000000;
 }
 
+.p-accordion
+  .p-accordion-header:not(.p-disabled)
+  .p-accordion-header-link:focus {
+  box-shadow: 0px 0px 0px 0.2rem #6c757d;
+  border-color: #000000;
+}
+
 /* *************** */
 
 .reviewaccordian {
@@ -424,8 +431,7 @@ a {
     margin-bottom: 10px;
   }
 
-  .professorclasstablewrapper{
-
+  .professorclasstablewrapper {
     flex-direction: column;
   }
 }
@@ -447,8 +453,6 @@ a {
     padding-left: 0;
     padding-right: 0;
   }
-
-
 
   .professorscorebarwrapper {
     height: auto;
