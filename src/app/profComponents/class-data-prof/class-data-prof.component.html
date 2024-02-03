@@ -132,8 +132,8 @@
           <div *ngFor="let review of reviews.value" class="review">
 
             <div class="reviewheader">
-              <div class="reviewinfo">{{review.createdAt}}</div>
-              <div class="reviewinfo">Would Recommend: {{review.wouldTakeAgain}}</div>
+              <div class="reviewinfo">{{formatTimestamp(review.createdAt) }}</div>
+              <div class="reviewinfo">Would Recommend: {{review.wouldTakeAgain ? "Yes" : "No"}}</div>
             </div>
             <div class="smlldiv"></div>
             <div class="crsdesct">{{review.message}}</div>

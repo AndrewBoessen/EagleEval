@@ -29,7 +29,7 @@ export class ClassDataProfComponent implements OnInit {
   ngOnInit() {
     this.prof.getProfPageData().subscribe((data: ProfPageData | null) => {
       this.comments = data?.comments || undefined;
-      
+
       this.profName = data?.name || undefined;
       if (this.profName){
          this.profName = this.profName + "'s Class Statistics";
@@ -53,12 +53,24 @@ export class ClassDataProfComponent implements OnInit {
     });
 
 
+  }
 
+  formatTimestamp(inputTimestamp: Date): string {
+    const dateObject = new Date(inputTimestamp);
 
-    
+    const options: any = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = dateObject.toLocaleDateString('en-US', options);
+    const day = dateObject.getDate();
+    const suffix =
+      day === 1 || day === 21 || day === 31
+        ? 'st'
+        : day === 2 || day === 22
+        ? 'nd'
+        : day === 3 || day === 23
+        ? 'rd'
+        : 'th';
 
-
-
+    return `${formattedDate.replace(/(\d)([^\d])$/, `$1${suffix}$2`)}`;
   }
 
 
