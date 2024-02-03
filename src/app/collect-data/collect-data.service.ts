@@ -512,11 +512,9 @@ export class CollectDataService {
    */
   getProfilePageData() {
     this.getProfileData().subscribe((profile_data) => {
-      console.log('PROFILE DATA', profile_data);
       if (profile_data) {
         this.profile.setProfilePageData(profile_data);
         this.getUsersComments().subscribe((user_comments) => {
-          console.log('USER COMMENTS', user_comments);
           if (user_comments) {
             this.profile.setComments(user_comments);
           }
