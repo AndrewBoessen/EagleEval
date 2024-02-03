@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   ProfessorService,
   ProfPageData,
+  CourseTableData
 } from 'src/app/PageDataService/professor.service';
 
 @Component({
@@ -11,9 +12,11 @@ import {
 })
 export class ClassDataProfComponent implements OnInit {
 
-  courseOvl: number | undefined = NaN;
+  courseOvl: number | undefined = 0;
   strokeColor: string = '#6d1f22';
   profName: string | undefined = undefined;
+
+  professorCourses: CourseTableData[] | undefined = undefined;
 
   constructor(private prof: ProfessorService) {}
 
@@ -26,6 +29,12 @@ export class ClassDataProfComponent implements OnInit {
 
       }
      
+    });
+
+
+    this.prof.getcrsTableData().subscribe((data: CourseTableData[] | null) => {
+      this.professorCourses = data || undefined;
+
     });
   }
 
