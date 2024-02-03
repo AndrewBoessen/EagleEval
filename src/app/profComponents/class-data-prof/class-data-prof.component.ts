@@ -12,7 +12,6 @@ import {
 })
 export class ClassDataProfComponent implements OnInit {
 
-  courseOvl: number | undefined = 0;
   strokeColor: string = '#6d1f22';
   profName: string | undefined = undefined;
 

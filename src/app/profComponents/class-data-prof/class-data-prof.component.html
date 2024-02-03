@@ -59,19 +59,22 @@
       <!-- Repeatable class card -->
 
            <!-- Repeatable class card -->
-           <div class="class whitecard">
-            <h1 class="classnameprof">Western Perspectives I </h1>
+
+           <div *ngFor="let classsecond of secondHalfCourses" class="class whitecard">
+
+
+            <h1 class="classnameprof">{{classsecond.title}}</h1>
             <div class="smlldiv"></div>
             <div class="classdatascorediv">
               <div class="classdatawrapper">
-                <div class="subject">Computer Science</div>
-                <div class="classcodecollegetxt">CSCI2247 | MCAS</div>
+                <div class="subject">{{classsecond.subject}}</div>
+                <div class="classcodecollegetxt">{{classsecond.crs_code}} | {{classsecond.school}}</div>
               </div>
               <div class="veritcal-divider"></div>
               <div class="classscoreknobproftable">
     
                 <p-knob
-                [(ngModel)]="courseOvl"
+                [(ngModel)]="classsecond.course_overall"
                 [size] = "110"
                 [readonly] = "true"
                 [strokeWidth]="12.5"
@@ -85,55 +88,18 @@
               <p-accordion [activeIndex]="1">
                 <p-accordionTab header="Course Description">
                   <div class="crsdesct">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {{classsecond.description}}
                     </div>
                 </p-accordionTab>    
             </p-accordion>
     
             </div>
     
-          
-        </div>
         <!-- ******************* -->
-             <!-- Repeatable class card -->
-             <div class="class whitecard">
-              <h1 class="classnameprof">Western Perspectives I </h1>
-              <div class="smlldiv"></div>
-              <div class="classdatascorediv">
-                <div class="classdatawrapper">
-                  <div class="subject">Computer Science</div>
-                  <div class="classcodecollegetxt">CSCI2247 | MCAS</div>
-                </div>
-                <div class="veritcal-divider"></div>
-                <div class="classscoreknobproftable">
-      
-                  <p-knob
-                  [(ngModel)]="courseOvl"
-                  [size] = "110"
-                  [readonly] = "true"
-                  [strokeWidth]="12.5"
-                  [valueColor]="strokeColor"
-                ></p-knob>
           
-                </div>
-              </div>
-      
-              <div class="reviewaccordian">
-                <p-accordion [activeIndex]="1">
-                  <p-accordionTab header="Course Description">
-                    <div class="crsdesct">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </div>
-                  </p-accordionTab>    
-              </p-accordion>
-      
-              </div>
-      
-            
           </div>
-          <!-- ******************* -->
+  
+            
   
 </div>
 
