@@ -384,9 +384,7 @@ a {
 
 @media screen and (max-width: 991px) {
 
-  .professorclasstablewrapper {
-    height: auto;
-  }
+  
   .signIn {
     font-size: 15px;
   }
@@ -407,6 +405,8 @@ a {
 }
 
 @media screen and (max-width: 767px) {
+
+  
   .classnameprof {
     font-size: 20px;
   }
@@ -442,6 +442,9 @@ a {
 
   .professorclasstablewrapper {
     flex-direction: column;
+    max-height: none;
+  
+
   }
 }
 
