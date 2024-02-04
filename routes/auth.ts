@@ -5,7 +5,6 @@ import { ensureAuthenticated } from '../middleware/authentication';
 import { searchById, searchForId } from '../utils/mongoUtils';
 import UserModel from '../models/user';
 import CommentModel from '../models/comment';
-import ReviewModel from '../models/review';
 
 // Create an Express router
 const router = express.Router();
@@ -55,7 +54,7 @@ router.delete(
 
       if (user_data) {
         console.log('Deleting all user reivews');
-        await ReviewModel.deleteMany({ user_id: id });
+        await CommentModel.deleteMany({ user_id: id });
 
         console.log('User DELETED: ', id);
         return res.status(200);
@@ -76,7 +75,8 @@ router.get('/logout', (req: Request, res: Response, next) => {
       return next(err);
     }
   });
-  res.redirect('/');
+  //res.redirect('/');
+  return res.status(200).json({ message: 'success' });
 });
 
 // Get users comments

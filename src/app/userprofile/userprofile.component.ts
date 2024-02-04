@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConfirmationService,MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import {
   ProfileService,
   ProfileData,
@@ -81,8 +81,11 @@ export class UserprofileComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.deleteComment(id);
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Review removed' });
-
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Review removed',
+        });
       },
     });
   }
@@ -109,10 +112,10 @@ export class UserprofileComponent {
   logout() {
     const logout_url = AUTH_ENDPOINT + 'logout';
 
-    this.api.logout(logout_url).subscribe((response) => {
-      console.log(response);
+    this.api.logout(logout_url).subscribe({
+      complete: () => {
+        this.router.navigate(['/']);
+      },
     });
-    this.router.navigate(['/']);
-
   }
 }
