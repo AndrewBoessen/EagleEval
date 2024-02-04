@@ -5,6 +5,8 @@ import {
   ProfileData,
   Comment,
 } from '../PageDataService/profile.service';
+import { ApiService } from '../api.service';
+import { AppSettings } from '../appSettings';
 
 @Component({
   selector: 'app-userprofile',
@@ -17,6 +19,7 @@ export class UserprofileComponent {
   comments: Comment[] | undefined = undefined;
 
   constructor(
+    private api: ApiService,
     private confirmationService: ConfirmationService,
     private profile: ProfileService
   ) {}
@@ -65,6 +68,13 @@ export class UserprofileComponent {
       message: 'Deleting a review is an irreversible action',
       header: 'Are you sure you wish to proceed?',
       icon: 'pi pi-exclamation-triangle',
+    });
+  }
+
+  deleteComment(id: string) {
+    const url = AppSettings.API_ENDPOINT + 'comments/prof';
+    this.api.deleteComment(id, url).subscribe((result) => {
+      console.log(result);
     });
   }
 }

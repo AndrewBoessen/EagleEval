@@ -169,7 +169,7 @@ comment_router.delete(
       const commentId: Types.ObjectId = req.params['id'] as any;
 
       const commentToDelete = await searchById(CommentModel, commentId);
-      if (commentToDelete?.user_id != userId) {
+      if (commentToDelete?.user_id?.toString() != userId.toString()) {
         return res
           .status(401)
           .json({ message: 'Not authorized to delete this comment' });

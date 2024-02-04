@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Comment {
+  _id: string;
   user_id?: string;
   message: string;
   createdAt: Date;
