@@ -65,6 +65,9 @@ export class UserprofileComponent {
         'Deleting account will remove all reviews and data associated with your student email',
       header: 'Are you sure you wish to proceed?',
       icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteProfile()
+      }
     });
   }
 
