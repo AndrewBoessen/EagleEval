@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   ClassService,
-  ProfTableData
+  ProfTableData,
+
 
 } from 'src/app/PageDataService/class.service';
 
@@ -12,10 +13,10 @@ import {
 })
 export class ProfessorTableForClasspgComponent implements OnInit{
 
-  classScoreForProfOvl: number | undefined = 50;
   strokeColor: string = '#6d1f22';
 
   profArray: ProfTableData [] | undefined = undefined;
+
   halfLength: number = 0;
 
 
@@ -41,11 +42,9 @@ export class ProfessorTableForClasspgComponent implements OnInit{
       if (imageUrl) {
         return encodeURI(decodeURI(imageUrl));
       }
-      return "";
+      return "/assets/profileImage.jpeg";
     }
      
-
-
 
 
 
