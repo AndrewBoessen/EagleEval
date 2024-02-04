@@ -9,6 +9,7 @@ import {
 import { ProfileService } from '../PageDataService/profile.service';
 import { CommentService } from '../commentService/comment.service';
 
+
 interface Comment {
   user_id?: string;
   message: string;
@@ -29,6 +30,7 @@ interface Class {
 })
 export class AddReviewButtonComponent implements OnInit {
   visible: boolean = false;
+  profName: string | undefined = undefined;
 
   stateOptions: any[] = [
     { label: 'No', value: false },
@@ -66,6 +68,7 @@ export class AddReviewButtonComponent implements OnInit {
 
     this.prof.getProfPageData().subscribe((prof_data: ProfPageData | null) => {
       this.prof_id = prof_data?.id;
+      this.profName = prof_data?.name;
     });
 
     this.prof
