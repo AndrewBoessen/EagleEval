@@ -6,24 +6,21 @@
         <h1 class="nameandstatheader">Hello {{ user_name }}</h1>
 
         <div class="buttomsWrapper">
-        <p-confirmDialog> </p-confirmDialog>
-        <div class="buttonMargin">
+          <p-confirmDialog> </p-confirmDialog>
+          <div class="buttonMargin">
+            <p-button
+              (onClick)="removeAccount()"
+              icon="pi pi-times"
+              label="Remove Account"
+            ></p-button>
+          </div>
+
           <p-button
-          (click)="removeAccount()"
-          icon="pi pi-times"
-          label="Remove Account"
-        ></p-button>
-
-
+            (onClick)="logout()"
+            icon="pi pi-sign-out"
+            label="Log out"
+          ></p-button>
         </div>
-  
-
-        <p-button
-        icon="pi pi-sign-out"
-        label="Log out"
-      ></p-button>
-
-    </div>
       </div>
       <h1 class="useremail">{{ user_email }}</h1>
 
@@ -49,7 +46,7 @@
                 <div class="trashbutton">
                   <p-button
                     icon="pi pi-trash"
-                    (click)="removeReview()"
+                    (click)="removeReview(comment._id)"
                     size="small"
                   ></p-button>
                 </div>

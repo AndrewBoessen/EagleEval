@@ -40,4 +40,8 @@ export class ApiService {
   createComment(commentData: any, url: string): Observable<any> {
     return this.http.post<any>(url, commentData);
   }
+
+  logout(url: string): Observable<any> {
+    return this.http.get<any>(url);
+  }
 }

@@ -8,7 +8,7 @@ import {
 import { CommentService } from '../commentService/comment.service';
 import { AppSettings } from '../appSettings';
 import { ApiService } from '../api.service';
-import { response } from 'express';
+import { Router } from '@angular/router';
 
 const AUTH_ENDPOINT = AppSettings.AUTH_ENDPOINT;
 
@@ -23,6 +23,7 @@ export class UserprofileComponent {
   comments: Comment[] | undefined = undefined;
 
   constructor(
+    private router: Router,
     private api: ApiService,
     private comment: CommentService,
     private confirmationService: ConfirmationService,
@@ -66,20 +67,24 @@ export class UserprofileComponent {
       header: 'Are you sure you wish to proceed?',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.deleteProfile()
-      }
+        this.deleteProfile();
+        this.logout();
+      },
     });
   }
 
-  removeReview() {
+  removeReview(id: string) {
     this.confirmationService.confirm({
       message: 'Deleting a review is an irreversible action',
       header: 'Are you sure you wish to proceed?',
       icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteComment(id);
+      },
     });
   }
 
-  deleteComment(id: string) {
+  private deleteComment(id: string) {
     // remove commment from array
     if (this.comments) {
       this.profile.setComments(
@@ -90,11 +95,20 @@ export class UserprofileComponent {
     this.comment.deleteComment(id);
   }
 
-  deleteProfile() {
+  private deleteProfile() {
     const delete_url = AUTH_ENDPOINT + 'profile';
 
     this.api.deleteProfile(delete_url).subscribe((response) => {
       console.log(response);
     });
+  }
+
+  logout() {
+    const logout_url = AUTH_ENDPOINT + 'logout';
+
+    this.api.logout(logout_url).subscribe((response) => {
+      console.log(response);
+    });
+    this.router.navigate(['/']);
   }
 }
