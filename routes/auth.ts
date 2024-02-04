@@ -76,7 +76,8 @@ router.get('/logout', (req: Request, res: Response, next) => {
       return next(err);
     }
   });
-  res.redirect('/');
+  //res.redirect('/');
+  return res.status(200).json({ message: 'success' });
 });
 
 // Get users comments

@@ -106,9 +106,10 @@ export class UserprofileComponent {
   logout() {
     const logout_url = AUTH_ENDPOINT + 'logout';
 
-    this.api.logout(logout_url).subscribe((response) => {
-      console.log(response);
+    this.api.logout(logout_url).subscribe({
+      complete: () => {
+        this.router.navigate(['/']);
+      },
     });
-    this.router.navigate(['/']);
   }
 }
