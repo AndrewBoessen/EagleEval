@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 import {
   ProfessorService,
@@ -8,7 +8,6 @@ import {
 } from '../PageDataService/professor.service';
 import { ProfileService } from '../PageDataService/profile.service';
 import { CommentService } from '../commentService/comment.service';
-
 
 interface Comment {
   user_id?: string;
@@ -84,6 +83,8 @@ export class AddReviewButtonComponent implements OnInit {
                 }
             )
             .concat([{ name: 'Other', id: null }]);
+        } else {
+          this.classes = [{ name: 'Other', id: null }];
         }
       });
   }
@@ -111,11 +112,17 @@ export class AddReviewButtonComponent implements OnInit {
 
       this.comment.createComment(new_comment);
       this.visible = false;
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Your review has been added' });
-
-
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Your review has been added',
+      });
     } else {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ensure you are logged in and all data fields are completed' });
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Ensure you are logged in and all data fields are completed',
+      });
 
       console.error('DATA NOT COMPELTE');
     }
