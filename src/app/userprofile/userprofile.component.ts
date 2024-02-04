@@ -27,7 +27,8 @@ export class UserprofileComponent {
     private api: ApiService,
     private comment: CommentService,
     private confirmationService: ConfirmationService,
-    private profile: ProfileService
+    private profile: ProfileService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -80,6 +81,8 @@ export class UserprofileComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.deleteComment(id);
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Review removed' });
+
       },
     });
   }
@@ -110,5 +113,6 @@ export class UserprofileComponent {
       console.log(response);
     });
     this.router.navigate(['/']);
+
   }
 }
