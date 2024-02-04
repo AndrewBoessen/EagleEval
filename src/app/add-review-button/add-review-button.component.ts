@@ -121,7 +121,7 @@ export class AddReviewButtonComponent implements OnInit {
       this.messageService.add({
         severity: 'error',
         summary: 'Error',
-        detail: 'Ensure you are logged in and all data fields are completed',
+        detail: 'Ensure you are logged in and all data fields are complete',
       });
 
       console.error('DATA NOT COMPELTE');
