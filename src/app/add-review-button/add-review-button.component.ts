@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService} from 'primeng/api';
+
 import {
   ProfessorService,
   CourseTableData,
@@ -44,7 +46,8 @@ export class AddReviewButtonComponent implements OnInit {
   constructor(
     private prof: ProfessorService,
     private user: ProfileService,
-    private comment: CommentService
+    private comment: CommentService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -104,7 +107,13 @@ export class AddReviewButtonComponent implements OnInit {
       };
 
       this.comment.createComment(new_comment);
+      this.visible = false;
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Your review has been added' });
+
+
     } else {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ensure you are logged in and all data fields are completed' });
+
       console.error('DATA NOT COMPELTE');
     }
   }
