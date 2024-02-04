@@ -200,7 +200,8 @@ a {
 }
 
 .professorclasstablewrapper {
-  height: 70vh;
+  min-height: auto;
+  max-height: 70vh;
   overflow-y: auto;
   flex-wrap: wrap;
   justify-content: space-between;
