@@ -5,8 +5,7 @@ import {
   ProfPageData,
 } from '../PageDataService/professor.service';
 import { ProfileService } from '../PageDataService/profile.service';
-import { AppSettings } from '../appSettings';
-import { ApiService } from '../api.service';
+import { CommentService } from '../commentService/comment.service';
 
 interface Comment {
   user_id?: string;
@@ -43,9 +42,9 @@ export class AddReviewButtonComponent implements OnInit {
   prof_id: string | undefined = undefined;
 
   constructor(
-    private api: ApiService,
     private prof: ProfessorService,
-    private user: ProfileService
+    private user: ProfileService,
+    private comment: CommentService
   ) {}
 
   ngOnInit() {
@@ -104,10 +103,7 @@ export class AddReviewButtonComponent implements OnInit {
         wouldTakeAgain: this.wouldRecommend,
       };
 
-      const url = AppSettings.API_ENDPOINT + 'comments/prof';
-      this.api.createComment(new_comment, url).subscribe((result) => {
-        console.log(result);
-      });
+      this.comment.createComment(new_comment);
     } else {
       console.error('DATA NOT COMPELTE');
     }

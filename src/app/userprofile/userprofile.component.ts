@@ -5,7 +5,7 @@ import {
   ProfileData,
   Comment,
 } from '../PageDataService/profile.service';
-import { ApiService } from '../api.service';
+import { CommentService } from '../commentService/comment.service';
 import { AppSettings } from '../appSettings';
 
 @Component({
@@ -19,7 +19,7 @@ export class UserprofileComponent {
   comments: Comment[] | undefined = undefined;
 
   constructor(
-    private api: ApiService,
+    private comment: CommentService,
     private confirmationService: ConfirmationService,
     private profile: ProfileService
   ) {}
@@ -73,8 +73,6 @@ export class UserprofileComponent {
 
   deleteComment(id: string) {
     const url = AppSettings.API_ENDPOINT + 'comments/prof';
-    this.api.deleteComment(id, url).subscribe((result) => {
-      console.log(result);
-    });
+    this.comment.deleteComment(id);
   }
 }
