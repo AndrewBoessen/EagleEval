@@ -200,6 +200,8 @@ a {
 }
 
 .professorclasstablewrapper {
+  height: 70vh;
+  overflow-y: auto;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px 20px 20px;
@@ -380,6 +382,10 @@ a {
 }
 
 @media screen and (max-width: 991px) {
+
+  .professorclasstablewrapper {
+    height: auto;
+  }
   .signIn {
     font-size: 15px;
   }
