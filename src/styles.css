@@ -437,6 +437,11 @@ a {
 }
 
 @media screen and (max-width: 479px) {
+
+  .nameandstatheader{
+
+    text-align: center;
+  }
   .veritcal-divider {
     display: none;
   }
