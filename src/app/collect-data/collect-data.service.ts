@@ -407,9 +407,6 @@ export class CollectDataService {
           if (prof_data) {
             this.getProfComments(prof_data._id).subscribe(
               (prof_comments: Comment[]) => {
-                const filtered_comments = prof_comments?.filter(
-                  (obj) => obj.course_id == null || obj.course_id == id
-                );
                 const avg_overall = this.calculateAverage(
                   profDict[prof_id],
                   'instructor_overall'
@@ -420,7 +417,7 @@ export class CollectDataService {
                   name: prof_data.name,
                   prof_overall: avg_overall,
                   profile_image: prof_data.photoLink,
-                  comments: filtered_comments,
+                  comments: prof_comments,
                 };
 
                 tableData.push(new_table_entry);

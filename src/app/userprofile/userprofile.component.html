@@ -5,12 +5,24 @@
       <div class="profileheaderwrapper">
         <h1 class="nameandstatheader">Hello {{ user_name }}</h1>
 
+        <div class="buttomsWrapper">
         <p-confirmDialog> </p-confirmDialog>
         <p-button
           (click)="deleteProfile()"
           icon="pi pi-times"
           label="Remove Account"
         ></p-button>
+
+
+        </div>
+  
+
+        <p-button
+        icon="pi pi-sign-out"
+        label="Log out"
+      ></p-button>
+
+    </div>
       </div>
       <h1 class="useremail">{{ user_email }}</h1>
 

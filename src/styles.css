@@ -7,6 +7,8 @@
   padding: 0;
 }
 
+
+
 /* Links / Sign in global */
 .signIn {
   text-align: center;
@@ -198,6 +200,8 @@ a {
 }
 
 .professorclasstablewrapper {
+  height: 70vh;
+  overflow-y: auto;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px 20px 20px;
@@ -378,6 +382,10 @@ a {
 }
 
 @media screen and (max-width: 991px) {
+
+  .professorclasstablewrapper {
+    height: auto;
+  }
   .signIn {
     font-size: 15px;
   }
@@ -437,6 +445,11 @@ a {
 }
 
 @media screen and (max-width: 479px) {
+
+  .nameandstatheader{
+
+    text-align: center;
+  }
   .veritcal-divider {
     display: none;
   }

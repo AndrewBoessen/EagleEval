@@ -130,7 +130,7 @@ app.use(contentSecurityPolicy());
 // Block ddos attempts
 const limiter = rateLimit({
   windowMs: 1 * 60 * 100,
-  max: 100,
+  max: 200,
 });
 app.use(limiter);
 
