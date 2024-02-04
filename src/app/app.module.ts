@@ -39,6 +39,7 @@ import { KnobModule } from 'primeng/knob';
 
 // Confirmation Service 
 import { ConfirmationService } from 'primeng/api'
+import { MessageService } from 'primeng/api';
 
 
 //PROF + CLASS SERVICE
@@ -103,7 +104,7 @@ import { NoDataComponent } from './Skeletons/no-data/no-data.component';
 		BrowserAnimationsModule
 
 	],
-	providers: [ConfirmationService,PageServiceService,ProfessorService,ClassService],
+	providers: [ConfirmationService,MessageService,PageServiceService,ProfessorService,ClassService],
 	bootstrap: [AppComponent]
 
 })

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService,MessageService } from 'primeng/api';
 import {
   ProfileService,
   ProfileData,
