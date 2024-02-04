@@ -11,7 +11,8 @@ export interface Comment {
 }
 
 export interface ProfPageData {
-  name: string;
+  id?: string;
+  name?: string;
   education?: string[];
   email?: string;
   title?: string[];

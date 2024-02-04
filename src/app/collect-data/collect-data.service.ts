@@ -222,7 +222,8 @@ export class CollectDataService {
       let tableData: CourseTableData[] = [];
 
       let new_prof_page_data: ProfPageData = {
-        name: '',
+        id: undefined,
+        name: undefined,
         education: undefined,
         email: undefined,
         title: undefined,
@@ -282,6 +283,7 @@ export class CollectDataService {
       // Fill prof page data
       this.getProfData(id).subscribe((prof_data: ProfData) => {
         const new_prof_meta_data: Partial<ProfPageData> = {
+          id: prof_data._id,
           name: prof_data.name,
           education: prof_data.education,
           email: prof_data.email,

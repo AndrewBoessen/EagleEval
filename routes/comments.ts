@@ -115,8 +115,8 @@ comment_router.post(
     body('user_id').isMongoId(),
     body('message').isString(),
     body('wouldTakeAgain').isBoolean(),
-    body('prof_id').isMongoId(),
-    body('course_id').isMongoId(),
+    body('professor_id').isMongoId(),
+    body('course_id').exists(),
   ],
   async (req: Request, res: Response) => {
     // Check for validation errors
@@ -127,13 +127,14 @@ comment_router.post(
     }
 
     try {
-      const { user_id, message, wouldTakeAgain, prof_id, course_id } = req.body;
+      const { user_id, message, wouldTakeAgain, professor_id, course_id } =
+        req.body;
 
       const new_comment: IComment | null = await createComment(
         user_id,
         message,
         wouldTakeAgain,
-        prof_id,
+        professor_id,
         course_id
       );
       if (new_comment != null) {

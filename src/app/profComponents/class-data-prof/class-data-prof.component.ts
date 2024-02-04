@@ -53,7 +53,9 @@ export class ClassDataProfComponent implements OnInit {
         const observables: Observable<CourseData>[] = [];
 
         course_ids.forEach((id: string) => {
-          observables.push(this.data.getCourseData(id));
+          if (id != 'general') {
+            observables.push(this.data.getCourseData(id));
+          }
         });
 
         forkJoin(observables).subscribe((courses: CourseData[] | null) => {

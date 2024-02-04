@@ -1,40 +1,115 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  ProfessorService,
+  CourseTableData,
+  ProfPageData,
+} from '../PageDataService/professor.service';
+import { ProfileService } from '../PageDataService/profile.service';
+import { AppSettings } from '../appSettings';
+import { ApiService } from '../api.service';
+
+interface Comment {
+  user_id?: string;
+  message: string;
+  wouldTakeAgain?: boolean;
+  professor_id: string;
+  course_id?: string | null;
+}
 
 interface Class {
   name: string;
+  id: string | null;
 }
 
 @Component({
   selector: 'app-add-review-button',
   templateUrl: './add-review-button.component.html',
-  styleUrls: ['./add-review-button.component.css']
+  styleUrls: ['./add-review-button.component.css'],
 })
 export class AddReviewButtonComponent implements OnInit {
-
   visible: boolean = false;
 
-  stateOptions: any[] = [{label: 'No', value: 'no'}, {label: 'Yes', value: 'yes'}];
+  stateOptions: any[] = [
+    { label: 'No', value: false },
+    { label: 'Yes', value: true },
+  ];
 
-  value: string = 'no';
+  classes: Class[] | undefined = undefined;
 
-  classes: Class[] | undefined;
+  selectedClass: Class | undefined = undefined;
+  message: string | undefined = undefined;
+  wouldRecommend: boolean | undefined = undefined;
+  user_id: string | undefined = undefined;
+  prof_id: string | undefined = undefined;
 
-  selectedCity: Class | undefined;
-
-
-  //logic for display 
-  showDialog() {
-      this.visible = true;
-  }
-
+  constructor(
+    private api: ApiService,
+    private prof: ProfessorService,
+    private user: ProfileService
+  ) {}
 
   ngOnInit() {
-    this.classes = [
-        { name: 'CSCI1101'},
-        { name: 'CSCI1102'},
-        { name: 'CSCI2271'},
-        { name: 'CSCI3401'},
-        { name: 'CSCI1101'}
-    ];
-}
+    this.user_id = undefined;
+    this.message = undefined;
+    this.prof_id = undefined;
+    this.message = undefined;
+    this.selectedClass = undefined;
+    this.wouldRecommend = undefined;
+
+    this.classes = [{ name: 'Other', id: null }];
+
+    this.user.getProfilePageData().subscribe((user: any | null) => {
+      this.user_id = user?._id;
+    });
+
+    this.prof.getProfPageData().subscribe((prof_data: ProfPageData | null) => {
+      this.prof_id = prof_data?.id;
+    });
+
+    this.prof
+      .getcrsTableData()
+      .subscribe((table_data: CourseTableData[] | null) => {
+        if (table_data) {
+          this.classes = table_data
+            .map(
+              (course: CourseTableData) =>
+                <Class>{
+                  name: course.crs_code,
+                  id: course.id,
+                }
+            )
+            .concat([{ name: 'Other', id: null }]);
+        }
+      });
+  }
+
+  //logic for display
+  showDialog() {
+    this.visible = true;
+  }
+
+  submitReview() {
+    if (
+      this.user_id &&
+      this.selectedClass &&
+      this.wouldRecommend != undefined &&
+      this.message &&
+      this.prof_id
+    ) {
+      const new_comment: Comment = {
+        user_id: this.user_id,
+        course_id: this.selectedClass.id || null,
+        message: this.message,
+        professor_id: this.prof_id,
+        wouldTakeAgain: this.wouldRecommend,
+      };
+
+      const url = AppSettings.API_ENDPOINT + 'comments/prof';
+      this.api.createComment(new_comment, url).subscribe((result) => {
+        console.log(result);
+      });
+    } else {
+      console.error('DATA NOT COMPELTE');
+    }
+  }
 }

@@ -1,55 +1,71 @@
-
-
 <div class="card flex justify-content-center">
-    <p-button (click)="showDialog()" label="Add Review" ></p-button>
-    <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '100vw' }">
-        <ng-template pTemplate="header">
+  <p-button (click)="showDialog()" label="Add Review"></p-button>
+  <p-dialog
+    header="Header"
+    [(visible)]="visible"
+    [modal]="true"
+    [style]="{ width: '50rem' }"
+    [breakpoints]="{ '1199px': '75vw', '575px': '100vw' }"
+  >
+    <ng-template pTemplate="header">
+      <div class="headerreviewwrapper">
+        <div class="avatarnamewrapper">
+          <div class="reviewforProfHeader">Review for Jeremy Wilkins</div>
+        </div>
+      </div>
+    </ng-template>
 
+    <ng-template pTemplate="headless">
+      <div class="fildwidthdiv noMargin"></div>
 
+      <div class="textfieldwrapper">
+        <div class="classwouldrec">
+          <div class="dropdownholder">
+            <i class="pi pi-book" style="font-size: 1.8rem"></i>
+            <h1 class="dropdownlable">Class</h1>
+            <p-dropdown
+              [options]="classes"
+              [(ngModel)]="selectedClass"
+              optionLabel="name"
+              [showClear]="true"
+              placeholder="Select a Class"
+            ></p-dropdown>
+          </div>
 
-            <div class="headerreviewwrapper">
-                <div class="avatarnamewrapper">
-                    <div class="reviewforProfHeader">Review for Jeremy Wilkins</div>
-                </div>
+          <div class="dropdownholder">
+            <i class="pi pi-check-circle" style="font-size: 1.8rem"></i>
+            <h1 class="dropdownlable">Would Recommend</h1>
+            <div class="togglewrapper">
+              <p-selectButton
+                [options]="stateOptions"
+                [(ngModel)]="wouldRecommend"
+                optionLabel="label"
+                optionValue="value"
+              ></p-selectButton>
+            </div>
+          </div>
+        </div>
+        <div class="textfieldwrap">
+          <textarea
+            rows="10"
+            placeholder="Write your review here (300 character limit)"
+            cols="30"
+            pInputTextarea
+            [(ngModel)]="message"
+            [autoResize]="true"
+          ></textarea>
+        </div>
+      </div>
+    </ng-template>
 
-              </div>
-            
-        </ng-template>
-
-        <ng-template pTemplate="headless">
-
-            <div class="fildwidthdiv noMargin"></div>
-
-            <div class="textfieldwrapper">
-                <div class="classwouldrec">
-
-                    <div class="dropdownholder">
-                        <i class="pi pi-book" style="font-size: 1.8rem"></i>
-                        <h1 class="dropdownlable">Class</h1>
-                        <p-dropdown [options]="classes" [(ngModel)]="selectedCity" optionLabel="name" [showClear]="true" placeholder="Select a Class"></p-dropdown>
-                      </div>
-
-                      <div class="dropdownholder">
-                        <i class="pi pi-check-circle" style="font-size: 1.8rem"></i>
-                        <h1 class="dropdownlable">Would Recommend</h1>
-                        <div class="togglewrapper">            
-                            <p-selectButton [options]="stateOptions" [(ngModel)]="value" optionLabel="label" optionValue="value"></p-selectButton>
-                        </div>
-                    
-                      </div>
-
-
-                </div>
-                <div class="textfieldwrap">
-                    <textarea rows="10" placeholder="Write your review here (300 character limit)" cols="30" pInputTextarea [autoResize]="true"></textarea>
-                </div>
-              </div>
-
-        </ng-template>
-    
-        <ng-template pTemplate="footer">
-            <p-button icon="pi pi-check" (click)="visible = false" label="Submit" pAutoFocus [autofocus]="true"></p-button>
-        </ng-template>
-    </p-dialog>
-    </div>
-
+    <ng-template pTemplate="footer">
+      <p-button
+        icon="pi pi-check"
+        (click)="submitReview()"
+        label="Submit"
+        pAutoFocus
+        [autofocus]="true"
+      ></p-button>
+    </ng-template>
+  </p-dialog>
+</div>
