@@ -51,6 +51,11 @@ a {
 
 /* Primeng Styles */
 
+
+.p-tabview .p-tabview-panels {
+  padding: 0px;
+}
+
 .p-button.p-button-icon-only {
   width: 2.5rem;
   height: 2.5rem;
