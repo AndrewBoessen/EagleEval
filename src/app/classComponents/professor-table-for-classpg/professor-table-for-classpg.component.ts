@@ -34,8 +34,14 @@ export class ProfessorTableForClasspgComponent implements OnInit{
          });
 
 
+    }
 
 
+    getEncodedProfileImage(imageUrl: string | undefined): string {
+      if (imageUrl) {
+        return encodeURI(decodeURI(imageUrl));
+      }
+      return "";
     }
      
 

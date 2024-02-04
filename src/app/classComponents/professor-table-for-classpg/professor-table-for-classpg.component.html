@@ -6,7 +6,8 @@
       <div *ngFor="let prof of profArray | slice : 0 : halfLength" class="class whitecard"> 
         <h1 class="classnameprof">{{prof.name}}</h1>
         <div class="smllprofessorimgwrapper">
-          <div class="smllprofessorimg card" style="background-image: url({{prof.profile_image}})"></div>
+
+          <div class="smllprofessorimg card" style="background-image: url({{getEncodedProfileImage(prof.profile_image)}})"></div>
           <div class="veritcal-divider"></div>
           <div class="professorovlcourseknob">
 
@@ -60,7 +61,7 @@
 
         <h1 class="classnameprof">{{profGridTwo.name}}</h1>
         <div class="smllprofessorimgwrapper">
-          <div class="smllprofessorimg card" style="background-image: url({{profGridTwo.profile_image}})"></div>
+          <div class="smllprofessorimg card" style="background-image: url({{getEncodedProfileImage(profGridTwo.profile_image)}})"></div>
           <div class="veritcal-divider"></div>
           <div class="professorovlcourseknob">
 
