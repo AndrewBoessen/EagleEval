@@ -3,6 +3,7 @@ import {
   ClassService,
   ProfTableData,
 } from 'src/app/PageDataService/class.service';
+import { convert } from 'html-to-text';
 
 @Component({
   selector: 'app-professor-table-for-classpg',
@@ -53,5 +54,9 @@ export class ProfessorTableForClasspgComponent implements OnInit {
         : 'th';
 
     return `${formattedDate.replace(/(\d)([^\d])$/, `$1${suffix}$2`)}`;
+  }
+
+  convert(message: string) {
+    return convert(message);
   }
 }

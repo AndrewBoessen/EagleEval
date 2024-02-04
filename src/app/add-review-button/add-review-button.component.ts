@@ -8,6 +8,7 @@ import {
 } from '../PageDataService/professor.service';
 import { ProfileService } from '../PageDataService/profile.service';
 import { CommentService } from '../commentService/comment.service';
+import { convert } from 'html-to-text';
 
 interface Comment {
   user_id?: string;
