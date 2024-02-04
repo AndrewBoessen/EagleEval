@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClassService } from 'src/app/PageDataService/class.service';
+import { ClassService,CoursePageData } from 'src/app/PageDataService/class.service';
 import { CollectDataService } from '../collect-data/collect-data.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./class-page-entry.component.css'],
 })
 export class ClassrPageEntryComponent {
+  courseCode: string | undefined = undefined;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -30,5 +31,14 @@ export class ClassrPageEntryComponent {
       // Populate prof data
       this.data.getCoursePageData(id);
     });
+
+    this.classService.getCoursePageData().subscribe((data: CoursePageData | null) => {
+      this.courseCode = data?.crs_code || undefined;
+  
+    });
+
+     
+
+
   }
 }
