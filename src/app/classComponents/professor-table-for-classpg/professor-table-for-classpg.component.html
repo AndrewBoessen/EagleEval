@@ -31,7 +31,7 @@
               <p-accordionTab header="Professor Reviews">
   
             
-                  <div *ngFor="let reviews of prof.comments" class="review">
+                  <div *ngFor="let reviews of prof.comments.slice(0, 3)" class="review">
   
                     <div class="reviewheader">
                       <div class="reviewinfo">{{reviews.createdAt}}</div>
@@ -82,26 +82,41 @@
 
           </div>
         </div>
-       
-        <div class="reviewaccordian">
-          <p-accordion [activeIndex]="1">
-            <p-accordionTab header="Professor Reviews">
-              <div class="review">
-                <div class="reviewheader">
-                  <div class="reviewinfo">August 23rd, 2024</div>
-                  <div class="reviewinfo">Would Recommend: Yes</div>
+
+        <div *ngIf="profGridTwo.comments && profGridTwo.comments.length > 0">
+
+          <div class="reviewaccordian">
+            <p-accordion [activeIndex]="1">
+              <p-accordionTab header="Professor Reviews">
+
+
+                <div *ngFor="let reviews of profGridTwo.comments.slice(0, 3)" class="review">
+
+                  <div class="reviewheader">
+                    <div class="reviewinfo">{{reviews.createdAt}}</div>
+                    <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain}}</div>
+                  </div>
+                  <div class="smlldiv"></div>
+                  <div class="crsdesct">{{reviews.message}}</div>
+                  <div class="fildwidthdiv"></div>
+                
+                
                 </div>
-                <div class="smlldiv"></div>
-                <div class="crsdesct">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sem ipsum, feugiat ac libero id, consequat laoreet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ipsum dolor, condimentum vel blandit sed, consequat non nulla.</div>
-                <div class="fildwidthdiv"></div>
-              </div>
-            </p-accordionTab>
-            
-            
-        </p-accordion>
-
-
+               
+               
+               
+              </p-accordionTab>
+              
+              
+          </p-accordion>
+  
+  
+          </div>
+        
+        
         </div>
+       
+      
 
 
 
