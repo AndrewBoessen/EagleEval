@@ -1,3 +1,11 @@
+
+<ng-template #disabledAccordian>
+  <p-accordion [activeIndex]="1">
+    <p-accordionTab [disabled]="true" header="No Reviews for Professor"></p-accordionTab>
+  </p-accordion>
+</ng-template>
+
+
 <div class="professorclasstablewrapper">
     <!-- Grid Left -->
     <div class="w-layout-grid grid">
@@ -24,35 +32,36 @@
         </div>
 
         
-        <div *ngIf="prof.comments && prof.comments.length > 0">
-       
            <div class="reviewaccordian">
-            <p-accordion [activeIndex]="1">
-              <p-accordionTab header="Professor Reviews">
-  
-            
-                  <div *ngFor="let reviews of prof.comments.slice(0, 3)" class="review">
-  
-                    <div class="reviewheader">
-                      <div class="reviewinfo">{{formatTimestamp(reviews.createdAt)}}</div>
-                      <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain ? "Yes" : "No"}}</div>
+
+            <div *ngIf="prof.comments && prof.comments.length > 0; else disabledAccordian">
+             
+              <p-accordion [activeIndex]="1">
+                <p-accordionTab header="Professor Reviews">
+    
+              
+                    <div *ngFor="let reviews of prof.comments.slice(0, 3)" class="review">
+    
+                      <div class="reviewheader">
+                        <div class="reviewinfo">{{formatTimestamp(reviews.createdAt)}}</div>
+                        <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain ? "Yes" : "No"}}</div>
+                      </div>
+                      <div class="smlldiv"></div>
+                      <div class="crsdesct">{{reviews.message}}</div>
+                      <div class="fildwidthdiv addbtmMargin"></div>
+                    
                     </div>
-                    <div class="smlldiv"></div>
-                    <div class="crsdesct">{{reviews.message}}</div>
-                    <div class="fildwidthdiv addbtmMargin"></div>
                   
-                  </div>
+                      </p-accordionTab>
                 
+                 </p-accordion>
             
-                    </p-accordionTab>
-              
-              
-               </p-accordion>
+            </div>
+          
 
               </div>
           
-          
-          </div>
+        
       
   
         </div>
@@ -83,38 +92,39 @@
           </div>
         </div>
 
-        <div *ngIf="profGridTwo.comments && profGridTwo.comments.length > 0">
 
           <div class="reviewaccordian">
-            <p-accordion [activeIndex]="1">
-              <p-accordionTab header="Professor Reviews">
 
-
-                <div *ngFor="let reviews of profGridTwo.comments.slice(0, 3)" class="review">
-
-                  <div class="reviewheader">
-                    <div class="reviewinfo">{{formatTimestamp(reviews.createdAt)}}</div>
-                    <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain ? "Yes" : "No"}}</div>
+            <div *ngIf="profGridTwo.comments && profGridTwo.comments.length > 0; else disabledAccordian">
+              <p-accordion [activeIndex]="1">
+                <p-accordionTab header="Professor Reviews">
+  
+  
+                  <div *ngFor="let reviews of profGridTwo.comments.slice(0, 3)" class="review">
+  
+                    <div class="reviewheader">
+                      <div class="reviewinfo">{{formatTimestamp(reviews.createdAt)}}</div>
+                      <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain ? "Yes" : "No"}}</div>
+                    </div>
+                    <div class="smlldiv"></div>
+                    <div class="crsdesct">{{reviews.message}}</div>
+                    <div class="fildwidthdiv addbtmMargin"></div>
+                  
+                  
                   </div>
-                  <div class="smlldiv"></div>
-                  <div class="crsdesct">{{reviews.message}}</div>
-                  <div class="fildwidthdiv addbtmMargin"></div>
+                 
+                </p-accordionTab>
                 
-                
-                </div>
-               
-               
-               
-              </p-accordionTab>
-              
-              
-          </p-accordion>
+            </p-accordion>
+            
+            </div>
+        
   
   
           </div>
         
         
-        </div>
+       
        
       
 
