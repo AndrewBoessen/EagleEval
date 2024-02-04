@@ -29,34 +29,41 @@
       <h1 class="reviewsheader">Reviews</h1>
       <div class="fildwidthdiv"></div>
       <div class="w-layout-grid usergrid">
-        <div *ngFor="let comment of comments">
-          <!-- Repeatable review -->
-          <div
-            id="w-node-_355392ae-e42b-b188-09b5-f15bacd4a3cb-b8492c38"
-            class="userreviewcell whitecard"
-          >
-            <div class="review">
-              <div class="reviewheader">
-                <div class="reviewinfo">
-                  {{ formatTimestamp(comment.createdAt) }}
-                </div>
-                <div class="reviewinfo">
-                  Would Recommend: {{ comment.wouldTakeAgain ? "Yes" : "No" }}
-                </div>
+        <ng-template #noReviewsBlock>
+          <div class="reviewinfo">
+            No Reviews. Go to a professor's page to add a review.
+          </div>
+        </ng-template>
+        <div *ngIf="comments!.length > 0; else noReviewsBlock">
+          <div *ngFor="let comment of comments">
+            <!-- Repeatable review -->
+            <div
+              id="w-node-_355392ae-e42b-b188-09b5-f15bacd4a3cb-b8492c38"
+              class="userreviewcell whitecard"
+            >
+              <div class="review">
+                <div class="reviewheader">
+                  <div class="reviewinfo">
+                    {{ formatTimestamp(comment.createdAt) }}
+                  </div>
+                  <div class="reviewinfo">
+                    Would Recommend: {{ comment.wouldTakeAgain ? "Yes" : "No" }}
+                  </div>
 
-                <div class="trashbutton">
-                  <p-button
-                    icon="pi pi-trash"
-                    (click)="removeReview(comment._id)"
-                    size="small"
-                  ></p-button>
+                  <div class="trashbutton">
+                    <p-button
+                      icon="pi pi-trash"
+                      (click)="removeReview(comment._id)"
+                      size="small"
+                    ></p-button>
+                  </div>
                 </div>
+                <div class="smlldiv"></div>
+                <div class="crsdesct">
+                  {{ comment.message }}
+                </div>
+                <div class="fildwidthdiv"></div>
               </div>
-              <div class="smlldiv"></div>
-              <div class="crsdesct">
-                {{ comment.message }}
-              </div>
-              <div class="fildwidthdiv"></div>
             </div>
           </div>
         </div>
@@ -65,4 +72,3 @@
     </div>
   </div>
 </div>
-
