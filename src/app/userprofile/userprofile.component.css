@@ -7,7 +7,24 @@
     display: grid;
   }
   
+
+  .buttonMargin{
+
+
+    margin-right: 15px;
+  }
+
+
  
+  .buttomsWrapper{
+
+    width: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+  }
 .reviewsheader{
 
   font-size: 30px;
@@ -32,7 +49,7 @@
 
   
   .profilecard {
-    height: 100vh;
+    height: auto;
   }
   
   .profilecard.card {
@@ -69,12 +86,38 @@
     display: flex;
   }
   
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 479px) {
 
   
+    .accountdetailswrapper.whitecard {
+
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    .buttonMargin{
+      margin-right:0px;
+      margin-bottom:15px;
+    }
+   
+
+    .buttomsWrapper{
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      flex-direction: column;
+
+    }
     .usergrid {
       grid-template-columns: 1fr;
     }
+
+    .profileheaderwrapper {
+      flex-direction: column;
+    }
+
+
   }
   
 
