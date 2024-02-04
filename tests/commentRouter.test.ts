@@ -44,7 +44,7 @@ describe('Comment Router Tests', () => {
           user_id: constants.VALID_USER_ID,
           message: 'Test comment',
           wouldTakeAgain: true,
-          prof_id: new Types.ObjectId('82493b0b18c55ace59aa4825'),
+          professor_id: new Types.ObjectId('82493b0b18c55ace59aa4825'),
           course_id: new Types.ObjectId('82493b0b18c55ace59aa4825'),
         });
 

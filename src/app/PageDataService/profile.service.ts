@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Comment {
+  _id: string;
   user_id?: string;
   message: string;
   createdAt: Date;
   wouldTakeAgain?: boolean;
   professor_id: string;
-  course_id?: string;
+  course_id?: string | null;
 }
 
 export interface ProfileData {

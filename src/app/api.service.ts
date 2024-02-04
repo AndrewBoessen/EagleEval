@@ -34,8 +34,7 @@ export class ApiService {
   }
 
   deleteComment(id: string, url: string): Observable<any> {
-    const options = id ? { params: new HttpParams().set('id', id) } : {};
-    return this.http.delete<any>(url, options);
+    return this.http.delete<any>(`${url}/${id}`);
   }
 
   createComment(commentData: any, url: string): Observable<any> {

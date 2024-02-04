@@ -8,10 +8,9 @@ const API_ENDPOINT = AppSettings.API_ENDPOINT;
 interface Comment {
   user_id?: string;
   message: string;
-  createdAt: Date;
   wouldTakeAgain?: boolean;
   professor_id: string;
-  course_id?: string;
+  course_id?: string | null;
 }
 
 @Injectable({
@@ -24,20 +23,20 @@ export class CommentService {
   reviewStatus$: Observable<string> = this.reviewStatusSubject.asObservable();
 
   createComment(commentData: Comment): void {
-    const url = API_ENDPOINT + 'comment/prof';
+    const url = API_ENDPOINT + 'comments/prof';
     this.api.createComment(commentData, url).subscribe({
-      next: (v) => this.reviewStatusSubject.next('success'),
+      next: (v) => this.reviewStatusSubject.next('processing'),
       error: (e) => this.reviewStatusSubject.next('error'),
-      complete: () => console.info('complete'),
+      complete: () => this.reviewStatusSubject.next('success'),
     });
   }
 
   deleteComment(id: string): void {
-    const url = API_ENDPOINT + 'comment/prof';
+    const url = API_ENDPOINT + 'comments/prof';
     this.api.deleteComment(id, url).subscribe({
-      next: (v) => this.reviewStatusSubject.next('success'),
+      next: (v) => this.reviewStatusSubject.next('processing'),
       error: (e) => this.reviewStatusSubject.next('error'),
-      complete: () => console.info('complete'),
+      complete: () => this.reviewStatusSubject.next('success'),
     });
   }
 }

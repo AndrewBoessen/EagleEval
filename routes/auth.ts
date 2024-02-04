@@ -58,7 +58,7 @@ router.delete(
         await ReviewModel.deleteMany({ user_id: id });
 
         console.log('User DELETED: ', id);
-        return res.json(user_data);
+        return res.status(200);
       } else {
         console.log('User profile not found');
         return res.status(404).json({ message: 'User not found' });

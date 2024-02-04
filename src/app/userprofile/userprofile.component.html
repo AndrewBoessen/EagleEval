@@ -7,9 +7,8 @@
 
         <div class="buttomsWrapper">
         <p-confirmDialog> </p-confirmDialog>
-        <div class="buttonMargin">
-          <p-button
-          (click)="removeAccount()"
+        <p-button
+          (click)="deleteProfile()"
           icon="pi pi-times"
           label="Remove Account"
         ></p-button>
@@ -49,7 +48,7 @@
                 <div class="trashbutton">
                   <p-button
                     icon="pi pi-trash"
-                    (click)="removeReview()"
+                    (click)="deleteComment(comment._id)"
                     size="small"
                   ></p-button>
                 </div>
