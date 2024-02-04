@@ -72,7 +72,13 @@ export class UserprofileComponent {
   }
 
   deleteComment(id: string) {
-    const url = AppSettings.API_ENDPOINT + 'comments/prof';
+    // remove commment from array
+    if (this.comments) {
+      this.profile.setComments(
+        this.comments.filter((comment: Comment) => comment._id != id)
+      );
+    }
+
     this.comment.deleteComment(id);
   }
 }
