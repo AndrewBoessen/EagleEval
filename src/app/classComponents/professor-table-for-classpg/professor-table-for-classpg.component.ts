@@ -44,6 +44,24 @@ export class ProfessorTableForClasspgComponent implements OnInit{
       }
       return "/assets/profileImage.jpeg";
     }
+
+    formatTimestamp(inputTimestamp: Date): string {
+      const dateObject = new Date(inputTimestamp);
+  
+      const options: any = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = dateObject.toLocaleDateString('en-US', options);
+      const day = dateObject.getDate();
+      const suffix =
+        day === 1 || day === 21 || day === 31
+          ? 'st'
+          : day === 2 || day === 22
+          ? 'nd'
+          : day === 3 || day === 23
+          ? 'rd'
+          : 'th';
+  
+      return `${formattedDate.replace(/(\d)([^\d])$/, `$1${suffix}$2`)}`;
+    }
      
 
 

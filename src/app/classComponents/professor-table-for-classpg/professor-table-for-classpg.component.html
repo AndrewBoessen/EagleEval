@@ -34,8 +34,8 @@
                   <div *ngFor="let reviews of prof.comments.slice(0, 3)" class="review">
   
                     <div class="reviewheader">
-                      <div class="reviewinfo">{{reviews.createdAt}}</div>
-                      <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain}}}}</div>
+                      <div class="reviewinfo">{{formatTimestamp(reviews.createdAt)}}</div>
+                      <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain ? "Yes" : "No"}}</div>
                     </div>
                     <div class="smlldiv"></div>
                     <div class="crsdesct">{{reviews.message}}</div>
@@ -93,8 +93,8 @@
                 <div *ngFor="let reviews of profGridTwo.comments.slice(0, 3)" class="review">
 
                   <div class="reviewheader">
-                    <div class="reviewinfo">{{reviews.createdAt}}</div>
-                    <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain}}</div>
+                    <div class="reviewinfo">{{formatTimestamp(reviews.createdAt)}}</div>
+                    <div class="reviewinfo">Would Recommend: {{reviews.wouldTakeAgain ? "Yes" : "No"}}</div>
                   </div>
                   <div class="smlldiv"></div>
                   <div class="crsdesct">{{reviews.message}}</div>
