@@ -51,6 +51,11 @@ a {
 
 /* Primeng Styles */
 
+
+.p-tabview .p-tabview-panels {
+  padding: 0px;
+}
+
 .p-button.p-button-icon-only {
   width: 2.5rem;
   height: 2.5rem;
@@ -384,9 +389,7 @@ a {
 
 @media screen and (max-width: 991px) {
 
-  .professorclasstablewrapper {
-    height: auto;
-  }
+  
   .signIn {
     font-size: 15px;
   }
@@ -407,6 +410,8 @@ a {
 }
 
 @media screen and (max-width: 767px) {
+
+  
   .classnameprof {
     font-size: 20px;
   }
@@ -442,6 +447,9 @@ a {
 
   .professorclasstablewrapper {
     flex-direction: column;
+    max-height: none;
+  
+
   }
 }
 

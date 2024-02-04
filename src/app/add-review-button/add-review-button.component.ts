@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
+
 import {
   ProfessorService,
   CourseTableData,
@@ -6,6 +8,7 @@ import {
 } from '../PageDataService/professor.service';
 import { ProfileService } from '../PageDataService/profile.service';
 import { CommentService } from '../commentService/comment.service';
+import { convert } from 'html-to-text';
 
 interface Comment {
   user_id?: string;
@@ -27,6 +30,7 @@ interface Class {
 })
 export class AddReviewButtonComponent implements OnInit {
   visible: boolean = false;
+  profName: string | undefined = undefined;
 
   stateOptions: any[] = [
     { label: 'No', value: false },
@@ -44,7 +48,8 @@ export class AddReviewButtonComponent implements OnInit {
   constructor(
     private prof: ProfessorService,
     private user: ProfileService,
-    private comment: CommentService
+    private comment: CommentService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -63,6 +68,7 @@ export class AddReviewButtonComponent implements OnInit {
 
     this.prof.getProfPageData().subscribe((prof_data: ProfPageData | null) => {
       this.prof_id = prof_data?.id;
+      this.profName = prof_data?.name;
     });
 
     this.prof
@@ -78,6 +84,8 @@ export class AddReviewButtonComponent implements OnInit {
                 }
             )
             .concat([{ name: 'Other', id: null }]);
+        } else {
+          this.classes = [{ name: 'Other', id: null }];
         }
       });
   }
@@ -104,7 +112,19 @@ export class AddReviewButtonComponent implements OnInit {
       };
 
       this.comment.createComment(new_comment);
+      this.visible = false;
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Your review has been added',
+      });
     } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Ensure you are logged in and all data fields are complete',
+      });
+
       console.error('DATA NOT COMPELTE');
     }
   }

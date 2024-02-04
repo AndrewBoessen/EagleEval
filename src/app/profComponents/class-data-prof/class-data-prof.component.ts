@@ -7,6 +7,7 @@ import {
   Comment,
 } from 'src/app/PageDataService/professor.service';
 import { CollectDataService } from '../../collect-data/collect-data.service';
+import { convert } from 'html-to-text';
 
 interface CourseData {
   _id: string;
@@ -95,5 +96,9 @@ export class ClassDataProfComponent implements OnInit {
         : 'th';
 
     return `${formattedDate.replace(/(\d)([^\d])$/, `$1${suffix}$2`)}`;
+  }
+
+  convert(message: string) {
+    return convert(message);
   }
 }

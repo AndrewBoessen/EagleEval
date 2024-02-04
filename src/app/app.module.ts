@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Primeng angular module imports
+import { ToastModule } from 'primeng/toast';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DropdownModule } from 'primeng/dropdown';
@@ -38,6 +39,7 @@ import { KnobModule } from 'primeng/knob';
 
 // Confirmation Service 
 import { ConfirmationService } from 'primeng/api'
+import { MessageService } from 'primeng/api';
 
 
 //PROF + CLASS SERVICE
@@ -90,6 +92,7 @@ import { NoDataComponent } from './Skeletons/no-data/no-data.component';
 		DropdownModule,
 		SelectButtonModule,
 		HttpClientModule,
+		ToastModule,
 		ConfirmDialogModule,
 		ToggleButtonModule,
 		DialogModule,
@@ -101,7 +104,7 @@ import { NoDataComponent } from './Skeletons/no-data/no-data.component';
 		BrowserAnimationsModule
 
 	],
-	providers: [ConfirmationService,PageServiceService,ProfessorService,ClassService],
+	providers: [ConfirmationService,MessageService,PageServiceService,ProfessorService,ClassService],
 	bootstrap: [AppComponent]
 
 })
