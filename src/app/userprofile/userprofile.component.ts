@@ -7,6 +7,10 @@ import {
 } from '../PageDataService/profile.service';
 import { CommentService } from '../commentService/comment.service';
 import { AppSettings } from '../appSettings';
+import { ApiService } from '../api.service';
+import { response } from 'express';
+
+const AUTH_ENDPOINT = AppSettings.AUTH_ENDPOINT;
 
 @Component({
   selector: 'app-userprofile',
@@ -19,6 +23,7 @@ export class UserprofileComponent {
   comments: Comment[] | undefined = undefined;
 
   constructor(
+    private api: ApiService,
     private comment: CommentService,
     private confirmationService: ConfirmationService,
     private profile: ProfileService
@@ -80,5 +85,13 @@ export class UserprofileComponent {
     }
 
     this.comment.deleteComment(id);
+  }
+
+  deleteProfile() {
+    const delete_url = AUTH_ENDPOINT + 'profile';
+
+    this.api.deleteProfile(delete_url).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
