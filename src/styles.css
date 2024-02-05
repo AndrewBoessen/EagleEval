@@ -6,7 +6,25 @@
   margin: 0;
   padding: 0;
 }
+/* 
 
+
+No data styling */
+
+
+.nodatacard {
+  width: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 30vh;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
 
 
 /* Links / Sign in global */

@@ -113,30 +113,40 @@
       <div class="fildwidthdiv"></div>
     </div>
 
-    <div class="professorReviewWrapper">
-      <p-accordion [activeIndex]="0">
-        <div *ngFor="let reviews of comments | keyvalue">
-          <p-accordionTab
-            header="({{ reviews.value.length }}) {{
-              course_names[reviews.key]
-            }}"
-          >
-            <div *ngFor="let review of reviews.value" class="review">
-              <div class="reviewheader">
-                <div class="reviewinfo">
-                  {{ formatTimestamp(review.createdAt) }}
+    <div *ngIf="hasData(comments); else noReviews">
+
+      <div class="professorReviewWrapper">
+        <p-accordion [activeIndex]="0">
+          <div *ngFor="let reviews of comments | keyvalue">
+            <p-accordionTab
+              header="({{ reviews.value.length }}) {{
+                course_names[reviews.key]
+              }}"
+            >
+              <div *ngFor="let review of reviews.value" class="review">
+                <div class="reviewheader">
+                  <div class="reviewinfo">
+                    {{ formatTimestamp(review.createdAt) }}
+                  </div>
+                  <div class="reviewinfo">
+                    Would Recommend: {{ review.wouldTakeAgain ? "Yes" : "No" }}
+                  </div>
                 </div>
-                <div class="reviewinfo">
-                  Would Recommend: {{ review.wouldTakeAgain ? "Yes" : "No" }}
-                </div>
+                <div class="smlldiv"></div>
+                <div class="crsdesct">{{ convert(review.message) }}</div>
+                <div class="fildwidthdiv addbtmMargin"></div>
               </div>
-              <div class="smlldiv"></div>
-              <div class="crsdesct">{{ convert(review.message) }}</div>
-              <div class="fildwidthdiv addbtmMargin"></div>
-            </div>
-          </p-accordionTab>
-        </div>
-      </p-accordion>
+            </p-accordionTab>
+          </div>
+        </p-accordion>
+      </div>
+    
     </div>
+  <ng-template #noReviews><app-no-data-reviews></app-no-data-reviews></ng-template>
+  
+
+  
+
+
   </p-tabPanel>
 </p-tabView>

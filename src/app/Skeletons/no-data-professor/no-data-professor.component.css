@@ -1,18 +1,4 @@
-.nodatacard {
-    width: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30vh;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-  }
-
-  .textAlign{
-
+.textAlign{
 
     text-align: center;
   }
