@@ -7,120 +7,131 @@
   </p-accordion>
 </ng-template>
 
-<div class="professorclasstablewrapper">
-  <!-- Grid Left -->
-  <div class="w-layout-grid grid">
-    <div
-      *ngFor="let prof of profArray | slice : 0 : halfLength"
-      class="class whitecard"
-    >
-      <h1 class="classnameprof">{{ prof.name }}</h1>
-      <div class="smllprofessorimgwrapper">
-        <div
-          class="smllprofessorimg card"
-          style="background-image: url({{
-            getEncodedProfileImage(prof.profile_image)
-          }})"
-        ></div>
-        <div class="veritcal-divider"></div>
-        <div class="professorovlcourseknob">
-          <p-knob
-            [(ngModel)]="prof.prof_overall"
-            [size]="160"
-            [readonly]="true"
-            [strokeWidth]="12.5"
-            [valueColor]="strokeColor"
-          ></p-knob>
+
+
+<div *ngIf="profArray; else elseBlock">
+
+  <div class="professorclasstablewrapper">
+    <!-- Grid Left -->
+    <div class="w-layout-grid grid">
+      <div
+        *ngFor="let prof of profArray | slice : 0 : halfLength"
+        class="class whitecard"
+      >
+        <h1 class="classnameprof">{{ prof.name }}</h1>
+        <div class="smllprofessorimgwrapper">
+          <div
+            class="smllprofessorimg card"
+            style="background-image: url({{
+              getEncodedProfileImage(prof.profile_image)
+            }})"
+          ></div>
+          <div class="veritcal-divider"></div>
+          <div class="professorovlcourseknob">
+            <p-knob
+              [(ngModel)]="prof.prof_overall"
+              [size]="160"
+              [readonly]="true"
+              [strokeWidth]="12.5"
+              [valueColor]="strokeColor"
+            ></p-knob>
+          </div>
+        </div>
+  
+        <div class="reviewaccordian">
+          <div
+            *ngIf="
+              prof.comments && prof.comments.length > 0;
+              else disabledAccordian
+            "
+          >
+            <p-accordion [activeIndex]="1">
+              <p-accordionTab header="Professor Reviews">
+                <div
+                  *ngFor="let reviews of prof.comments.slice(0, 3)"
+                  class="review"
+                >
+                  <div class="reviewheader">
+                    <div class="reviewinfo">
+                      {{ formatTimestamp(reviews.createdAt) }}
+                    </div>
+                    <div class="reviewinfo">
+                      Would Recommend: {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
+                    </div>
+                  </div>
+                  <div class="smlldiv"></div>
+                  <div class="crsdesct">{{ convert(reviews.message) }}</div>
+                  <div class="fildwidthdiv addbtmMargin"></div>
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
         </div>
       </div>
-
-      <div class="reviewaccordian">
-        <div
-          *ngIf="
-            prof.comments && prof.comments.length > 0;
-            else disabledAccordian
-          "
-        >
-          <p-accordion [activeIndex]="1">
-            <p-accordionTab header="Professor Reviews">
-              <div
-                *ngFor="let reviews of prof.comments.slice(0, 3)"
-                class="review"
-              >
-                <div class="reviewheader">
-                  <div class="reviewinfo">
-                    {{ formatTimestamp(reviews.createdAt) }}
+    </div>
+  
+    <!-- Grid Right -->
+    <div class="w-layout-grid grid">
+      <div
+        *ngFor="let profGridTwo of profArray | slice : halfLength"
+        class="class whitecard"
+      >
+        <h1 class="classnameprof">{{ profGridTwo.name }}</h1>
+        <div class="smllprofessorimgwrapper">
+          <div
+            class="smllprofessorimg card"
+            style="background-image: url({{
+              getEncodedProfileImage(profGridTwo.profile_image)
+            }})"
+          ></div>
+          <div class="veritcal-divider"></div>
+          <div class="professorovlcourseknob">
+            <p-knob
+              [(ngModel)]="profGridTwo.prof_overall"
+              [size]="160"
+              [readonly]="true"
+              [strokeWidth]="12.5"
+              [valueColor]="strokeColor"
+            ></p-knob>
+          </div>
+        </div>
+  
+        <div class="reviewaccordian">
+          <div
+            *ngIf="
+              profGridTwo.comments && profGridTwo.comments.length > 0;
+              else disabledAccordian
+            "
+          >
+            <p-accordion [activeIndex]="1">
+              <p-accordionTab header="Professor Reviews">
+                <div
+                  *ngFor="let reviews of profGridTwo.comments.slice(0, 3)"
+                  class="review"
+                >
+                  <div class="reviewheader">
+                    <div class="reviewinfo">
+                      {{ formatTimestamp(reviews.createdAt) }}
+                    </div>
+                    <div class="reviewinfo">
+                      Would Recommend: {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
+                    </div>
                   </div>
-                  <div class="reviewinfo">
-                    Would Recommend: {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
-                  </div>
+                  <div class="smlldiv"></div>
+                  <div class="crsdesct">{{ reviews.message }}</div>
+                  <div class="fildwidthdiv addbtmMargin"></div>
                 </div>
-                <div class="smlldiv"></div>
-                <div class="crsdesct">{{ convert(reviews.message) }}</div>
-                <div class="fildwidthdiv addbtmMargin"></div>
-              </div>
-            </p-accordionTab>
-          </p-accordion>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Grid Right -->
-  <div class="w-layout-grid grid">
-    <div
-      *ngFor="let profGridTwo of profArray | slice : halfLength"
-      class="class whitecard"
-    >
-      <h1 class="classnameprof">{{ profGridTwo.name }}</h1>
-      <div class="smllprofessorimgwrapper">
-        <div
-          class="smllprofessorimg card"
-          style="background-image: url({{
-            getEncodedProfileImage(profGridTwo.profile_image)
-          }})"
-        ></div>
-        <div class="veritcal-divider"></div>
-        <div class="professorovlcourseknob">
-          <p-knob
-            [(ngModel)]="profGridTwo.prof_overall"
-            [size]="160"
-            [readonly]="true"
-            [strokeWidth]="12.5"
-            [valueColor]="strokeColor"
-          ></p-knob>
-        </div>
-      </div>
 
-      <div class="reviewaccordian">
-        <div
-          *ngIf="
-            profGridTwo.comments && profGridTwo.comments.length > 0;
-            else disabledAccordian
-          "
-        >
-          <p-accordion [activeIndex]="1">
-            <p-accordionTab header="Professor Reviews">
-              <div
-                *ngFor="let reviews of profGridTwo.comments.slice(0, 3)"
-                class="review"
-              >
-                <div class="reviewheader">
-                  <div class="reviewinfo">
-                    {{ formatTimestamp(reviews.createdAt) }}
-                  </div>
-                  <div class="reviewinfo">
-                    Would Recommend: {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
-                  </div>
-                </div>
-                <div class="smlldiv"></div>
-                <div class="crsdesct">{{ reviews.message }}</div>
-                <div class="fildwidthdiv addbtmMargin"></div>
-              </div>
-            </p-accordionTab>
-          </p-accordion>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+<ng-template #elseBlock><app-no-data-class></app-no-data-class></ng-template>
+
+
+
