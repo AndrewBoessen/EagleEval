@@ -12,7 +12,10 @@ const router = express.Router();
 // Define Google authentication route
 router.get(
   '/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+    hostedDomain: 'bc.edu',
+  })
 );
 
 // Define Google authentication callback route

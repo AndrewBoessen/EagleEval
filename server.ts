@@ -84,6 +84,12 @@ passport.use(
       proxy: true,
     },
     async (accessToken, refreshToken, profile, done) => {
+      const emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@bc\.edu$/;
+
+      // Validate is BC email
+      if (profile.emails?.[0] && !emailRegex.test(profile.emails?.[0].value)) {
+        done('Error: User must sign-in with @bc.edu email', undefined);
+      }
       const user = await UserModel.findOne({ googleId: profile.id });
 
       // If user doesn't exist creates a new user. (similar to sign up)
