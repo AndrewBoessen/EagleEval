@@ -57,6 +57,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { SignInButtonComponent } from './sign-in-button/sign-in-button.component';
 import { AddReviewButtonComponent } from './add-review-button/add-review-button.component';
 import { NoDataComponent } from './Skeletons/no-data/no-data.component';
+import { NoDataProfessorComponent } from './Skeletons/no-data-professor/no-data-professor.component';
 
 @NgModule({
 	declarations: [
@@ -78,7 +79,8 @@ import { NoDataComponent } from './Skeletons/no-data/no-data.component';
   UserprofileComponent,
   SignInButtonComponent,
   AddReviewButtonComponent,
-  NoDataComponent
+  NoDataComponent,
+  NoDataProfessorComponent
 	],
 	imports: [
 		BrowserModule,
