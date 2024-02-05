@@ -88,7 +88,7 @@ passport.use(
 
       // Validate is BC email
       if (profile.emails?.[0] && !emailRegex.test(profile.emails?.[0].value)) {
-        done('Error: User must sign-in with @bc.edu email', undefined);
+        return done(null, false);
       }
       const user = await UserModel.findOne({ googleId: profile.id });
 
@@ -100,10 +100,10 @@ passport.use(
           email: profile.emails?.[0].value,
         });
         if (newUser) {
-          done(null, newUser);
+          return done(null, newUser);
         }
       } else {
-        done(null, user);
+        return done(null, user);
       }
     }
   )

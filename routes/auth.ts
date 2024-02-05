@@ -21,7 +21,7 @@ router.get(
 // Define Google authentication callback route
 router.get(
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
+  passport.authenticate('google', { failureRedirect: '/auth/error' }),
   (req: Request, res: Response) => {
     // Successful authentication, redirect home.
     res.redirect('/');
@@ -98,5 +98,13 @@ router.get(
     }
   }
 );
+
+router.get('/error', (req: Request, res: Response) => {
+  res.status(401).send(`
+    <h1>Sign-in Failed</h1>
+    <p>User must have @bc.edu email address</p>
+    <p><a href="/">Go back to home page</a></p>
+  `);
+});
 
 export { router as auth_router };
