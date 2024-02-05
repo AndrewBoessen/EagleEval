@@ -5,92 +5,101 @@
       <div class="fildwidthdiv"></div>
     </div>
 
-    <div class="professorclasstablewrapper">
-      <!-- GRID LEFT -->
-      <div class="w-layout-grid grid">
-        <div
-          *ngFor="let class of professorCourses | slice : 0 : halfLength"
-          class="class whitecard"
-        >
-          <!-- Repeatable class card -->
-          <h1 class="classnameprof">{{ class.title }}</h1>
-          <div class="smlldiv"></div>
-          <div class="classdatascorediv">
-            <div class="classdatawrapper">
-              <div class="subject">{{ class.subject }}</div>
-              <div class="classcodecollegetxt">
-                {{ class.crs_code }} | {{ class.school }}
-              </div>
-            </div>
-            <div class="veritcal-divider"></div>
-            <div class="classscoreknobproftable">
-              <p-knob
-                [(ngModel)]="class.course_overall"
-                [size]="110"
-                [readonly]="true"
-                [strokeWidth]="12.5"
-                [valueColor]="strokeColor"
-              ></p-knob>
-            </div>
-          </div>
-
-          <div class="reviewaccordian">
-            <p-accordion [activeIndex]="">
-              <p-accordionTab header="Course Description">
-                <div class="crsdesct">{{ class.description }}</div>
-              </p-accordionTab>
-            </p-accordion>
-          </div>
-
-          <!-- ******************* -->
-        </div>
-      </div>
-
-      <!-- GRID Right -->
-      <div class="w-layout-grid grid">
-        <!-- Repeatable class card -->
-
-        <!-- Repeatable class card -->
-
-        <div
-          *ngFor="let classsecond of professorCourses | slice : halfLength"
-          class="class whitecard"
-        >
-          <h1 class="classnameprof">{{ classsecond.title }}</h1>
-          <div class="smlldiv"></div>
-          <div class="classdatascorediv">
-            <div class="classdatawrapper">
-              <div class="subject">{{ classsecond.subject }}</div>
-              <div class="classcodecollegetxt">
-                {{ classsecond.crs_code }} | {{ classsecond.school }}
-              </div>
-            </div>
-            <div class="veritcal-divider"></div>
-            <div class="classscoreknobproftable">
-              <p-knob
-                [(ngModel)]="classsecond.course_overall"
-                [size]="110"
-                [readonly]="true"
-                [strokeWidth]="12.5"
-                [valueColor]="strokeColor"
-              ></p-knob>
-            </div>
-          </div>
-
-          <div class="reviewaccordian">
-            <p-accordion [activeIndex]="1">
-              <p-accordionTab header="Course Description">
-                <div class="crsdesct">
-                  {{ classsecond.description }}
+    <div *ngIf="professorCourses; else elseBlock">
+      <div class="professorclasstablewrapper">
+        <!-- GRID LEFT -->
+        <div class="w-layout-grid grid">
+          <div
+            *ngFor="let class of professorCourses | slice : 0 : halfLength"
+            class="class whitecard"
+          >
+            <!-- Repeatable class card -->
+            <h1 class="classnameprof">{{ class.title }}</h1>
+            <div class="smlldiv"></div>
+            <div class="classdatascorediv">
+              <div class="classdatawrapper">
+                <div class="subject">{{ class.subject }}</div>
+                <div class="classcodecollegetxt">
+                  {{ class.crs_code }} | {{ class.school }}
                 </div>
-              </p-accordionTab>
-            </p-accordion>
+              </div>
+              <div class="veritcal-divider"></div>
+              <div class="classscoreknobproftable">
+                <p-knob
+                  [(ngModel)]="class.course_overall"
+                  [size]="110"
+                  [readonly]="true"
+                  [strokeWidth]="12.5"
+                  [valueColor]="strokeColor"
+                ></p-knob>
+              </div>
+            </div>
+  
+            <div class="reviewaccordian">
+              <p-accordion [activeIndex]="">
+                <p-accordionTab header="Course Description">
+                  <div class="crsdesct">{{ class.description }}</div>
+                </p-accordionTab>
+              </p-accordion>
+            </div>
+  
+            <!-- ******************* -->
           </div>
-
-          <!-- ******************* -->
+        </div>
+  
+        <!-- GRID Right -->
+        <div class="w-layout-grid grid">
+          <!-- Repeatable class card -->
+  
+          <!-- Repeatable class card -->
+  
+          <div
+            *ngFor="let classsecond of professorCourses | slice : halfLength"
+            class="class whitecard"
+          >
+            <h1 class="classnameprof">{{ classsecond.title }}</h1>
+            <div class="smlldiv"></div>
+            <div class="classdatascorediv">
+              <div class="classdatawrapper">
+                <div class="subject">{{ classsecond.subject }}</div>
+                <div class="classcodecollegetxt">
+                  {{ classsecond.crs_code }} | {{ classsecond.school }}
+                </div>
+              </div>
+              <div class="veritcal-divider"></div>
+              <div class="classscoreknobproftable">
+                <p-knob
+                  [(ngModel)]="classsecond.course_overall"
+                  [size]="110"
+                  [readonly]="true"
+                  [strokeWidth]="12.5"
+                  [valueColor]="strokeColor"
+                ></p-knob>
+              </div>
+            </div>
+  
+            <div class="reviewaccordian">
+              <p-accordion [activeIndex]="1">
+                <p-accordionTab header="Course Description">
+                  <div class="crsdesct">
+                    {{ classsecond.description }}
+                  </div>
+                </p-accordionTab>
+              </p-accordion>
+            </div>
+  
+            <!-- ******************* -->
+          </div>
         </div>
       </div>
+    
     </div>
+    <ng-template #elseBlock><app-no-data-professor></app-no-data-professor></ng-template>
+
+  
+
+
+
   </p-tabPanel>
   <p-tabPanel header="Reviews">
     <div class="addreviewwrapper"></div>
