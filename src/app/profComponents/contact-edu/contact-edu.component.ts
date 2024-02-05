@@ -7,11 +7,9 @@ import {
 @Component({
   selector: 'app-contact-edu',
   templateUrl: './contact-edu.component.html',
-  styleUrls: ['./contact-edu.component.css']
+  styleUrls: ['./contact-edu.component.css'],
 })
 export class ContactEDUComponent implements OnInit {
-
-
   professorName: string | undefined = undefined;
   professorTitle: string[] | undefined = undefined;
   office: string | undefined = undefined;
@@ -19,9 +17,7 @@ export class ContactEDUComponent implements OnInit {
   email: string | undefined = undefined;
   education: string[] | undefined = undefined;
 
-
   constructor(private prof: ProfessorService) {}
-
 
   ngOnInit() {
     this.prof.getProfPageData().subscribe((data: ProfPageData | null) => {
@@ -33,13 +29,4 @@ export class ContactEDUComponent implements OnInit {
       this.education = data?.education || undefined;
     });
   }
-
-
-
-
-
-
-
-
-
 }

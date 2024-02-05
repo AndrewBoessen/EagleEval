@@ -7,30 +7,18 @@ import {
 @Component({
   selector: 'app-no-data-class',
   templateUrl: './no-data-class.component.html',
-  styleUrls: ['./no-data-class.component.css']
+  styleUrls: ['./no-data-class.component.css'],
 })
-export class NoDataClassComponent implements OnInit{
+export class NoDataClassComponent implements OnInit {
+  courseCode: string | undefined = undefined;
 
-  courseCode: string | undefined = undefined; 
+  constructor(private classService: ClassService) {}
 
-
-  constructor(
-    private classService: ClassService) {}
-
-    ngOnInit() {
-
-      this.classService.getCoursePageData().subscribe((data: CoursePageData | null) => {
-        
+  ngOnInit() {
+    this.classService
+      .getCoursePageData()
+      .subscribe((data: CoursePageData | null) => {
         this.courseCode = data?.crs_code || undefined;
       });
-
-
-
-
-    }
-
-
-
-
-
+  }
 }

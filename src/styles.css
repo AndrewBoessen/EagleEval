@@ -11,7 +11,6 @@
 
 No data styling */
 
-
 .nodatacard {
   width: auto;
   flex-direction: column;
@@ -25,7 +24,6 @@ No data styling */
   margin-bottom: 20px;
   padding: 20px;
 }
-
 
 /* Links / Sign in global */
 .signIn {
@@ -68,7 +66,6 @@ a {
 }
 
 /* Primeng Styles */
-
 
 .p-tabview .p-tabview-panels {
   padding: 0px;
@@ -406,8 +403,6 @@ a {
 }
 
 @media screen and (max-width: 991px) {
-
-  
   .signIn {
     font-size: 15px;
   }
@@ -428,8 +423,6 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-
-  
   .classnameprof {
     font-size: 20px;
   }
@@ -466,15 +459,11 @@ a {
   .professorclasstablewrapper {
     flex-direction: column;
     max-height: none;
-  
-
   }
 }
 
 @media screen and (max-width: 479px) {
-
-  .nameandstatheader{
-
+  .nameandstatheader {
     text-align: center;
   }
   .veritcal-divider {

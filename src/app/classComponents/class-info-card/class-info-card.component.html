@@ -1,39 +1,32 @@
 <div class="profimgdatawrapper">
-    <div class="professordividertop"></div>
-    <h1 class="classname">{{courseName}}</h1>
-    <div class="smlldiv"></div>
-    <div class="contact-edutextheader">{{courseCode}}</div>
-    <div class="professordividerbtm"></div>
-    
-    <ng-container *ngIf="hoursWeek">
+  <div class="professordividertop"></div>
+  <h1 class="classname">{{ courseName }}</h1>
+  <div class="smlldiv"></div>
+  <div class="contact-edutextheader">{{ courseCode }}</div>
+  <div class="professordividerbtm"></div>
 
-      <div class="hrsweeklywrapper">
-        <div class="hoursweeklywrapper">
-          <h1 class="hoursofwork">{{hoursWeek}}</h1>
-          <div class="hrs">hrs/week</div>
-        </div>
-        <div class="text-block">Avg. reported time spent on homework </div>
-        <div class="smlldiv"></div>
+  <ng-container *ngIf="hoursWeek">
+    <div class="hrsweeklywrapper">
+      <div class="hoursweeklywrapper">
+        <h1 class="hoursofwork">{{ hoursWeek }}</h1>
+        <div class="hrs">hrs/week</div>
       </div>
-    
-    </ng-container>
-  
+      <div class="text-block">Avg. reported time spent on homework</div>
+      <div class="smlldiv"></div>
+    </div>
+  </ng-container>
 
-    <ng-container *ngIf="description">
-
-      <div class="whitecard whitecontact">
-        <div class="professorinfowrapper">
-          <div class="contact">
-            <div class="contact-edutextheader">Course Description</div>
-            <div class="smlldiv"></div>
-          </div>
-          <div class="coursedescriptwrapper">
-            <div class="crsdesct">{{description}}</div>
-          </div>
+  <ng-container *ngIf="description">
+    <div class="whitecard whitecontact">
+      <div class="professorinfowrapper">
+        <div class="contact">
+          <div class="contact-edutextheader">Course Description</div>
+          <div class="smlldiv"></div>
+        </div>
+        <div class="coursedescriptwrapper">
+          <div class="crsdesct">{{ description }}</div>
         </div>
       </div>
-    
-    </ng-container>
-
-
-  </div>
+    </div>
+  </ng-container>
+</div>

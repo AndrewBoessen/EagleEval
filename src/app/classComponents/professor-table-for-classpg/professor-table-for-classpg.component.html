@@ -7,10 +7,7 @@
   </p-accordion>
 </ng-template>
 
-
-
 <div *ngIf="profArray; else elseBlock">
-
   <div class="professorclasstablewrapper">
     <!-- Grid Left -->
     <div class="w-layout-grid grid">
@@ -37,7 +34,7 @@
             ></p-knob>
           </div>
         </div>
-  
+
         <div class="reviewaccordian">
           <div
             *ngIf="
@@ -56,7 +53,8 @@
                       {{ formatTimestamp(reviews.createdAt) }}
                     </div>
                     <div class="reviewinfo">
-                      Would Recommend: {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
+                      Would Recommend:
+                      {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
                     </div>
                   </div>
                   <div class="smlldiv"></div>
@@ -69,7 +67,7 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Grid Right -->
     <div class="w-layout-grid grid">
       <div
@@ -95,7 +93,7 @@
             ></p-knob>
           </div>
         </div>
-  
+
         <div class="reviewaccordian">
           <div
             *ngIf="
@@ -114,7 +112,8 @@
                       {{ formatTimestamp(reviews.createdAt) }}
                     </div>
                     <div class="reviewinfo">
-                      Would Recommend: {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
+                      Would Recommend:
+                      {{ reviews.wouldTakeAgain ? "Yes" : "No" }}
                     </div>
                   </div>
                   <div class="smlldiv"></div>
@@ -128,10 +127,5 @@
       </div>
     </div>
   </div>
-
-
 </div>
 <ng-template #elseBlock><app-no-data-class></app-no-data-class></ng-template>
-
-
-

@@ -15,55 +15,39 @@
   background-size: cover;
   margin-left: 20px;
   cursor: pointer;
-  
 }
-
 
 .searchdiv {
   width: 100%;
   margin-right: 20px;
- 
 }
 
-.searchSignInWrapper{
-
+.searchSignInWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 50%;
-
 }
-.signInWrapper{
-
+.signInWrapper {
   margin-right: 20px;
 }
 
-
-
 @media screen and (max-width: 991px) {
-
-
   .logo-holder {
     width: 55px;
     height: 55px;
     background-image: url("src/assets/LogoIphone.png");
   }
 
-  .searchSignInWrapper{
-
+  .searchSignInWrapper {
     width: 80%;
-  
   }
 
-  .signInWrapper{
+  .signInWrapper {
     width: 90px;
-  
-   
   }
-
 }
-
 
 @media screen and (max-width: 479px) {
   .navbar {
@@ -75,4 +59,3 @@
     height: 40px;
   }
 }
-

@@ -34,7 +34,7 @@
                 ></p-knob>
               </div>
             </div>
-  
+
             <div class="reviewaccordian">
               <p-accordion [activeIndex]="">
                 <p-accordionTab header="Course Description">
@@ -42,17 +42,17 @@
                 </p-accordionTab>
               </p-accordion>
             </div>
-  
+
             <!-- ******************* -->
           </div>
         </div>
-  
+
         <!-- GRID Right -->
         <div class="w-layout-grid grid">
           <!-- Repeatable class card -->
-  
+
           <!-- Repeatable class card -->
-  
+
           <div
             *ngFor="let classsecond of professorCourses | slice : halfLength"
             class="class whitecard"
@@ -77,7 +77,7 @@
                 ></p-knob>
               </div>
             </div>
-  
+
             <div class="reviewaccordian">
               <p-accordion [activeIndex]="1">
                 <p-accordionTab header="Course Description">
@@ -87,19 +87,15 @@
                 </p-accordionTab>
               </p-accordion>
             </div>
-  
+
             <!-- ******************* -->
           </div>
         </div>
       </div>
-    
     </div>
-    <ng-template #elseBlock><app-no-data-professor></app-no-data-professor></ng-template>
-
-  
-
-
-
+    <ng-template #elseBlock
+      ><app-no-data-professor></app-no-data-professor
+    ></ng-template>
   </p-tabPanel>
   <p-tabPanel header="Reviews">
     <div class="addreviewwrapper"></div>
@@ -114,7 +110,6 @@
     </div>
 
     <div *ngIf="hasData(comments); else noReviews">
-
       <div class="professorReviewWrapper">
         <p-accordion [activeIndex]="0">
           <div *ngFor="let reviews of comments | keyvalue">
@@ -140,13 +135,9 @@
           </div>
         </p-accordion>
       </div>
-    
     </div>
-  <ng-template #noReviews><app-no-data-reviews></app-no-data-reviews></ng-template>
-  
-
-  
-
-
+    <ng-template #noReviews
+      ><app-no-data-reviews></app-no-data-reviews
+    ></ng-template>
   </p-tabPanel>
 </p-tabView>

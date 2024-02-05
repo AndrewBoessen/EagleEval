@@ -1,62 +1,59 @@
 <app-home-bar></app-home-bar>
 
 <body>
-<section class="contentwrapper">
-  <div class="w-layout-grid dynamicprofgrid">
-    <div id="w-node-d9f8d9d4-fd1f-09b9-4f0d-5f74494a2159-b68642c4" class="card">
-      <div class="profimgdatawrapper">
-        <div class="professordividertop"></div>
-        <div class="card professorimg"   style="background-image: url({{professorImgURL}})" ></div>
-        <div class="professordividerbtm"></div>
-        <div class="whitecard whitecontact">
-          <div class="professorinfowrapper">
+  <section class="contentwrapper">
+    <div class="w-layout-grid dynamicprofgrid">
+      <div
+        id="w-node-d9f8d9d4-fd1f-09b9-4f0d-5f74494a2159-b68642c4"
+        class="card"
+      >
+        <div class="profimgdatawrapper">
+          <div class="professordividertop"></div>
+          <div
+            class="card professorimg"
+            style="background-image: url({{ professorImgURL }})"
+          ></div>
+          <div class="professordividerbtm"></div>
+          <div class="whitecard whitecontact">
+            <div class="professorinfowrapper">
+              <!-- contact / education-->
 
-            <!-- contact / education-->
-            
-            <app-contact-edu></app-contact-edu>
+              <app-contact-edu></app-contact-edu>
 
-            <!-- ******************** -->
+              <!-- ******************** -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="w-node-e1d71806-b979-52f8-f44f-7e04e8858948-b68642c4"
+        class="card"
+      >
+        <div class="w-layout-grid profdatagrid">
+          <div
+            id="w-node-eabfb9ca-8044-14b0-125e-cbca8a67454b-b68642c4"
+            class="whitecard"
+          >
+            <!-- Knob Score / Quad Value divs -->
+
+            <app-main-data-card></app-main-data-card>
+
+            <!-- ******************************** -->
+          </div>
+          <div
+            id="w-node-dfff5bd2-9150-0e9f-1075-ee38b2732c08-b68642c4"
+            class="whitecard"
+          >
+            <!-- Class table for professor div Components -->
+
+            <app-class-data-prof></app-class-data-prof>
+
+            <!-- *************************** -->
           </div>
         </div>
       </div>
     </div>
-    <div id="w-node-e1d71806-b979-52f8-f44f-7e04e8858948-b68642c4" class="card">
-      <div class="w-layout-grid profdatagrid">
-        <div id="w-node-eabfb9ca-8044-14b0-125e-cbca8a67454b-b68642c4" class="whitecard">
-
-
-
-          <!-- Knob Score / Quad Value divs -->
-          
-          <app-main-data-card></app-main-data-card>
-
-          <!-- ******************************** -->
-
-
-        </div>
-        <div id="w-node-dfff5bd2-9150-0e9f-1075-ee38b2732c08-b68642c4" class="whitecard">
-
-
-          <!-- Class table for professor div Components -->
-
-          <app-class-data-prof></app-class-data-prof>
-
-      
-
-          <!-- *************************** -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+  </section>
 </body>
-
-
-
-
-
-
-
 
 <app-footer></app-footer>

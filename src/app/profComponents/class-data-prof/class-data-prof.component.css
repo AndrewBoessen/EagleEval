@@ -1,14 +1,9 @@
-
-.professorReviewWrapper{
-
+.professorReviewWrapper {
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
-  
-
 }
-
 
 .addreviewwrapper {
   display: flex;
@@ -16,67 +11,50 @@
   justify-content: space-between;
 }
 
-.addbtmMargin{
+.addbtmMargin {
   margin-top: 25px;
 
   margin-bottom: 25px;
 }
 
-
-.removeBtmPadding{
-
+.removeBtmPadding {
   padding-bottom: 0px;
 }
 
-  .classdatascorediv {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    display: flex
-  }
+.classdatascorediv {
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
 
+.classdatawrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
-  .classdatawrapper {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex
-  }
+.subject {
+  margin-bottom: 5px;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+}
 
-
-  .subject {
-    margin-bottom: 5px;
-    font-family: Inter,sans-serif;
-    font-size: 18px
-  }
-
-
-  .classcodecollegetxt {
-    margin-top: 5px;
-    font-family: Inter,sans-serif;
-    font-size: 14px
-  }
-
-
+.classcodecollegetxt {
+  margin-top: 5px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
 
 .classscoreknobproftable {
-    height: 100px
+  height: 100px;
+}
+
+@media screen and (max-width: 479px) {
+  .classdatascorediv {
+    flex-direction: column;
+    justify-content: center;
   }
-
-
-
-
-  @media screen and (max-width:479px) {
-
-    
-
-      .classdatascorediv {
-        flex-direction: column;
-        justify-content: center
-      }
-
-    
-
-
-  }
+}
