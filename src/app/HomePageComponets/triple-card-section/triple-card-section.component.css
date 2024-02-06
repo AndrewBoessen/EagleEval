@@ -3,6 +3,7 @@
 }
 .text-14 {
   line-height: 24px;
+  margin-top: 14px;
 }
 .text-14.text-14-60 {
   opacity: 0.6;
@@ -97,8 +98,12 @@
   font-weight: 400;
 }
 @media screen and (max-width: 991px) {
+  .content1-image {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   .text-14.text-14-60 {
-    padding: 10px;
+    padding: 20px;
   }
   .wrap {
     width: 645px;
