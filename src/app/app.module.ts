@@ -34,13 +34,12 @@ import { HomePageComponent } from './HomePageComponets/home-page/home-page.compo
 import { ProfessorPageEntryComponent } from './professor-page-entry/professor-page-entry.component';
 import { ClassrPageEntryComponent } from './class-page-entry/class-page-entry.component';
 import { PageServiceService } from './page-service.service';
-import { ProgressBarModule } from 'primeng/progressbar'
+import { ProgressBarModule } from 'primeng/progressbar';
 import { KnobModule } from 'primeng/knob';
 
-// Confirmation Service 
-import { ConfirmationService } from 'primeng/api'
+// Confirmation Service
+import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
-
 
 //PROF + CLASS SERVICE
 
@@ -57,55 +56,65 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { SignInButtonComponent } from './sign-in-button/sign-in-button.component';
 import { AddReviewButtonComponent } from './add-review-button/add-review-button.component';
 import { NoDataComponent } from './Skeletons/no-data/no-data.component';
+import { NoDataProfessorComponent } from './Skeletons/no-data-professor/no-data-professor.component';
+import { NoDataReviewsComponent } from './Skeletons/no-data-reviews/no-data-reviews.component';
+import { NoDataClassComponent } from './Skeletons/no-data-class/no-data-class.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-  HomeBarComponent,
-  HeroSectionComponent,
-  FooterComponent,
-  DescriptionhmComponent,
-  TripleCardSectionComponent,
-  SearchBarComponent,
-  HomePageComponent,
-  routingComponents,
-  ContactEDUComponent,
-  MainDataCardComponent,
-  ClassDataProfComponent,
-  ClassInfoCardComponent,
-  MainDataClassComponent,
-  ProfessorTableForClasspgComponent,
-  UserprofileComponent,
-  SignInButtonComponent,
-  AddReviewButtonComponent,
-  NoDataComponent
-	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		ButtonModule,
-		MenubarModule,
-		AutoCompleteModule,
-		ImageModule,
-		InputTextModule,
-		ProgressBarModule,
-		DropdownModule,
-		SelectButtonModule,
-		HttpClientModule,
-		ToastModule,
-		ConfirmDialogModule,
-		ToggleButtonModule,
-		DialogModule,
-		InputTextareaModule,
-		KnobModule,
-		TabViewModule,
-		AccordionModule,
-		FormsModule,
-		BrowserAnimationsModule
-
-	],
-	providers: [ConfirmationService,MessageService,PageServiceService,ProfessorService,ClassService],
-	bootstrap: [AppComponent]
-
+  declarations: [
+    AppComponent,
+    HomeBarComponent,
+    HeroSectionComponent,
+    FooterComponent,
+    DescriptionhmComponent,
+    TripleCardSectionComponent,
+    SearchBarComponent,
+    HomePageComponent,
+    routingComponents,
+    ContactEDUComponent,
+    MainDataCardComponent,
+    ClassDataProfComponent,
+    ClassInfoCardComponent,
+    MainDataClassComponent,
+    ProfessorTableForClasspgComponent,
+    UserprofileComponent,
+    SignInButtonComponent,
+    AddReviewButtonComponent,
+    NoDataComponent,
+    NoDataProfessorComponent,
+    NoDataReviewsComponent,
+    NoDataClassComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ButtonModule,
+    MenubarModule,
+    AutoCompleteModule,
+    ImageModule,
+    InputTextModule,
+    ProgressBarModule,
+    DropdownModule,
+    SelectButtonModule,
+    HttpClientModule,
+    ToastModule,
+    ConfirmDialogModule,
+    ToggleButtonModule,
+    DialogModule,
+    InputTextareaModule,
+    KnobModule,
+    TabViewModule,
+    AccordionModule,
+    FormsModule,
+    BrowserAnimationsModule,
+  ],
+  providers: [
+    ConfirmationService,
+    MessageService,
+    PageServiceService,
+    ProfessorService,
+    ClassService,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

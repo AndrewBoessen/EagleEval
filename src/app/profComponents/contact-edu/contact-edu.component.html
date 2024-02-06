@@ -1,38 +1,36 @@
 <div class="contact">
-    <div class="contact-edutextheader">{{professorName}}</div>
-    <div class="smlldiv"></div>
+  <div class="contact-edutextheader">{{ professorName }}</div>
+  <div class="smlldiv"></div>
 
-    <ng-container *ngIf="professorTitle && professorTitle.length > 0">
-      <div class="contactinfowrapper">
-        <div class="title">{{professorTitle[0]}}</div>
-      </div>
-      <div class="fildwidthdiv"></div>
-    </ng-container>
-    
+  <ng-container *ngIf="professorTitle && professorTitle.length > 0">
     <div class="contactinfowrapper">
-      <ng-container *ngIf="office"><div class="data">{{office}}</div></ng-container>
-      <ng-container *ngIf="email"><div class="data">{{email}}</div></ng-container>
-      <ng-container *ngIf="phone"><div class="data">{{phone}}</div></ng-container>
-      
+      <div class="title">{{ professorTitle[0] }}</div>
     </div>
+    <div class="fildwidthdiv"></div>
+  </ng-container>
+
+  <div class="contactinfowrapper">
+    <ng-container *ngIf="office"
+      ><div class="data">{{ office }}</div></ng-container
+    >
+    <ng-container *ngIf="email"
+      ><div class="data">{{ email }}</div></ng-container
+    >
+    <ng-container *ngIf="phone"
+      ><div class="data">{{ phone }}</div></ng-container
+    >
   </div>
-  <div class="education">
+</div>
+<div class="education">
+  <ng-container *ngIf="office || email || phone">
+    <div class="fildwidthdiv"></div>
+  </ng-container>
 
-    <ng-container *ngIf="office || email || phone">
-      <div class="fildwidthdiv"></div>
-  
-    </ng-container>
-      
-
-    <ng-container *ngIf="education && education.length > 0">
-
-      <div class="contact-edutextheader">Education</div>
-      <div class="smlldiv"></div>
-      <div class="contactinfowrapper">
-        <div *ngFor="let edu of education" class="educationflex">{{ edu }}</div>
-      </div>
-    
-
-    </ng-container>
-   
-  </div>
+  <ng-container *ngIf="education && education.length > 0">
+    <div class="contact-edutextheader">Education</div>
+    <div class="smlldiv"></div>
+    <div class="contactinfowrapper">
+      <div *ngFor="let edu of education" class="educationflex">{{ edu }}</div>
+    </div>
+  </ng-container>
+</div>

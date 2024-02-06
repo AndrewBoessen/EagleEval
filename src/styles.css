@@ -6,8 +6,24 @@
   margin: 0;
   padding: 0;
 }
+/* 
 
 
+No data styling */
+
+.nodatacard {
+  width: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 30vh;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
 
 /* Links / Sign in global */
 .signIn {
@@ -50,7 +66,6 @@ a {
 }
 
 /* Primeng Styles */
-
 
 .p-tabview .p-tabview-panels {
   padding: 0px;
@@ -388,8 +403,6 @@ a {
 }
 
 @media screen and (max-width: 991px) {
-
-  
   .signIn {
     font-size: 15px;
   }
@@ -410,8 +423,6 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-
-  
   .classnameprof {
     font-size: 20px;
   }
@@ -448,15 +459,11 @@ a {
   .professorclasstablewrapper {
     flex-direction: column;
     max-height: none;
-  
-
   }
 }
 
 @media screen and (max-width: 479px) {
-
-  .nameandstatheader{
-
+  .nameandstatheader {
     text-align: center;
   }
   .veritcal-divider {

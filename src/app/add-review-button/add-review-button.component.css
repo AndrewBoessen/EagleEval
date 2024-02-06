@@ -1,104 +1,83 @@
 .headerreviewwrapper {
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    display: flex;
-  }
-  
-  .togglewrapper{
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+}
 
-    width: 135px;
+.togglewrapper {
+  width: 135px;
+}
+.noMargin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.avatarnamewrapper {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
 
-  }
-  .noMargin{
+.reviewforProfHeader {
+  font-family: Inter, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
 
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-  .avatarnamewrapper {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    display: flex;
-  }
+.textfieldwrapper {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
-  .reviewforProfHeader{
-      font-family: Inter,sans-serif;
-      font-size: 30px;
-      font-weight: 700
- 
+.classwouldrec {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  }
+.textfieldwrap {
+  width: 100%;
+}
 
-  .textfieldwrapper {
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  
-  .classwouldrec {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .textfieldwrap {
-    width: 100%;
-   
-  }
+.dropdownholder {
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
 
+.dropdownlable {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+}
 
-
-  .dropdownholder {
-    flex-direction: row;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-  }
-  
-  .dropdownlable {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 10px;
-    margin-left: 10px;
-    font-family: Inter, sans-serif;
+@media screen and (max-width: 991px) {
+  .reviewforProfHeader {
     font-size: 20px;
   }
 
-  @media screen and (max-width:991px) {
-
-    .reviewforProfHeader{
-
-      font-size: 20px;
-
-
-     }
-
-     .dropdownlable{
-
-      font-size: 15px;
-
-     }
+  .dropdownlable {
+    font-size: 15px;
+  }
 
   .classwouldrec {
-
     flex-direction: column;
-
   }
 
   .dropdownholder {
-
     padding: 10px;
   }
-
-
-
-
-  }
+}

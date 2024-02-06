@@ -101,4 +101,8 @@ export class ClassDataProfComponent implements OnInit {
   convert(message: string) {
     return convert(message);
   }
+
+  hasData(obj: any): boolean {
+    return obj && Object.keys(obj).length > 0;
+  }
 }

@@ -1,6 +1,5 @@
-
 .descriptionhm {
-margin-top: 150px;
+  margin-top: 150px;
   z-index: -1;
   height: auto;
   flex-direction: column;
@@ -8,6 +7,9 @@ margin-top: 150px;
   display: block;
 }
 
+.hero1-image{
+  width: 65vw;
+}
 
 .hero1-headline-wrapper {
   width: 680px;
@@ -20,20 +22,18 @@ margin-top: 150px;
 }
 
 .tagline-2 {
-  opacity: .6;
+  opacity: 0.6;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
   font-size: 12px;
 }
 
-
 .heading-5 {
   margin-bottom: 20px;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   line-height: 44px;
-
 }
 
 .subsection {
@@ -65,11 +65,17 @@ margin-top: 150px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 991px) {
 
+  .hero1-image{
 
+    width: 80vw;
+  }
   .hero1-headline-wrapper {
     width: 100%;
   }
@@ -80,9 +86,6 @@ margin-top: 150px;
 
   .subonewrap {
     width: auto;
+    padding: 20px;
   }
 }
-
-
-
-

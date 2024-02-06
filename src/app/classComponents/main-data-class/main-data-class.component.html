@@ -1,66 +1,73 @@
+<!-- Empty template -->
+
+<ng-template #emptyKnob>
+  <p-knob
+    [size]="185"
+    [readonly]="true"
+    [strokeWidth]="12.5"
+    [valueColor]="strokeColor"
+    valueTemplate="--"
+  ></p-knob>
+</ng-template>
+
 <div class="professorscorebarwrapper">
-    <div class="profscoreknobdiv">
-      <div class="profscoreknob">
-
+  <div class="profscoreknobdiv">
+    <div class="profscoreknob">
+      <div *ngIf="classOvl; else emptyKnob">
         <p-knob
-        [(ngModel)]="classOvl"
-        [size] = "185"
-        [readonly] = "true"
-        [strokeWidth]="12.5"
-        [valueColor]="strokeColor"
-      ></p-knob>
-
-
-
-      </div>
-      <div class="knobdataholderdiv">
-        <div class="contact-edutextheader">Course Overall</div>
-        <div class="smlldiv"></div>
-        <div class="description1">Weighted Avg. of every rating given on this class</div>
+          [(ngModel)]="classOvl"
+          [size]="185"
+          [readonly]="true"
+          [strokeWidth]="12.5"
+          [valueColor]="strokeColor"
+        ></p-knob>
       </div>
     </div>
-    
-    <div class="quaddatadiv">
-      <ng-template #noDataBlock>
-        <app-no-data></app-no-data>
-      </ng-template>
-
-
-      <div class="silderdatadiv">
-
-        <div *ngIf="attendanceNecessary; else noDataBlock">
-          <div class="silderscore">{{ attendanceNecessary }}</div>
-        </div>
-
-        <div class="smlldiv"></div>
-        <div class="sliderdatatext">Attendance Necessary</div>
-      </div>
-      <div class="silderdatadiv">
-        
-        <div *ngIf="wellOrganized; else noDataBlock">
-          <div class="silderscore">{{ wellOrganized }}</div>
-        </div>
-
-
-        <div class="smlldiv"></div>
-        <div class="sliderdatatext">Well Organized</div>
-      </div>
-      <div class="silderdatadiv">
-
-        <div *ngIf="challenging; else noDataBlock">
-          <div class="silderscore">{{ challenging }}</div>
-        </div>
-
-        <div class="smlldiv"></div>
-        <div class="sliderdatatext">Intellectually Challenging</div>
-      </div>
-      <div class="silderdatadiv">
-        <div *ngIf="helpfulAssignments; else noDataBlock">
-          <div class="silderscore">{{ helpfulAssignments }}</div>
-        </div>
-
-        <div class="smlldiv"></div>
-        <div class="sliderdatatext">Assignments Helpful</div>
+    <div class="knobdataholderdiv">
+      <div class="contact-edutextheader">Course Overall</div>
+      <div class="smlldiv"></div>
+      <div class="description1">
+        Weighted Avg. of every rating given on this class
       </div>
     </div>
   </div>
+
+  <div class="quaddatadiv">
+    <ng-template #noDataBlock>
+      <app-no-data></app-no-data>
+    </ng-template>
+
+    <div class="silderdatadiv">
+      <div *ngIf="attendanceNecessary; else noDataBlock">
+        <div class="silderscore">{{ attendanceNecessary }}</div>
+      </div>
+
+      <div class="smlldiv"></div>
+      <div class="sliderdatatext">Attendance Necessary</div>
+    </div>
+    <div class="silderdatadiv">
+      <div *ngIf="wellOrganized; else noDataBlock">
+        <div class="silderscore">{{ wellOrganized }}</div>
+      </div>
+
+      <div class="smlldiv"></div>
+      <div class="sliderdatatext">Well Organized</div>
+    </div>
+    <div class="silderdatadiv">
+      <div *ngIf="challenging; else noDataBlock">
+        <div class="silderscore">{{ challenging }}</div>
+      </div>
+
+      <div class="smlldiv"></div>
+      <div class="sliderdatatext">Intellectually Challenging</div>
+    </div>
+    <div class="silderdatadiv">
+      <div *ngIf="helpfulAssignments; else noDataBlock">
+        <div class="silderscore">{{ helpfulAssignments }}</div>
+      </div>
+
+      <div class="smlldiv"></div>
+      <div class="sliderdatatext">Assignments Helpful</div>
+    </div>
+  </div>
+</div>

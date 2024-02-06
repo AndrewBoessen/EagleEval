@@ -1,55 +1,42 @@
-
-
 .card.professorimg {
   width: 100%;
   height: 500px;
   background-position: 50% 10%;
-  background-size: cover
+  background-size: cover;
 }
 
 .dynamicprofgrid {
   width: 100%;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  grid-template-columns: .4fr 1fr;
+  grid-template-columns: 0.4fr 1fr;
   margin-top: 20px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
-
 
 .profdatagrid {
   grid-template-columns: 1fr;
-  margin: 20px
+  margin: 20px;
 }
 
-
-
-
-
-
-@media screen and (max-width:991px) {
-
+@media screen and (max-width: 991px) {
   .dynamicprofgrid {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width:479px) {
-
+@media screen and (max-width: 479px) {
   .card.professorimg {
-    height: 300px
+    height: 300px;
   }
 
   .dynamicprofgrid {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
   }
-
-
-
 }
 #w-node-d9f8d9d4-fd1f-09b9-4f0d-5f74494a2159-b68642c4,
 #w-node-dfff5bd2-9150-0e9f-1075-ee38b2732c08-b68642c4,
 #w-node-e1d71806-b979-52f8-f44f-7e04e8858948-b68642c4,
 #w-node-eabfb9ca-8044-14b0-125e-cbca8a67454b-b68642c4 {
-  grid-area: span 1/span 1/span 1/span 1
+  grid-area: span 1 / span 1 / span 1 / span 1;
 }
