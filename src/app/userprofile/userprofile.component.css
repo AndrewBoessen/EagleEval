@@ -38,7 +38,8 @@
 }
 
 .profilecard {
-  height: auto;
+  min-height: 80vh;
+  max-height: auto;
 }
 
 .profilecard.card {
