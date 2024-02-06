@@ -1,8 +1,12 @@
 .professorReviewWrapper {
+  padding:5px;
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
+  min-height: auto;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .addreviewwrapper {
@@ -40,12 +44,14 @@
   margin-bottom: 5px;
   font-family: Inter, sans-serif;
   font-size: 18px;
+  text-align: center;
 }
 
 .classcodecollegetxt {
   margin-top: 5px;
   font-family: Inter, sans-serif;
   font-size: 14px;
+  text-align: center;
 }
 
 .classscoreknobproftable {
