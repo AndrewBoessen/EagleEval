@@ -1,13 +1,27 @@
+<!-- Empty template -->
+
+<ng-template #emptyKnob>
+  <p-knob
+    [size]="185"
+    [readonly]="true"
+    [strokeWidth]="12.5"
+    [valueColor]="strokeColor"
+    valueTemplate="--"
+  ></p-knob>
+</ng-template>
+
 <div class="professorscorebarwrapper">
   <div class="profscoreknobdiv">
     <div class="profscoreknob">
-      <p-knob
-        [(ngModel)]="classOvl"
-        [size]="185"
-        [readonly]="true"
-        [strokeWidth]="12.5"
-        [valueColor]="strokeColor"
-      ></p-knob>
+      <div *ngIf="classOvl; else emptyKnob">
+        <p-knob
+          [(ngModel)]="classOvl"
+          [size]="185"
+          [readonly]="true"
+          [strokeWidth]="12.5"
+          [valueColor]="strokeColor"
+        ></p-knob>
+      </div>
     </div>
     <div class="knobdataholderdiv">
       <div class="contact-edutextheader">Course Overall</div>
