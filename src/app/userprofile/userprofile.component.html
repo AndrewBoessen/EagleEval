@@ -1,4 +1,3 @@
-
 <!-- No grid template -->
 <ng-template #noReviewsBlock>
   <div class="reviewinfo">
@@ -36,8 +35,10 @@
       <div class="smlldiv"></div>
       <h1 class="reviewsheader">Reviews</h1>
       <div class="fildwidthdiv"></div>
-        <div *ngIf="comments!.length > 0; else noReviewsBlock">
-          <div class="usergrid">
+      <ng-container *ngIf="comments!.length > 0; else noReviewsBlock">
+        <div class="userGrid">
+          <!-- GRID LEFT -->
+          <div class="w-layout-grid grid">
             <div *ngFor="let comment of comments">
               <!-- Repeatable review -->
               <div class="userreviewcell whitecard">
@@ -47,9 +48,10 @@
                       {{ formatTimestamp(comment.createdAt) }}
                     </div>
                     <div class="reviewinfo">
-                      Would Recommend: {{ comment.wouldTakeAgain ? "Yes" : "No" }}
+                      Would Recommend:
+                      {{ comment.wouldTakeAgain ? "Yes" : "No" }}
                     </div>
-  
+
                     <div class="trashbutton">
                       <p-button
                         icon="pi pi-trash"
@@ -66,13 +68,42 @@
                 </div>
               </div>
             </div>
-
-
           </div>
-         
+
+          <!-- GRID Right -->
+          <div class="w-layout-grid grid">
+            <div *ngFor="let comment of comments">
+              <!-- Repeatable review -->
+              <div class="userreviewcell whitecard">
+                <div class="review">
+                  <div class="reviewheader">
+                    <div class="reviewinfo">
+                      {{ formatTimestamp(comment.createdAt) }}
+                    </div>
+                    <div class="reviewinfo">
+                      Would Recommend:
+                      {{ comment.wouldTakeAgain ? "Yes" : "No" }}
+                    </div>
+
+                    <div class="trashbutton">
+                      <p-button
+                        icon="pi pi-trash"
+                        (click)="removeReview(comment._id)"
+                        size="small"
+                      ></p-button>
+                    </div>
+                  </div>
+                  <div class="smlldiv"></div>
+                  <div class="crsdesct">
+                    {{ comment.message }}
+                  </div>
+                  <div class="fildwidthdiv"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-       
- 
+      </ng-container>
     </div>
   </div>
 </div>
