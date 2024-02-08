@@ -21,6 +21,7 @@ export class UserprofileComponent {
   user_email: string | undefined = undefined;
   user_name: string | undefined = undefined;
   comments: Comment[] | undefined = undefined;
+  halfLength: number = 0;
 
   constructor(
     private router: Router,
@@ -39,6 +40,11 @@ export class UserprofileComponent {
 
     this.profile.getComments().subscribe((data: Comment[] | null) => {
       this.comments = data || undefined;
+      if (this.comments) {
+        this.halfLength = Math.ceil(this.comments.length / 2);
+      }
+
+
     });
   }
 
