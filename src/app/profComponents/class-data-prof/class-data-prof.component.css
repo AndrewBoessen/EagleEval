@@ -63,4 +63,7 @@
     flex-direction: column;
     justify-content: center;
   }
+  .classscoreknobproftable {
+    margin-top: 20px;
+  }
 }
