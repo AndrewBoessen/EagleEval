@@ -82,13 +82,26 @@ a {
   border: #6d1f22;
 }
 
+.p-dropdown:not(.p-disabled):hover {
+  border-color: #6d1f22;
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+  border-color: #6d1f22;
+  box-shadow: 0 0 0 0.2rem #6c757d;
+}
+
 .p-selectbutton .p-button.p-highlight:hover {
   background: #6d1f22;
   border: #6d1f22;
+  border-color: #6d1f22;
 }
 
 .p-inputtextarea-resizable {
   width: 100%;
+}
+.p-inputtext:enabled:hover {
+  border-color: #6d1f22;
 }
 
 .p-dialog .p-dialog-header {
@@ -108,6 +121,11 @@ a {
 
 .p-button:enabled:hover {
   background: #983a3d;
+  box-shadow: 0 0 0 0.2rem #6c757d;
+}
+
+.p-button:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #6c757d, 0 1px 2px #000;
 }
 
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {

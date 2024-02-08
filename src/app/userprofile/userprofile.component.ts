@@ -43,8 +43,6 @@ export class UserprofileComponent {
       if (this.comments) {
         this.halfLength = Math.ceil(this.comments.length / 2);
       }
-
-
     });
   }
 
