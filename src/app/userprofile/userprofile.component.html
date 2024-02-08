@@ -39,7 +39,7 @@
         <div class="userGrid">
           <!-- GRID LEFT -->
           <div class="w-layout-grid grid">
-            <div *ngFor="let comment of comments">
+            <div *ngFor="let comment of comments | slice : 0 : halfLength">
               <!-- Repeatable review -->
               <div class="userreviewcell whitecard">
                 <div class="review">
@@ -72,7 +72,7 @@
 
           <!-- GRID Right -->
           <div class="w-layout-grid grid">
-            <div *ngFor="let comment of comments">
+            <div *ngFor="let comment of comments | slice : halfLength">
               <!-- Repeatable review -->
               <div class="userreviewcell whitecard">
                 <div class="review">
