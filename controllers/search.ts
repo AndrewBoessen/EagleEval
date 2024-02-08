@@ -16,7 +16,7 @@ export async function autocompleteCourseSearch(
   const agg: any[] = [
     {
       $search: {
-        index: 'devSearchCourses',
+        index: 'searchCourses',
         compound: {
           should: [
             {
@@ -69,7 +69,7 @@ export async function autocompleteProfSearch(
   const agg: any[] = [
     {
       $search: {
-        index: 'devSearchProfs',
+        index: 'searchProfs',
         compound: {
           should: [
             {
