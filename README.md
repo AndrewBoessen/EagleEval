@@ -1,6 +1,10 @@
-# EagleEval - Boston College Teacher and Class Ratings
+# EagleEval - Boston College Professor and Course Ratings 🦅🎓
+
+![logo](./src/assets/Eagle%20Eval-logos_white.png)
 
 Welcome to **EagleEval**, a platform designed to empower Boston College students with valuable insights into teacher and class ratings. With EagleEval, students can make informed decisions about their course selections and find the best-fit instructors for their academic journey.
+
+_Search from 16,000+ reviews across 2,000+ professors and 3,500+ courses_
 
 ## Features
 
@@ -10,9 +14,7 @@ Welcome to **EagleEval**, a platform designed to empower Boston College students
 
 - **Search Functionality:** Easily search for teachers or classes by name, department, or course code.
 
-
 - **User-Friendly Interface:** Enjoy a clean and intuitive interface that prioritizes ease of use and navigation.
-
 
 ## Feedback and Support
 
@@ -29,6 +31,5 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Elevate your academic journey with EagleEval and make informed decisions about your classes and instructors. Happy learning!
-
 
 A Project by Sebastian Pucher & Andrew Boessen
