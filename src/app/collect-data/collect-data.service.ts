@@ -103,7 +103,7 @@ export class CollectDataService {
    * @returns The converted percentage value.
    */
   private convertToPercent(value: number) {
-    return value > 0 ? (value - 1) * 25 : 0;
+    return value > 0 ? value * 20 : 0;
   }
 
   /**
