@@ -206,6 +206,7 @@ a {
 .crsdesct {
   font-family: Inter, sans-serif;
   line-height: 25px;
+  word-break: break-word;
 }
 
 .classnameprof {
