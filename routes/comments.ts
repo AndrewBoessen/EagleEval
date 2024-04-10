@@ -92,13 +92,9 @@ comment_router.get('/prof', async (req: Request, res: Response) => {
         // Send the converted comments as JSON response
         return res.json(allComments);
       } else {
-        const userComments: any[] | null = await searchForId(
-          prof_id,
-          CommentModel,
-          'professor_id'
-        );
-
-        return userComments ? res.json(userComments) : res.json(null);
+        // Log that the professor was not found in RMP
+        console.log(`${prof_name} not found in RMP`);
+        return res.json(null);
       }
     } else {
       // Log that the provided professor id does not exist in MongoDB
