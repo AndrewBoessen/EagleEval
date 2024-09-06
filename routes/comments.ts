@@ -65,33 +65,61 @@ comment_router.get('/prof', async (req: Request, res: Response) => {
       // Log the intention to search RMP for comments on the professor
       console.log(`Searching for comments on ${prof_name}`);
 
-      // Search RMP for the professor's information and get RMP professor id
-      const rmp_prof_id: string = (
-        await rmp.searchTeacher(prof_name, BC_SCHOOL_ID)
-      )[0]?.id;
+      // Search RMP for the professor's information and get RMP professor id and name
+      const searchResult = await rmp.searchTeacher(prof_name, BC_SCHOOL_ID);
+      const rmp_prof_id: string | undefined = searchResult[0]?.id;
+      const rmp_prof_first_name: string | undefined =
+        searchResult[0]?.firstName;
+      const rmp_prof_last_name: string | undefined = searchResult[0]?.lastName;
 
-      if (rmp_prof_id) {
-        // Retrieve comments from RMP using the RMP professor id
-        const comments: any = await rmp.getTeacher(rmp_prof_id);
+      if (rmp_prof_id && rmp_prof_first_name && rmp_prof_last_name) {
+        // Check if both first name and last name are included in prof_name
+        const profNameLower = prof_name.toLowerCase();
 
-        // Convert RMP comments to the desired format
-        const convertedComments: any[] | null = await convertToIComment(
-          comments.ratings.edges,
-          prof_id
-        );
+        if (
+          profNameLower.includes(rmp_prof_first_name.toLowerCase()) &&
+          profNameLower.includes(rmp_prof_last_name.toLowerCase())
+        ) {
+          console.log(
+            `Match found: RMP ID ${rmp_prof_id} for ${rmp_prof_first_name} ${rmp_prof_last_name}`
+          );
 
-        const userComments: any[] | null = await searchForId(
-          prof_id,
-          CommentModel,
-          'professor_id'
-        );
+          // Retrieve comments from RMP using the RMP professor id
+          const comments: any = await rmp.getTeacher(rmp_prof_id);
 
-        const allComments = (convertedComments ?? []).concat(
-          userComments ?? []
-        );
-        // Send the converted comments as JSON response
-        return res.json(allComments);
+          // Convert RMP comments to the desired format
+          const convertedComments: any[] | null = await convertToIComment(
+            comments.ratings.edges,
+            prof_id
+          );
+
+          const userComments: any[] | null = await searchForId(
+            prof_id,
+            CommentModel,
+            'professor_id'
+          );
+
+          const allComments = (convertedComments ?? []).concat(
+            userComments ?? []
+          );
+          // Send the converted comments as JSON response
+          return res.json(allComments);
+        } else {
+          console.log(
+            `Name mismatch: RMP returned ${rmp_prof_first_name} ${rmp_prof_last_name}, but searched for ${prof_name}`
+          );
+          // Fallback to user comments only
+          const userComments: any[] | null = await searchForId(
+            prof_id,
+            CommentModel,
+            'professor_id'
+          );
+
+          return userComments ? res.json(userComments) : res.json(null);
+        }
       } else {
+        console.log(`No matching professor found for ${prof_name}`);
+        // Fallback to user comments only
         const userComments: any[] | null = await searchForId(
           prof_id,
           CommentModel,
