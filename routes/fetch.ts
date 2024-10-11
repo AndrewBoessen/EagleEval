@@ -6,6 +6,8 @@ import DrilldownModel, { IDrilldown } from '../models/drilldown';
 import ProfessorModel from '../models/professor';
 import CourseModel from '../models/course';
 import { searchById, searchForId } from '../utils/mongoUtils';
+import { countDocumentsInCollection } from '../controllers/count';
+import { async } from '@angular/core/testing';
 
 const fetch_router = express.Router();
 
@@ -71,6 +73,36 @@ fetch_router.get('/drilldown', async (req: Request, res: Response) => {
     }
   } else {
     return res.send('Query string must include parent review id');
+  }
+});
+
+// Count Professor Route
+fetch_router.get('database/prof/count', async (req: Request, res: Response) => {
+  try {
+    const count = await countDocumentsInCollection(ProfessorModel);
+    res.json({ count: count })
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while counting professors' })
+  }
+});
+
+// Count Courses Route
+fetch_router.get('database/course/count', async (req: Request, res: Response) => {
+  try {
+    const count = await countDocumentsInCollection(CourseModel);
+    res.json({ count: count })
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while counting courses' })
+  }
+});
+
+// Count Reviews Route
+fetch_router.get('database/reviews/count', async (req: Request, res: Response) => {
+  try {
+    const count = await countDocumentsInCollection(ReviewModel);
+    res.json({ count: count })
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while counting reviews' });
   }
 });
 
