@@ -77,7 +77,7 @@ fetch_router.get('/drilldown', async (req: Request, res: Response) => {
 });
 
 // Count Professor Route
-fetch_router.get('database/prof/count', async (req: Request, res: Response) => {
+fetch_router.get('/database/prof/count', async (req: Request, res: Response) => {
   try {
     const count = await countDocumentsInCollection(ProfessorModel);
     res.json({ count: count })
@@ -87,7 +87,7 @@ fetch_router.get('database/prof/count', async (req: Request, res: Response) => {
 });
 
 // Count Courses Route
-fetch_router.get('database/course/count', async (req: Request, res: Response) => {
+fetch_router.get('/database/course/count', async (req: Request, res: Response) => {
   try {
     const count = await countDocumentsInCollection(CourseModel);
     res.json({ count: count })
@@ -97,7 +97,7 @@ fetch_router.get('database/course/count', async (req: Request, res: Response) =>
 });
 
 // Count Reviews Route
-fetch_router.get('database/reviews/count', async (req: Request, res: Response) => {
+fetch_router.get('/database/reviews/count', async (req: Request, res: Response) => {
   try {
     const count = await countDocumentsInCollection(ReviewModel);
     res.json({ count: count })
