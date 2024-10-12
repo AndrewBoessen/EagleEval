@@ -258,7 +258,7 @@ export class CollectDataService {
             if (course_data) {
               const avg_overall = this.calculateAverage(
                 courseDict[course_id],
-                'course_overall'
+                'instructor_overall'
               );
 
               const new_table_entry: CourseTableData = {
@@ -409,7 +409,7 @@ export class CollectDataService {
               (prof_comments: Comment[]) => {
                 const avg_overall = this.calculateAverage(
                   profDict[prof_id],
-                  'instructor_overall'
+                  'course_overall'
                 );
 
                 const new_table_entry: ProfTableData = {

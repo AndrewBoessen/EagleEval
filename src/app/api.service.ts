@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getSearchResults(query: string, url: string) {
     // Add safe, URL encoded search parameter if there is a search term
@@ -42,6 +42,10 @@ export class ApiService {
   }
 
   logout(url: string): Observable<any> {
+    return this.http.get<any>(url);
+  }
+
+  getCount(url: string): Observable<any> {
     return this.http.get<any>(url);
   }
 }
