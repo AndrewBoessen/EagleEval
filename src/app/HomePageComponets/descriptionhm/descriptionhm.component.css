@@ -70,6 +70,30 @@
   align-items: center;
 }
 
+.statisticswrapper {
+  justify-content: space-around;
+  display: flex;
+}
+
+.statblock {
+  flex-flow: column;
+  align-items: center;
+  display: flex;
+}
+
+.numericheading {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 65px;
+}
+
+.statdivider {
+  background-color: #c5bfb0;
+  width: 125px;
+  height: 2px;
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 991px) {
 
   .hero1-image{
