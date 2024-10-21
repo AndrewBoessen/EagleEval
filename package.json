@@ -7,7 +7,8 @@
     "start": "npx tsx -r newrelic server.ts",
     "build": "ng build --configuration production --aot",
     "watch": "ng build --watch --configuration development",
-    "test": "npx jest"
+    "test": "npx jest",
+    "heroku-postbuild": "npm ci --only=production"
   },
   "engines": {
     "npm": ">=10.0.0 <11.0.0",
