@@ -7,7 +7,7 @@
   display: block;
 }
 
-.hero1-image{
+.hero1-image {
   width: 65vw;
 }
 
@@ -86,7 +86,6 @@
   margin-bottom: 50px;
 }
 
-
 .statblock {
   flex-flow: column;
   align-items: center;
@@ -117,9 +116,7 @@
 }
 
 @media screen and (max-width: 991px) {
-
-  .hero1-image{
-
+  .hero1-image {
     width: 80vw;
   }
   .hero1-headline-wrapper {
@@ -135,9 +132,9 @@
     padding: 20px;
   }
   .statisticswrapper {
-  flex-flow: column;
-  align-items: center;
-  display: flex;
+    flex-flow: column;
+    align-items: center;
+    display: flex;
   }
   .verticalStatsWrapper {
     width: 95%;
