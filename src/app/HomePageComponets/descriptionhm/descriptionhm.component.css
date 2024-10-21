@@ -73,7 +73,7 @@
 .statisticswrapper {
   justify-content: space-around;
   display: flex;
-  width: 100%;
+  width: 115%;
   padding-top: 25px;
   padding-bottom: 25px;
 }
@@ -82,7 +82,8 @@
   flex-flow: column;
   align-items: center;
   display: flex;
-  width: 300px;
+  width: 350px;
+  padding: 25px;
 }
 
 .numericheading {
