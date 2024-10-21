@@ -73,11 +73,19 @@
 .statisticswrapper {
   justify-content: space-around;
   display: flex;
+}
+
+.verticalStatsWrapper {
+  flex-flow: column;
+  align-items: center;
+  display: flex;
   width: 115%;
   padding-top: 25px;
   padding-bottom: 25px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
+
 
 .statblock {
   flex-flow: column;
@@ -125,5 +133,13 @@
   .subonewrap {
     width: auto;
     padding: 20px;
+  }
+  .statisticswrapper {
+  flex-flow: column;
+  align-items: center;
+  display: flex;
+  }
+  .verticalStatsWrapper {
+    width: 95%;
   }
 }
