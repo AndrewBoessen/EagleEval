@@ -8,7 +8,7 @@
     "build": "ng build --configuration production --aot",
     "watch": "ng build --watch --configuration development",
     "test": "npx jest",
-    "heroku-postbuild": "npm ci --only=production"
+    "heroku-postbuild": "npm ci --omit=dev"
   },
   "engines": {
     "npm": ">=10.0.0 <11.0.0",
@@ -16,15 +16,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-devkit/build-angular": "^16.2.16",
-    "@angular/animations": "^16.2.4",
-    "@angular/common": "^16.2.4",
-    "@angular/compiler": "^16.2.4",
-    "@angular/core": "^16.2.4",
-    "@angular/forms": "^16.2.4",
-    "@angular/platform-browser": "^16.2.4",
-    "@angular/platform-browser-dynamic": "^16.2.4",
-    "@angular/router": "^16.2.4",
+    "@angular/animations": "^17",
+    "@angular/common": "^17",
+    "@angular/compiler": "^17",
+    "@angular/core": "^17",
+    "@angular/forms": "^17",
+    "@angular/platform-browser": "^17",
+    "@angular/platform-browser-dynamic": "^17",
+    "@angular/router": "^17",
     "@types/html-to-text": "^9.0.4",
     "@types/puppeteer": "^7.0.4",
     "@types/unidecode": "^0.1.3",
@@ -52,16 +51,16 @@
     "passport-google-oauth20": "^2.0.0",
     "path": "^0.12.7",
     "primeicons": "^6.0.1",
-    "primeng": "^16.3.1",
+    "primeng": "^17",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "tsx": "^4.7.0",
     "unidecode": "^0.1.8",
-    "zone.js": "~0.13.1"
+    "zone.js": "~0.14.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.2.16",
-    "@angular/cli": "^16.2.4",
+    "@angular-devkit/build-angular": "^17",
+    "@angular/cli": "^17",
     "@types/express": "^4.17.21",
     "@types/express-session": "^1.17.10",
     "@types/helmet": "^4.0.0",
@@ -94,6 +93,6 @@
     "supertest": "^6.3.4",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "~4.9.4"
+    "typescript": "^5"
   }
 }
