@@ -230,6 +230,11 @@ a {
   width: auto;
   align-items: flex-start;
 }
+.statisticswrapper.whitecard {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 .professorclassheaderdiv {
   flex-direction: column;

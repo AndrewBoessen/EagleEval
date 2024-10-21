@@ -2,7 +2,7 @@
   <div class="subonewrap">
     <div class="hero1-headline-wrapper">
       <div class="tagline-2">WELCOME TO EAGLE EVAL</div>
-      <h2 class="heading-5">
+      <h2 class="heading-2">
         A Boston College Professor Rating System Made by BC Students for
         BC Students
       </h2>
@@ -12,26 +12,27 @@
       <p class="paragraph">
         We&#x27;ve compiled thousands of
         student ratings to help our peers make informed decisions about their
-        academic journey.
+        academic journey. 
       </p>
       <div>
       </div>
     </div>
-    <div class="statisticswrapper">
-      <div class="statblock whitecard">
-        <h2 class="numericheading"> {{ countProfs }}</h2>
+    <div class="statisticswrapper whitecard">
+      <div class="statblock">
+        
+        <h2 class="numericheading"> {{ countProfs | number }}</h2>
         <div class="statdivider"></div>
-        <h2 class="heading-5"> Boston College Professors </h2>
+        <h2 class="heading-3"> Boston College Professors </h2>
       </div>
-      <div class="statblock whitecard">
-        <h2 class="numericheading"> {{ countReviews }}</h2>
+      <div class="statblock">
+        <h2 class="numericheading"> {{ countReviews | number }}</h2>
         <div class="statdivider"></div>
-        <h2 class="heading-5"> Unique Student Reviews </h2>
+        <h2 class="heading-3"> Unique Student Reviews </h2>
       </div>
-      <div class="statblock whitecard">
-        <h2 class="numericheading"> {{ countCourses }}</h2>
+      <div class="statblock">
+        <h2 class="numericheading"> {{ countCourses | number }}</h2>
         <div class="statdivider"></div>
-        <h2 class="heading-5"> Courses Cataloged </h2>
+        <h2 class="heading-3"> Courses Cataloged </h2>
       </div>
     </div> 
     <img
