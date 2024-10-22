@@ -88,7 +88,7 @@
     "nodemon": "^3.0.2",
     "passport-mock": "^0.0.3",
     "passport-mock-strategy": "^2.0.0",
-    "puppeteer": "^21.9.0",
+    "puppeteer": "^21.11.0",
     "supertest": "^6.3.4",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
