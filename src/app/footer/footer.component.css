@@ -3,11 +3,11 @@
   background-color: #6d1f22;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   display: flex;
 }
 
-.text-block {
+.authorWrapper {
   color: #fff;
   margin-left: 20px;
   font-family: "Helvetica Neue 55 Cdnfonts", sans-serif;
