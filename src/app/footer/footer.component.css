@@ -16,3 +16,15 @@
   justify-content: center;
   display: flex;
 }
+
+
+@media screen and (max-width: 767px) {
+  .footer {
+    flex-direction:column;
+    justify-content:center;
+    flex-direction:column-reverse;
+    gap:10px;
+
+  }
+
+}
