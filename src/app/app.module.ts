@@ -59,6 +59,7 @@ import { NoDataComponent } from './Skeletons/no-data/no-data.component';
 import { NoDataProfessorComponent } from './Skeletons/no-data-professor/no-data-professor.component';
 import { NoDataReviewsComponent } from './Skeletons/no-data-reviews/no-data-reviews.component';
 import { NoDataClassComponent } from './Skeletons/no-data-class/no-data-class.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { NoDataClassComponent } from './Skeletons/no-data-class/no-data-class.co
     NoDataProfessorComponent,
     NoDataReviewsComponent,
     NoDataClassComponent,
+    PrivacyComponent,
   ],
   imports: [
     BrowserModule,
