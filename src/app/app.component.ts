@@ -11,7 +11,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'frontEnd';
   message: any;
-  isHomeBarVisible: boolean = true;
+  isHomeVisible: boolean = true;
 
   constructor(
     private apiService: ApiService,
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   ) {
     router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isHomeBarVisible =
+        this.isHomeVisible =
           !/\/professor/.test(event.url) &&
           !/\/class/.test(event.url) &&
           !/\/profile/.test(event.url) &&
