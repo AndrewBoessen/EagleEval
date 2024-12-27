@@ -23,7 +23,9 @@ export class AppComponent implements OnInit {
         this.isHomeBarVisible =
           !/\/professor/.test(event.url) &&
           !/\/class/.test(event.url) &&
-          !/\/profile/.test(event.url);
+          !/\/profile/.test(event.url) &&
+          !/\/terms/.test(event.url) &&
+          !/\/privacy/.test(event.url);
       }
     });
   }
