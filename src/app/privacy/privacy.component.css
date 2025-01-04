@@ -85,3 +85,8 @@
   line-height: 35px;
   font-weight:bold;
 }
+@media screen and (max-width: 991px) {
+  .privacyWrap{
+    width:90%;
+  }
+}
