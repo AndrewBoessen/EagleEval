@@ -4,8 +4,6 @@
   flex-direction: column;
   align-items: center;
   display: block;
-  padding-left: 25px;
-  padding-right:25px;
 }
  .privacyWrap {
   width: 1000px;
@@ -73,13 +71,14 @@
 }
 .privacyContent{
   height: auto;
+  width:90%;
   flex-direction: column;
   align-items: left;
   display: block;
 }
 .legalHeading {
-  text-align: left;
-  margin-top: 10px;
+  text-align: center;
+  margin-top: 12px;
   font-family: Roboto, sans-serif;
   font-size: 15px;
   line-height: 35px;
