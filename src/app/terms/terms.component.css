@@ -1,0 +1,83 @@
+
+.termsSection {
+  margin-top: 50px;
+  margin-bottom:50px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  display: block;
+}
+ .termsWrap {
+  width: 1000px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.termsHeading {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 44px;
+  font-size: 30px;
+}
+
+.taglineTerms {
+  opacity: 0.6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+}
+.dividerTerms {
+  width: 60px;
+  height: 2px;
+  background-color: #c5bfb0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.legalTextWrapTerms {
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  display: flex;
+}
+.legalParagraphTerms {
+  text-align: center;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  line-height: 35px;
+}
+.legalSubParagraphTerms {
+  text-align: left;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 35px;
+}
+.termsContent{
+  height: auto;
+  width:90%;
+  flex-direction: column;
+  align-items: left;
+  display: block;
+}
+.legalHeadingTerms {
+  text-align: center;
+  margin-top: 12px;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 35px;
+  font-weight:bold;
+}
+@media screen and (max-width: 991px) {
+  .termsWrap{
+    width:90%;
+  }
+}
