@@ -25,45 +25,35 @@
   font-size: 30px;
 }
 
-.subonewrap {
-  width: 1000px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tagline-2 {
+.taglinePrivacy {
   opacity: 0.6;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
   font-size: 12px;
 }
-.divider {
+.dividerPrivacy {
   width: 60px;
   height: 2px;
   background-color: #c5bfb0;
   margin-left: auto;
   margin-right: auto;
 }
-.legalTextWrap {
+.legalTextWrapPrivacy {
   flex-direction: row;
   justify-content: center;
   margin-top: 13px;
   margin-bottom: 13px;
   display: flex;
 }
-.legalParagraph {
+.legalParagraphPrivacy {
   text-align: center;
   margin-top: 10px;
   font-family: Roboto, sans-serif;
   font-size: 20px;
   line-height: 35px;
 }
-.legalSubParagraph {
+.legalSubParagraphPrivacy {
   text-align: left;
   margin-top: 10px;
   font-family: Roboto, sans-serif;
@@ -77,7 +67,7 @@
   align-items: left;
   display: block;
 }
-.legalHeading {
+.legalHeadingPrivacy {
   text-align: center;
   margin-top: 12px;
   font-family: Roboto, sans-serif;
