@@ -1,0 +1,82 @@
+.privacySection {
+  margin-top: 50px;
+  margin-bottom:50px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  display: block;
+}
+ .privacyWrap {
+  width: 1000px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.privacyHeading {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 44px;
+  font-size: 30px;
+}
+
+.taglinePrivacy {
+  opacity: 0.6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+}
+.dividerPrivacy {
+  width: 60px;
+  height: 2px;
+  background-color: #c5bfb0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.legalTextWrapPrivacy {
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  display: flex;
+}
+.legalParagraphPrivacy {
+  text-align: center;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  line-height: 35px;
+}
+.legalSubParagraphPrivacy {
+  text-align: left;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 35px;
+}
+.privacyContent{
+  height: auto;
+  width:90%;
+  flex-direction: column;
+  align-items: left;
+  display: block;
+}
+.legalHeadingPrivacy {
+  text-align: center;
+  margin-top: 12px;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 35px;
+  font-weight:bold;
+}
+@media screen and (max-width: 991px) {
+  .privacyWrap{
+    width:90%;
+  }
+}

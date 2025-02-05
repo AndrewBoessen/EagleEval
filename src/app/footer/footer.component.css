@@ -1,14 +1,30 @@
 .footer {
   height: 10vh;
   background-color: #6d1f22;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  padding-right: 20px;
+  padding-left:20px;
+  color: #fff;
+  font-family: "Helvetica Neue 55 Cdnfonts", sans-serif;
+}
+
+.footerRoutesWrapper {
+  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
   display: flex;
 }
 
-.text-block {
-  color: #fff;
-  margin-left: 20px;
-  font-family: "Helvetica Neue 55 Cdnfonts", sans-serif;
+
+@media screen and (max-width: 767px) {
+  .footer {
+    flex-direction:column;
+    justify-content:center;
+    flex-direction:column-reverse;
+    gap:10px;
+
+  }
+
 }
