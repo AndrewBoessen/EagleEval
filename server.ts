@@ -169,7 +169,7 @@ app.use('/auth', auth_router);
 // Add routes for rmp comments
 app.use('/api/comments', comment_router);
 
-const port = process.env['PORT'] || 80;
+const port = process.env['PORT'] || 3000;
 const privatePort = 8080;
 
 app.listen(port, () => {
