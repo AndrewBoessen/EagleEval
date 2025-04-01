@@ -15,7 +15,7 @@ export class DescriptionhmComponent {
   countCourses: number | undefined = undefined;
   countProfs: number | undefined = undefined;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     const reviewUrl = AppSettings.API_ENDPOINT + 'fetch/database/reviews/count';
@@ -29,7 +29,7 @@ export class DescriptionhmComponent {
       this.countCourses = data?.count || undefined;
     });
     this.apiService.getCount(profUrl).subscribe((data: any | null) => {
-      this.countProfs = data?.count / 2 || undefined;
+      this.countProfs = data?.count || undefined;
     });
   }
 
