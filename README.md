@@ -6,6 +6,8 @@ Welcome to **EagleEval**, a platform designed to empower Boston College students
 
 _Search from 16,000+ reviews across 2,000+ professors and 3,500+ courses_
 
+![eagle-eval-gif](./readme-resources/eagleeval.gif)
+
 ## Features
 
 - **Teacher Ratings:** Browse and access ratings and reviews submitted by fellow Boston College students for different teachers and professors.
@@ -16,6 +18,7 @@ _Search from 16,000+ reviews across 2,000+ professors and 3,500+ courses_
 
 - **User-Friendly Interface:** Enjoy a clean and intuitive interface that prioritizes ease of use and navigation.
 
+![demo-one-gif](./readme-resources/demo_one.gif) ![demo-two-gif](./readme-resources/demo_two.gif)
 ## Feedback and Support
 
 If you encounter any issues, have suggestions, or need assistance, please feel free to [contact our support team](mailto:support@eagleeval.com) or open an issue in this repository.
