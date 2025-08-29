@@ -10,7 +10,7 @@ export enum School {
   SSW = 'https://www.bc.edu/content/bc-web/schools/ssw/faculty/faculty-expertise/jcr:content/facultyList/faculty-list.items.html',
   CSON = 'https://www.bc.edu/content/bc-web/schools/cson/faculty-research/faculty-directory/jcr:content/facultyList/faculty-list.items.html',
   LSOE = 'https://www.bc.edu/content/bc-web/schools/lynch-school/faculty-research/faculty-directory-expertise/jcr:content/facultyList/faculty-list.items.html',
-  WCAS = 'https://www.bc.edu/content/bc-web/schools/wcas/faculty-research/faculty-directory/jcr:content/facultyList/faculty-list.items.html',
+  WCAS = 'https://www.bc.edu/content/bc-web/schools/wcas/about/faculty-research/faculty-directory/jcr:content/facultyList/faculty-list.items.html',
 }
 
 /**
