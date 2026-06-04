@@ -9,6 +9,20 @@ import CommentModel from '../models/comment';
 // Create an Express router
 const router = express.Router();
 
+
+
+// ==========================================
+// DISABLE ALL ROUTES IN THIS ROUTER
+// ==========================================
+
+router.use((req: Request, res: Response) => {
+  return res.status(410).json({
+    error: 'Gone',
+    message: 'The authentication and profile routes are no longer available.'
+  });
+});
+
+
 // Define Google authentication route
 router.get(
   '/google',
