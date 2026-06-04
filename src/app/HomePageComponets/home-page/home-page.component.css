@@ -3,8 +3,9 @@
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  line-height: 44px;
+  padding-top: 5px;
   padding-left: 2rem;
+  font-size: 1.7em;
 }
 
 
@@ -23,6 +24,18 @@
   background-color: #c5bfb0;
   margin: 0px auto 20px auto;
 
+}
+
+.paragraph-modal {
+  text-align: left;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 35px;
+}
+
+.center-text {
+  text-align: center;
 }
 
 
