@@ -1,10 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
-import { AppSettings } from 'src/app/appSettings';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hero-section',
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.css'],
 })
-export class HeroSectionComponent {}
+export class HeroSectionComponent {
+
+  @Output() toggleDialogParameter = new EventEmitter<void>();
+
+  triggerToggleCallback() {
+    this.toggleDialogParameter.emit();
+  }
+
+
+}
