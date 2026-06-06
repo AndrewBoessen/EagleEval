@@ -54,3 +54,30 @@
   justify-self: center;
   margin-bottom: 20px;
 }
+
+
+
+
+@media screen and (max-width: 767px) {
+  .farewell-img {
+    width: 400px;
+
+  }
+  .paragraph-modal {
+
+    width: 500px;
+
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .farewell-img {
+    width: 100%;
+
+  }
+  .paragraph-modal {
+
+    width: auto;
+  }
+
+}
