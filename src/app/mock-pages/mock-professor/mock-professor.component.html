@@ -12,12 +12,9 @@
             <div class="professorinfowrapper">
               <!-- contact / education-->
 
-              <app-contact-edu
-                professorName="Professor Name"
+              <app-contact-edu professorName="Professor Name"
                 [professorTitle]="['Associate Professor of Computer Science', 'Faculty Advisor']"
-                office=" 245 Beacon room 122"
-                email="prof-example@bc.edu"
-                phone="(617) ###-####"
+                office=" 245 Beacon room 122" email="prof-example@bc.edu" phone="(617) ###-####"
                 [education]="['Ph.D. in Computer Science - Boston College', 'M.S. in Mathematics - Boston College']">
                 ></app-contact-edu>
 
@@ -31,7 +28,14 @@
           <div id="w-node-eabfb9ca-8044-14b0-125e-cbca8a67454b-b68642c4" class="whitecard">
             <!-- Knob Score / Quad Value divs -->
 
-            <app-main-data-card></app-main-data-card>
+            <app-main-data-card
+              [professorOvl]="92"
+              [instructorPrepared]="88"
+              [clearMaterial]="85"
+              [outsideClass]="80"
+              [enthusiastic]="100">
+
+            </app-main-data-card>
 
             <!-- ******************************** -->
           </div>
