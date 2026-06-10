@@ -62,6 +62,7 @@ import { NoDataClassComponent } from './Skeletons/no-data-class/no-data-class.co
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { MockProfessorComponent } from './mock-pages/mock-professor/mock-professor.component';
+import { MockClassComponent } from './mock-pages/mock-class/mock-class/mock-class.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { MockProfessorComponent } from './mock-pages/mock-professor/mock-profess
     PrivacyComponent,
     TermsComponent,
     MockProfessorComponent,
+    MockClassComponent,
   ],
   imports: [
     BrowserModule,
