@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
@@ -7,10 +8,16 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class HeroSectionComponent {
 
+  constructor(private router: Router) {}
+
   @Output() toggleDialogParameter = new EventEmitter<void>();
 
   triggerToggleCallback() {
     this.toggleDialogParameter.emit();
+  }
+
+  navMockProfessor() {
+    this.router.navigate(['/mock-professor']);
   }
 
 
