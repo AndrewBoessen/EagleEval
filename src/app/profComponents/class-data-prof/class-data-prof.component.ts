@@ -42,14 +42,22 @@ export class ClassDataProfComponent implements OnInit {
 
 
     const coreFields = [this.profName, this.comments];
+    if (this.profName) {
+      this.profName = this.profName + " Class Statistics";
+    }
+
+    if (this.professorCourses) {
+      this.halfLength = Math.ceil(this.professorCourses.length / 2);
+    }
 
     if (coreFields.some((field) => (!field))) {
       this.prof.getProfPageData().subscribe((data: ProfPageData | null) => {
         this.comments = data?.comments || undefined;
 
         this.profName = data?.name || undefined;
+
         if (this.profName) {
-          this.profName = this.profName + "'s Class Statistics";
+          this.profName = this.profName + " Class Statistics";
         }
 
         if (this.comments) {

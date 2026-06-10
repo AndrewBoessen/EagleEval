@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Comment } from 'src/app/PageDataService/professor.service';
+import { Comment, CourseTableData } from 'src/app/PageDataService/professor.service';
 
 
 
@@ -62,4 +62,63 @@ export class MockProfessorComponent {
       }
     ]
   };
+  mockCourses: CourseTableData[] = [
+    {
+      id: 'cs_1',
+      title: 'Computer Science 1',
+      crs_code: 'CSCI1101',
+      school: 'MCAS',
+      subject: 'Computer Science',
+      course_overall: 93,
+      description: 'Satisfies Core requirement for Mathematics for CSCI1101 and CSCI1103. This course is an introduction to the art and science of computer programming and to some of the fundamental concepts of computer science. Students will write programs in the Python programming language. Good program design methodology will be stressed throughout. There will also be a study of some of the basic notions of computer science, including computer systems organization, files and some algorithms of fundamental importance.'
+    },
+    {
+      id: 'cs_2',
+      title: 'Computer Systems',
+      crs_code: 'CSCI2271',
+      school: 'MCAS',
+      subject: 'Computer Science',
+      course_overall: 97,
+      description: 'This course is about how computing machines implement the human-friendly abstractions we express in our programs. It reveals the internal representations of data and instructions, as well as the management of data storage in memory, the coordination of processes, and the interactions between operating systems and the programs being executed. Computer Systems explores system behavior and operations in considerable detail. This greater detail is essential for optimizing program performance, for working within the finite memory and word size constraints of computers, for effective debugging, and for systems-level programming. This hands-on course introduces you to the C programming language and techniques of systems programming through extensive coding exercises'
+    },
+    {
+      id: 'cs_3',
+      title: 'Computer Science II',
+      crs_code: 'CSCI1102',
+      school: 'MCAS',
+      subject: 'Computer Science',
+      course_overall: 68,
+      description: 'Acourseon the fundamentals of programming from a lower-level perspective. Students will learn the basics of C++, a strongly-typed, high-performance language that compiles down to programs that run without a virtual machine. Thecoursewill cover concepts such as the representation of data with bytes, base-2 and base-16 numbers, memory addresses, and memory allocation. Some advanced programming concepts will be discussed, including elementary algorithms, recursion, and the basics of object-oriented programming. In addition to gaining programming experience, students will also be introduced to some common tools and techniques, such as the text-only command interface, file system operations, and version control with Git.'
+    },
+    {
+      id: 'cs_4',
+      title: 'Randomness and Computation',
+      crs_code: 'CSCI2244',
+      school: 'MCAS',
+      subject: 'Computer Science',
+      course_overall: 77,
+      description: 'This course presents the mathematical and computational tools needed to solve problems that involve randomness. For example, an understanding of random variables allows us to efficiently generate the enormous prime numbers needed for information security, and to quantify the expected performance of a machine learning algorithm beyond a small data sample. An understanding of covariance allows high quality compression of audio and video. Topics include combinatorics and counting, random experiments and probability, random variables and distributions, computational modeling of randomness, Bayes\' rule, laws of large numbers, vectors and matrices, covariance and principal axes, and Markov chains.'
+    },
+    {
+      id: 'cs_5',
+      title: 'Logic and Computation',
+      crs_code: 'CSCI2243',
+      school: 'MCAS',
+      subject: 'Computer Science',
+      course_overall: 71,
+      description: 'A course in the mathematical foundations of Computer Science, illustrated throughout with applications such as sets and functions, propositional and predicate logic, induction and recursion, basic number theory, and mathematical models of computation such as formal languages, finite state machines, and Turing machines.'
+    },
+    {
+      id: 'cs_6',
+      title: 'Algorithms',
+      crs_code: 'CSCI3383',
+      school: 'MCAS',
+      subject: 'Computer Science',
+      course_overall: 81,
+      description: 'This course is a study of algorithms for, among other things, sorting, searching, pattern matching, and manipulation of graphs and trees. Emphasis is placed on the mathematical analysis of the time and memory requirements of such algorithms and on general techniques for improving their performance.'
+    }
+  ];
+
+
+
 }
