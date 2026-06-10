@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import {
   ProfessorService,
@@ -26,58 +26,64 @@ interface CourseData {
 })
 export class ClassDataProfComponent implements OnInit {
   strokeColor: string = '#6d1f22';
-  profName: string | undefined = undefined;
-  comments: { [course: string]: Comment[] } | undefined = undefined;
+  @Input() profName: string | undefined = undefined;
+  @Input() comments: { [course: string]: Comment[] } | undefined = undefined;
   course_names: { [id: string]: string } = { general: 'General' };
 
-  professorCourses: CourseTableData[] | undefined = undefined;
+  @Input() professorCourses: CourseTableData[] | undefined = undefined;
   halfLength: number = 0;
 
   constructor(
     private prof: ProfessorService,
     private data: CollectDataService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.prof.getProfPageData().subscribe((data: ProfPageData | null) => {
-      this.comments = data?.comments || undefined;
 
-      this.profName = data?.name || undefined;
-      if (this.profName) {
-        this.profName = this.profName + "'s Class Statistics";
-      }
 
-      if (this.comments) {
-        const course_ids = Object.keys(this.comments);
+    const coreFields = [this.profName, this.comments];
 
-        // Create an array to store all the observables
-        const observables: Observable<CourseData>[] = [];
+    if (coreFields.some((field) => (!field))) {
+      this.prof.getProfPageData().subscribe((data: ProfPageData | null) => {
+        this.comments = data?.comments || undefined;
 
-        course_ids.forEach((id: string) => {
-          if (id != 'general') {
-            observables.push(this.data.getCourseData(id));
-          }
-        });
+        this.profName = data?.name || undefined;
+        if (this.profName) {
+          this.profName = this.profName + "'s Class Statistics";
+        }
 
-        forkJoin(observables).subscribe((courses: CourseData[] | null) => {
-          courses?.forEach((course: CourseData) => {
-            if (course) {
-              this.course_names[
-                course._id
-              ] = `${course.title} (${course.code})`;
+        if (this.comments) {
+          const course_ids = Object.keys(this.comments);
+
+          // Create an array to store all the observables
+          const observables: Observable<CourseData>[] = [];
+
+          course_ids.forEach((id: string) => {
+            if (id != 'general') {
+              observables.push(this.data.getCourseData(id));
             }
           });
-        });
-      }
-    });
 
-    this.prof.getcrsTableData().subscribe((data: CourseTableData[] | null) => {
-      this.professorCourses = data || undefined;
+          forkJoin(observables).subscribe((courses: CourseData[] | null) => {
+            courses?.forEach((course: CourseData) => {
+              if (course) {
+                this.course_names[
+                  course._id
+                ] = `${course.title} (${course.code})`;
+              }
+            });
+          });
+        }
+      });
 
-      if (this.professorCourses) {
-        this.halfLength = Math.ceil(this.professorCourses.length / 2);
-      }
-    });
+      this.prof.getcrsTableData().subscribe((data: CourseTableData[] | null) => {
+        this.professorCourses = data || undefined;
+
+        if (this.professorCourses) {
+          this.halfLength = Math.ceil(this.professorCourses.length / 2);
+        }
+      });
+    }
   }
 
   formatTimestamp(inputTimestamp: Date): string {
@@ -90,10 +96,10 @@ export class ClassDataProfComponent implements OnInit {
       day === 1 || day === 21 || day === 31
         ? 'st'
         : day === 2 || day === 22
-        ? 'nd'
-        : day === 3 || day === 23
-        ? 'rd'
-        : 'th';
+          ? 'nd'
+          : day === 3 || day === 23
+            ? 'rd'
+            : 'th';
 
     return `${formattedDate.replace(/(\d)([^\d])$/, `$1${suffix}$2`)}`;
   }

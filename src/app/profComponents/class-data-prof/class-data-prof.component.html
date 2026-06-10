@@ -104,7 +104,6 @@
       <div class="addreviewwrapper">
         <h1 class="nameandstatheader">Reviews</h1>
         <div class="addReviewButton">
-          <app-add-review-button></app-add-review-button>
         </div>
       </div>
       <div class="fildwidthdiv"></div>
@@ -115,8 +114,8 @@
         <p-accordion [activeIndex]="0">
           <div *ngFor="let reviews of comments | keyvalue">
             <p-accordionTab
-              header="({{ reviews.value.length }}) {{
-                course_names[reviews.key]
+              header="{{
+                reviews.key
               }}"
             >
               <div *ngFor="let review of reviews.value" class="review">
