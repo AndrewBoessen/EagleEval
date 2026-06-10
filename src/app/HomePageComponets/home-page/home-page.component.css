@@ -6,6 +6,7 @@
   padding-top: 5px;
   padding-left: 2rem;
   font-size: 1.7em;
+  margin-bottom:15px
 }
 
 
@@ -16,14 +17,14 @@
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
   font-size: 13px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 .divider {
   width: 60px;
   height: 2px;
   background-color: #c5bfb0;
-  margin: 0px auto 20px auto;
+  margin: 0px auto 35px auto;
 
 }
 
@@ -52,7 +53,7 @@
   background-size: cover;
   border-radius: 8px;
   justify-self: center;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 
