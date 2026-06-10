@@ -114,7 +114,7 @@
         <p-accordion [activeIndex]="0">
           <div *ngFor="let reviews of comments | keyvalue">
             <p-accordionTab
-              header="{{
+              header="({{ reviews.value.length }}) {{
                 reviews.key
               }}"
             >
