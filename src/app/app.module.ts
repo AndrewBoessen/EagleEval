@@ -61,6 +61,7 @@ import { NoDataReviewsComponent } from './Skeletons/no-data-reviews/no-data-revi
 import { NoDataClassComponent } from './Skeletons/no-data-class/no-data-class.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
+import { MockProfessorComponent } from './mock-pages/mock-professor/mock-professor.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { TermsComponent } from './terms/terms.component';
     NoDataClassComponent,
     PrivacyComponent,
     TermsComponent,
+    MockProfessorComponent,
   ],
   imports: [
     BrowserModule,
