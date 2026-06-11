@@ -13,13 +13,8 @@
         <div id="grid-span" class="whitecard">
           <!-- CLASS SCORE AND SLIDERS ENTRY -->
 
-          <app-main-data-class
-            [classOvl]="90"
-            [attendanceNecessary]="90"
-            [challenging]="82"
-            [wellOrganized]="85"
-            [helpfulAssignments]="92"
-          ></app-main-data-class>
+          <app-main-data-class [classOvl]="90" [attendanceNecessary]="90" [challenging]="82" [wellOrganized]="85"
+            [helpfulAssignments]="92"></app-main-data-class>
         </div>
         <div id="grid-span" class="whitecard">
           <div class="professorclassheaderdiv">
@@ -30,7 +25,7 @@
             <div class="fildwidthdiv"></div>
           </div>
           <!-- PROFESSOR TABLE ENTRY -->
-          <app-professor-table-for-classpg></app-professor-table-for-classpg>
+          <app-professor-table-for-classpg [profArray]="mockProfs"></app-professor-table-for-classpg>
         </div>
       </div>
     </div>
