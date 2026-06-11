@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {
   ClassService,
   CoursePageData,
@@ -10,21 +10,26 @@ import {
   styleUrls: ['./class-info-card.component.css'],
 })
 export class ClassInfoCardComponent implements OnInit {
-  constructor(private classservice: ClassService) {}
+  constructor(private classservice: ClassService) { }
 
-  courseName: string | undefined = undefined;
-  courseCode: string | undefined = undefined;
-  hoursWeek: number | undefined = undefined;
-  description: string | undefined = undefined;
+  @Input() courseName: string | undefined = undefined;
+  @Input() courseCode: string | undefined = undefined;
+  @Input() hoursWeek: number | undefined = undefined;
+  @Input() description: string | undefined = undefined;
 
   ngOnInit() {
-    this.classservice
-      .getCoursePageData()
-      .subscribe((data: CoursePageData | null) => {
-        this.courseName = data?.title || undefined;
-        this.courseCode = data?.crs_code || undefined;
-        this.hoursWeek = data?.avgEffortHours || undefined;
-        this.description = data?.desc || undefined;
-      });
+
+    const coreFields = [this.courseName, this.courseCode, this.hoursWeek, this.description];
+
+    if (coreFields.some(field => !field)) {
+      this.classservice
+        .getCoursePageData()
+        .subscribe((data: CoursePageData | null) => {
+          this.courseName = data?.title || undefined;
+          this.courseCode = data?.crs_code || undefined;
+          this.hoursWeek = data?.avgEffortHours || undefined;
+          this.description = data?.desc || undefined;
+        });
+    }
   }
 }
