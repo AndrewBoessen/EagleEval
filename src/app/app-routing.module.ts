@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'profile', component: UserprofileComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
-  { path: 'mock-professor', component:  MockProfessorComponent},
+  { path: 'example-professor', component:  MockProfessorComponent},
 ];
 
 @NgModule({
