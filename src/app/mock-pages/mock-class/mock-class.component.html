@@ -1,1 +1,40 @@
-<p>mock-class works!</p>
+<app-home-bar></app-home-bar>
+
+<section class="contentwrapper">
+  <div class="w-layout-grid dynamicprofgrid">
+    <div id="grid-span" class="card">
+      <!-- CLASS HRS / DESCRIP ENTRY -->
+
+      <app-class-info-card courseName="Computer Science I" courseCode="CSCI1101" [hoursWeek]="4.5"
+        description="Satisfies Core requirement for Mathematics for CSCI1101 and CSCI1103. This course is an introduction to the art and science of computer programming and to some of the fundamental concepts of computer science. Students will write programs in the Python programming language. Good program design methodology will be stressed throughout. There will also be a study of some of the basic notions of computer science, including computer systems organization, files and some algorithms of fundamental importance."></app-class-info-card>
+    </div>
+    <div id="grid-span" class="card">
+      <div class="w-layout-grid profdatagrid">
+        <div id="grid-span" class="whitecard">
+          <!-- CLASS SCORE AND SLIDERS ENTRY -->
+
+          <app-main-data-class
+            [classOvl]="90"
+            [attendanceNecessary]="90"
+            [challenging]="82"
+            [wellOrganized]="85"
+            [helpfulAssignments]="92"
+          ></app-main-data-class>
+        </div>
+        <div id="grid-span" class="whitecard">
+          <div class="professorclassheaderdiv">
+            <h1 class="nameandstatheader">
+              Professors who teach CSCI1101
+            </h1>
+            <h2 class="subclassavgtxt">Avg. course overall rating per professor</h2>
+            <div class="fildwidthdiv"></div>
+          </div>
+          <!-- PROFESSOR TABLE ENTRY -->
+          <app-professor-table-for-classpg></app-professor-table-for-classpg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
