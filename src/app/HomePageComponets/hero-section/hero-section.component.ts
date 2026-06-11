@@ -17,7 +17,7 @@ export class HeroSectionComponent {
   }
 
   navMockProfessor() {
-    this.router.navigate(['/mock-professor']);
+    this.router.navigate(['/example-professor']);
   }
 
 
