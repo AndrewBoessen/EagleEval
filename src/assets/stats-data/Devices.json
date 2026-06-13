@@ -1,0 +1,20 @@
+{
+  "Desktop": {
+    "Clicks": 64949,
+    "Impressions": 103396,
+    "CTR": "62.82%",
+    "Position": 5.87
+  },
+  "Mobile": {
+    "Clicks": 7789,
+    "Impressions": 18950,
+    "CTR": "41.1%",
+    "Position": 7.24
+  },
+  "Tablet": {
+    "Clicks": 591,
+    "Impressions": 934,
+    "CTR": "63.28%",
+    "Position": 3.09
+  }
+}
