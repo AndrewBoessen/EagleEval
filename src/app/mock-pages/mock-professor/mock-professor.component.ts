@@ -161,7 +161,7 @@ export class MockProfessorComponent {
       school: 'MCAS',
       subject: 'Computer Science',
       course_overall: 85,
-      description: 'Acourseon the fundamentals of programming from a lower-level perspective. Students will learn the basics of C++, a strongly-typed, high-performance language that compiles down to programs that run without a virtual machine. Thecoursewill cover concepts such as the representation of data with bytes, base-2 and base-16 numbers, memory addresses, and memory allocation. Some advanced programming concepts will be discussed, including elementary algorithms, recursion, and the basics of object-oriented programming. In addition to gaining programming experience, students will also be introduced to some common tools and techniques, such as the text-only command interface, file system operations, and version control with Git.'
+      description: 'A course on the fundamentals of programming from a lower-level perspective. Students will learn the basics of C++, a strongly-typed, high-performance language that compiles down to programs that run without a virtual machine. Thecoursewill cover concepts such as the representation of data with bytes, base-2 and base-16 numbers, memory addresses, and memory allocation. Some advanced programming concepts will be discussed, including elementary algorithms, recursion, and the basics of object-oriented programming. In addition to gaining programming experience, students will also be introduced to some common tools and techniques, such as the text-only command interface, file system operations, and version control with Git.'
     },
     {
       id: 'cs_4',
