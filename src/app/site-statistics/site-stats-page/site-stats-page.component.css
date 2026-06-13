@@ -38,6 +38,8 @@
   color: #666;
   margin-bottom: 25px;
   font-weight: 500;
+  text-align: center;
+  line-height: 2;
 }
 
 .statisticswrapper {
@@ -129,7 +131,7 @@
 
 /* Forces the PrimeNG chart wrapper and canvas to fill the fixed-height containers */
 ::ng-deep .chart-container p-chart,
-::ng-deep .chart-container p-chart > div,
+::ng-deep .chart-container p-chart>div,
 ::ng-deep .chart-container canvas {
   height: 100% !important;
   width: 100% !important;
@@ -145,9 +147,11 @@
   .stats-grid {
     grid-template-columns: 1fr;
   }
+
   .numericheading {
     font-size: 45px;
   }
+
   .statblock {
     flex: 1 1 40%;
   }
@@ -157,13 +161,16 @@
   .verticalStatsWrapper {
     padding: 20px 10px;
   }
+
   .numericheading {
     font-size: 40px;
   }
+
   .statblock {
     flex: 1 1 100%;
     padding: 15px 0;
   }
+
   .statdivider {
     margin: 10px 0;
   }
