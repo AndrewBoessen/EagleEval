@@ -19,6 +19,7 @@ export class SiteStatsPageComponent implements OnInit {
   rawHistoryData: any[] = [];
   overallStats: StatMetrics = { Clicks: 0, Impressions: 0, CTR: '0%', Position: 0 };
   queriesData: any[] = [];
+  rangeDates: Date[] | undefined;
 
   // Chart Data
   deviceChartData: any;
@@ -85,20 +86,39 @@ export class SiteStatsPageComponent implements OnInit {
     };
   }
 
+  clearDateFilter() {
+    this.rangeDates = undefined;
+    this.updateHistoryChart();
+  }
+
+
   updateHistoryChart() {
     if (!this.rawHistoryData.length) return;
 
-    const labels = this.rawHistoryData.map(item => item.Date);
-    const dataPoints = this.rawHistoryData.map(item => {
+    // 1. Filter the data based on the selected date range
+    let filteredData = this.rawHistoryData;
+
+    if (this.rangeDates && this.rangeDates[0] && this.rangeDates[1]) {
+      const startDate = this.rangeDates[0].getTime();
+      const endDate = this.rangeDates[1].getTime();
+
+      filteredData = this.rawHistoryData.filter(item => {
+        // Parse the "YYYY-MM-DD" string into a comparable timestamp
+        const itemDate = new Date(item.Date).getTime();
+        return itemDate >= startDate && itemDate <= endDate;
+      });
+    }
+
+    // 2. Map the filtered data to labels and points
+    const labels = filteredData.map(item => item.Date);
+    const dataPoints = filteredData.map(item => {
       let val = item[this.selectedHistoryMetric];
-      // Strip percentage sign and convert to float if CTR is selected
       if (this.selectedHistoryMetric === 'CTR' && typeof val === 'string') {
         return parseFloat(val.replace('%', ''));
       }
       return val;
     });
 
-    // Reverse the position scale so 1 is at the top (better ranking)
     const isPosition = this.selectedHistoryMetric === 'Position';
 
     this.historyChartData = {
@@ -108,8 +128,8 @@ export class SiteStatsPageComponent implements OnInit {
           label: this.selectedHistoryMetric,
           data: dataPoints,
           fill: false,
-          borderColor: '#c5bfb0',
-          backgroundColor: '#c5bfb0',
+          borderColor: '#5c0d0f',
+          backgroundColor: '#5c0d0f',
           tension: 0.4
         }
       ]
@@ -160,7 +180,6 @@ export class SiteStatsPageComponent implements OnInit {
     });
   }
 
-
   setupChartOptions() {
     const commonOptions = {
       responsive: true,
@@ -173,17 +192,25 @@ export class SiteStatsPageComponent implements OnInit {
     this.historyChartOptions = {
       ...commonOptions,
       scales: {
-        y: { reverse: false } // Dynamically flipped for 'Position' later
+        x: {
+          ticks: {
+            maxTicksLimit: 10,
+            maxRotation: 45,
+          }
+        },
+        y: { reverse: false }
       }
     };
 
     this.countriesChartOptions = {
       ...commonOptions,
-      indexAxis: 'y', // Makes the bar chart horizontal
+      indexAxis: 'y',
       scales: {
         x: { stacked: false },
         y: { stacked: false }
       }
     };
   }
+
+
 }
