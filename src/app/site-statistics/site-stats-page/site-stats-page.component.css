@@ -115,9 +115,16 @@
 
 .controls-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
   margin-bottom: 20px;
   margin-top: 10px;
+}
+
+.date-picker-wrapper {
+  min-width: 250px;
 }
 
 /* Forces the PrimeNG chart wrapper and canvas to fill the fixed-height containers */

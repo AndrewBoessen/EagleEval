@@ -47,10 +47,20 @@
 
           <p-tabPanel header="History">
             <div class="controls-row">
+              <div class="date-picker-wrapper">
+                <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+                  placeholder="Filter by Date Range" (onSelect)="updateHistoryChart()" (onClear)="clearDateFilter()"
+                  [showClear]="true">
+                </p-calendar>
+              </div>
+
               <p-selectButton [options]="historyMetrics" [(ngModel)]="selectedHistoryMetric" optionLabel="label"
                 optionValue="value" (onChange)="updateHistoryChart()">
               </p-selectButton>
             </div>
+
+
+
             <div class="chart-container">
               <p-chart type="line" [data]="historyChartData" [options]="historyChartOptions" height="100%"></p-chart>
             </div>
