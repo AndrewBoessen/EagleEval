@@ -63,6 +63,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { MockProfessorComponent } from './mock-pages/mock-professor/mock-professor.component';
 import { MockClassComponent } from './mock-pages/mock-class/mock-class.component';
+import { SiteStatsPageComponent } from './site-statistics/site-stats-page/site-stats-page.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { MockClassComponent } from './mock-pages/mock-class/mock-class.component
     TermsComponent,
     MockProfessorComponent,
     MockClassComponent,
+    SiteStatsPageComponent,
   ],
   imports: [
     BrowserModule,
