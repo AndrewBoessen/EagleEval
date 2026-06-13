@@ -24,4 +24,7 @@ export class HeroSectionComponent {
     this.router.navigate(['/example-class']);
   }
 
+  navData() {
+    this.router.navigate(['/data']);
+  }
 }

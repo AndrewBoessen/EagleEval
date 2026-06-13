@@ -8,6 +8,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
 import { MockProfessorComponent } from './mock-pages/mock-professor/mock-professor.component';
 import { MockClassComponent } from './mock-pages/mock-class/mock-class.component';
+import { SiteStatsPageComponent } from './site-statistics/site-stats-page/site-stats-page.component';
 
 const routes: Routes = [
   { path: 'professor/:profId', component: ProfessorPageEntryComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'terms', component: TermsComponent },
   { path: 'example-professor', component:  MockProfessorComponent},
   { path: 'example-class', component:  MockClassComponent},
+  { path: 'data', component:  SiteStatsPageComponent},
 ];
 
 @NgModule({
@@ -35,5 +37,6 @@ export const routingComponents = [
   PrivacyComponent,
   TermsComponent,
   MockProfessorComponent,
-  MockClassComponent
+  MockClassComponent,
+  SiteStatsPageComponent
 ];
