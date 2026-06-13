@@ -1,19 +1,30 @@
-import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
-import { DialogModule } from 'primeng/dialog';
+import { Component, OnInit, HostListener } from '@angular/core'; // 1. Added OnInit here
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent {
-  constructor(private router: Router) { }
+export class HomePageComponent implements OnInit {
 
-  visible: boolean = true;
+  visible: boolean = false;
+
+
+  ngOnInit(): void {
+    const hasSeenFarewell = localStorage.getItem('eagleEvalFarewellClosed');
+
+    if (!hasSeenFarewell) {
+      this.visible = true;
+    }
+  }
+
+  onDialogClose(): void {
+    localStorage.setItem('eagleEvalFarewellClosed', 'true');
+    this.visible = false;
+  }
 
   showDialog() {
     this.visible = true;
   }
-
 }
+
