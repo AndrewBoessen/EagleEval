@@ -91,11 +91,9 @@ export class SiteStatsPageComponent implements OnInit {
     this.updateHistoryChart();
   }
 
-
-  updateHistoryChart() {
+updateHistoryChart() {
     if (!this.rawHistoryData.length) return;
 
-    // 1. Filter the data based on the selected date range
     let filteredData = this.rawHistoryData;
 
     if (this.rangeDates && this.rangeDates[0] && this.rangeDates[1]) {
@@ -103,14 +101,23 @@ export class SiteStatsPageComponent implements OnInit {
       const endDate = this.rangeDates[1].getTime();
 
       filteredData = this.rawHistoryData.filter(item => {
-        // Parse the "YYYY-MM-DD" string into a comparable timestamp
-        const itemDate = new Date(item.Date).getTime();
+        const safeDateString = item.Date.replace(/-/g, '/');
+        const itemDate = new Date(safeDateString).getTime();
         return itemDate >= startDate && itemDate <= endDate;
       });
     }
 
-    // 2. Map the filtered data to labels and points
-    const labels = filteredData.map(item => item.Date);
+    const labels = filteredData.map(item => {
+      const safeDateString = item.Date.replace(/-/g, '/');
+      const dateObj = new Date(safeDateString);
+
+      return dateObj.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    });
+
     const dataPoints = filteredData.map(item => {
       let val = item[this.selectedHistoryMetric];
       if (this.selectedHistoryMetric === 'CTR' && typeof val === 'string') {
@@ -118,8 +125,6 @@ export class SiteStatsPageComponent implements OnInit {
       }
       return val;
     });
-
-    const isPosition = this.selectedHistoryMetric === 'Position';
 
     this.historyChartData = {
       labels: labels,
@@ -135,8 +140,12 @@ export class SiteStatsPageComponent implements OnInit {
       ]
     };
 
-    this.historyChartOptions.scales.y.reverse = isPosition;
+    const isPosition = this.selectedHistoryMetric === 'Position';
+    if (this.historyChartOptions && this.historyChartOptions.scales && this.historyChartOptions.scales.y) {
+      this.historyChartOptions.scales.y.reverse = isPosition;
+    }
   }
+
 
   processCountries(data: any) {
     // Convert object to array, calculate total engagement for sorting
