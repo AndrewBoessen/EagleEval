@@ -20,6 +20,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { AccordionModule } from 'primeng/accordion';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
+import { CalendarModule } from 'primeng/calendar';
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
@@ -120,7 +121,8 @@ import { SiteStatsPageComponent } from './site-statistics/site-stats-page/site-s
     FormsModule,
     BrowserAnimationsModule,
     ChartModule,
-    TableModule
+    TableModule,
+    CalendarModule
   ],
   providers: [
     ConfirmationService,
