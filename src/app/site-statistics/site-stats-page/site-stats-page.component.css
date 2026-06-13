@@ -6,9 +6,11 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .full-width {
   grid-column: 1 / -1;
 }
+
 .grid-item {
   background-color: #f3f4f6;
   padding: 20px;
@@ -17,50 +19,76 @@
   font-family: sans-serif;
   text-align: center;
 }
-.statisticswrapper {
-  justify-content: space-around;
-  display: flex;
-}
+
 .verticalStatsWrapper {
-  flex-flow: column;
-  align-items: center;
   display: flex;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-.statblock {
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
-  display: flex;
-  padding: 25px;
+  padding: 30px 20px;
+  position: relative;
+  overflow: hidden;
 }
-.heading-stat {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  line-height: 44px;
-  text-align: center;
-  font-size: 20px;
-  margin: 0;
-}
-.tagline-stat{
-  opacity: 0.6;
+
+.tagline-stat {
+  opacity: 0.7;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 25px;
+  font-weight: 500;
 }
+
+.statisticswrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.statblock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 180px;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.statblock:hover {
+  transform: translateY(-4px);
+}
+
 .numericheading {
   font-family: Roboto, sans-serif;
-  font-weight: 300;
-  font-size: 40px;
+  font-weight: 700;
+  font-size: 55px;
   margin: 0;
+  line-height: 1.1;
 }
+
 .statdivider {
   background-color: #c5bfb0;
-  width: 60px;
-  height: 2px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 45px;
+  height: 3px;
+  margin: 15px 0;
+  border-radius: 2px;
+}
+
+.heading-stat {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .device-card {
@@ -73,6 +101,7 @@
   align-items: stretch;
 }
 
+/* Essential for Chart.js responsiveness */
 .chart-container {
   position: relative;
   width: 100%;
@@ -91,21 +120,44 @@
   margin-top: 10px;
 }
 
+/* Forces the PrimeNG chart wrapper and canvas to fill the fixed-height containers */
+::ng-deep .chart-container p-chart,
+::ng-deep .chart-container p-chart > div,
+::ng-deep .chart-container canvas {
+  height: 100% !important;
+  width: 100% !important;
+  display: block;
+}
+
 ::ng-deep .p-tabview .p-tabview-panels {
   padding: 1.25rem 0;
 }
 
+
 @media screen and (max-width: 991px) {
   .stats-grid {
-    grid-template-columns: 1fr; /* Stack the grid on smaller screens */
+    grid-template-columns: 1fr;
+  }
+  .numericheading {
+    font-size: 45px;
+  }
+  .statblock {
+    flex: 1 1 40%;
   }
 }
 
 @media screen and (max-width: 479px) {
-  .statisticswrapper {
-    flex-direction: column; /* Stack the 4 KPIs vertically on mobile */
+  .verticalStatsWrapper {
+    padding: 20px 10px;
+  }
+  .numericheading {
+    font-size: 40px;
   }
   .statblock {
-    padding: 15px;
+    flex: 1 1 100%;
+    padding: 15px 0;
+  }
+  .statdivider {
+    margin: 10px 0;
   }
 }
