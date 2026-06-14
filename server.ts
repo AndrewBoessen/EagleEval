@@ -39,88 +39,88 @@ declare namespace Express {
 }
 
 // Get env varialbes
-const CLIENT_ID: string | undefined = config.OAuthCreds.id;
-const CLIENT_SECRET: string | undefined = config.OAuthCreds.secret;
-const SESSION_SECRET: string | undefined = config.OAuthCreds.session;
+// const CLIENT_ID: string | undefined = config.OAuthCreds.id;
+// const CLIENT_SECRET: string | undefined = config.OAuthCreds.secret;
+// const SESSION_SECRET: string | undefined = config.OAuthCreds.session;
 
 // Check if environment variables are defined
-if (
-  CLIENT_ID === undefined ||
-  CLIENT_SECRET === undefined ||
-  SESSION_SECRET === undefined
-) {
-  const undefinedVariables: string[] = [];
-  if (CLIENT_ID === undefined) undefinedVariables.push('id');
-  if (CLIENT_SECRET === undefined) undefinedVariables.push('secret');
-  if (SESSION_SECRET === undefined) undefinedVariables.push('session_secret');
-
-  throw new Error(
-    `The following Google OAuth2.0 environment variable(s) are undefined: ${undefinedVariables.join(
-      ', '
-    )}.`
-  );
-}
+// if (
+//   CLIENT_ID === undefined ||
+//   CLIENT_SECRET === undefined ||
+//   SESSION_SECRET === undefined
+// ) {
+//   const undefinedVariables: string[] = [];
+//   if (CLIENT_ID === undefined) undefinedVariables.push('id');
+//   if (CLIENT_SECRET === undefined) undefinedVariables.push('secret');
+//   if (SESSION_SECRET === undefined) undefinedVariables.push('session_secret');
+//
+//   throw new Error(
+//     `The following Google OAuth2.0 environment variable(s) are undefined: ${undefinedVariables.join(
+//       ', '
+//     )}.`
+//   );
+// }
 
 // Express application
 const app = express();
 const private_api = express();
 
 // Configure session middleware
-app.use(
-  session({
-    secret: SESSION_SECRET, // Change this to a secure secret key
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+// app.use(
+//   session({
+//     secret: SESSION_SECRET, // Change this to a secure secret key
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
 
 // Configure Passport for Google OAuth 2.0
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: CLIENT_ID,
-      clientSecret: CLIENT_SECRET,
-      callbackURL: '/auth/google/callback',
-      proxy: true,
-    },
-    async (accessToken, refreshToken, profile, done) => {
-      const emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@bc\.edu$/;
+// passport.use(
+//   new GoogleStrategy(
+//     {
+//       clientID: CLIENT_ID,
+//       clientSecret: CLIENT_SECRET,
+//       callbackURL: '/auth/google/callback',
+//       proxy: true,
+//     },
+//     async (accessToken, refreshToken, profile, done) => {
+//       const emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@bc\.edu$/;
+//
+//       // Validate is BC email
+//       if (profile.emails?.[0] && !emailRegex.test(profile.emails?.[0].value)) {
+//         return done(null, false);
+//       }
+//       const user = await UserModel.findOne({ googleId: profile.id });
+//
+//       // If user doesn't exist creates a new user. (similar to sign up)
+//       if (!user) {
+//         const newUser = await UserModel.create({
+//           googleId: profile.id,
+//           name: profile.displayName,
+//           email: profile.emails?.[0].value,
+//         });
+//         if (newUser) {
+//           return done(null, newUser);
+//         }
+//       } else {
+//         return done(null, user);
+//       }
+//     }
+//   )
+// );
 
-      // Validate is BC email
-      if (profile.emails?.[0] && !emailRegex.test(profile.emails?.[0].value)) {
-        return done(null, false);
-      }
-      const user = await UserModel.findOne({ googleId: profile.id });
-
-      // If user doesn't exist creates a new user. (similar to sign up)
-      if (!user) {
-        const newUser = await UserModel.create({
-          googleId: profile.id,
-          name: profile.displayName,
-          email: profile.emails?.[0].value,
-        });
-        if (newUser) {
-          return done(null, newUser);
-        }
-      } else {
-        return done(null, user);
-      }
-    }
-  )
-);
-
-passport.serializeUser((user: Express.User, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-  const user = await UserModel.findById(id);
-  done(null, user);
-});
+// passport.serializeUser((user: Express.User, done) => {
+//   done(null, user.id);
+// });
+//
+// passport.deserializeUser(async (id, done) => {
+//   const user = await UserModel.findById(id);
+//   done(null, user);
+// });
 
 // Initialize Passport and restore authentication state, if any, from the session
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Sets the `script-src` directive to
 // "'self' 'nonce-e33...'" (or similar)
@@ -173,16 +173,16 @@ const port = process.env['PORT'] || 3000;
 const privatePort = 8080;
 
 app.listen(port, () => {
-  createMongooseConnection();
+  // createMongooseConnection();
   console.log(`Server listening on port ${port}`);
   // Create process listener to close connection on exit
-  closeMongooseConnection();
+  // closeMongooseConnection();
 });
 
 // Private routes only accessible locally
 private_api.listen(privatePort, () => {
-  createMongooseConnection();
+  // createMongooseConnection();
   console.log(`Private API listening on port ${privatePort}`);
   // Create process listener to close connection on exit
-  closeMongooseConnection();
+  // closeMongooseConnection();
 });

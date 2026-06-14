@@ -2,21 +2,21 @@ import puppeteer from 'puppeteer';
 import { config } from '../../config/BCLoginConfig';
 
 // BC username and password
-const username: string | undefined = config.bcAuth.username;
-const password: string | undefined = config.bcAuth.password;
+// const username: string | undefined = config.bcAuth.username;
+// const password: string | undefined = config.bcAuth.password;
 
 // Check it environment variables are defined
-if (username === undefined || password === undefined) {
-  const undefinedVariables: string[] = [];
-  if (username === undefined) undefinedVariables.push('username');
-  if (password === undefined) undefinedVariables.push('password');
-
-  throw new Error(
-    `The following BC Auth environment variable(s) are undefined: ${undefinedVariables.join(
-      ', '
-    )}.`
-  );
-}
+// if (username === undefined || password === undefined) {
+//   const undefinedVariables: string[] = [];
+//   if (username === undefined) undefinedVariables.push('username');
+//   if (password === undefined) undefinedVariables.push('password');
+//
+//   throw new Error(
+//     `The following BC Auth environment variable(s) are undefined: ${undefinedVariables.join(
+//       ', '
+//     )}.`
+//   );
+// }
 
 /**
  * Fills out and submits a form on a web page using Puppeteer and returns the redirected page's HTML.
