@@ -52,7 +52,8 @@
   background-position: 50% 10%;
   background-size: cover;
   border-radius: 8px;
-  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 35px;
 }
 
