@@ -25,7 +25,10 @@ export class AppComponent implements OnInit {
           !/\/class/.test(event.url) &&
           !/\/profile/.test(event.url) &&
           !/\/terms/.test(event.url) &&
-          !/\/privacy/.test(event.url);
+          !/\/privacy/.test(event.url) &&
+          !/\/example-professor/.test(event.url) &&
+          !/\/example-class/.test(event.url) &&
+          !/\/data/.test(event.url);
       }
     });
   }

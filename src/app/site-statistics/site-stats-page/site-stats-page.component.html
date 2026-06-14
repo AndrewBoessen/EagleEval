@@ -1,0 +1,107 @@
+<app-home-bar></app-home-bar>
+
+<body>
+  <section class="contentwrapper">
+    <div class="stats-grid">
+
+      <div class="verticalStatsWrapper whitecard">
+        <div class="tagline-stat">Google search console Retained Data: Final 16 Months of 4-Year Lifespan</div>
+        <div class="statisticswrapper" style="width: 100%;">
+
+          <div class="statblock">
+            <h2 class="numericheading">{{ overallStats.Impressions | number }}</h2>
+            <div class="statdivider"></div>
+            <h2 class="heading-stat">Impressions</h2>
+          </div>
+
+          <div class="statblock">
+            <h2 class="numericheading">{{ overallStats.Clicks | number }}</h2>
+            <div class="statdivider"></div>
+            <h2 class="heading-stat">Clicks</h2>
+          </div>
+
+          <div class="statblock">
+            <h2 class="numericheading">{{ overallStats.CTR }}</h2>
+            <div class="statdivider"></div>
+            <h2 class="heading-stat">CTR</h2>
+          </div>
+
+          <div class="statblock">
+            <h2 class="numericheading">{{ overallStats.Position | number:'1.1-2' }}</h2>
+            <div class="statdivider"></div>
+            <h2 class="heading-stat">Avg. Position</h2>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="whitecard device-card">
+        <h2 class="heading-stat" style="margin-top: 15px;">Device Impression Distribution</h2>
+        <div class="chart-container donut-container">
+          <p-chart type="doughnut" [data]="deviceChartData" [options]="deviceChartOptions" height="100%"></p-chart>
+        </div>
+      </div>
+
+      <div class="whitecard full-width tabs-card">
+        <p-tabView>
+
+          <p-tabPanel header="History">
+            <div class="controls-row">
+              <div class="date-picker-wrapper">
+                <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+                  placeholder="Filter by Date Range" (onSelect)="updateHistoryChart()" (onClear)="clearDateFilter()"
+                  [showClear]="true">
+                </p-calendar>
+              </div>
+
+              <p-selectButton [options]="historyMetrics" [(ngModel)]="selectedHistoryMetric" optionLabel="label"
+                optionValue="value" (onChange)="updateHistoryChart()">
+              </p-selectButton>
+            </div>
+
+
+
+            <div class="chart-container">
+              <p-chart type="line" [data]="historyChartData" [options]="historyChartOptions" height="100%"></p-chart>
+            </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="Countries">
+            <p style="text-align: center; color: #666; margin-bottom: 10px;">Top 10 Countries by Engagement</p>
+            <div class="chart-container">
+              <p-chart type="bar" [data]="countriesChartData" [options]="countriesChartOptions" height="100%"></p-chart>
+            </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="Queries">
+            <p-table [value]="queriesData" [paginator]="true" [rows]="10" [sortMode]="'multiple'"
+              styleClass="p-datatable-sm p-datatable-striped">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th pSortableColumn="query">Search Query <p-sortIcon field="query"></p-sortIcon></th>
+                  <th pSortableColumn="impressions">Impressions <p-sortIcon field="impressions"></p-sortIcon></th>
+                  <th pSortableColumn="clicks">Clicks <p-sortIcon field="clicks"></p-sortIcon></th>
+                  <th pSortableColumn="ctr">CTR (%) <p-sortIcon field="ctr"></p-sortIcon></th>
+                  <th pSortableColumn="position">Avg Position <p-sortIcon field="position"></p-sortIcon></th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-q>
+                <tr>
+                  <td>{{ q.query }}</td>
+                  <td>{{ q.impressions | number }}</td>
+                  <td>{{ q.clicks | number }}</td>
+                  <td>{{ q.ctr | number:'1.2-2' }}%</td>
+                  <td>{{ q.position | number:'1.1-2' }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </p-tabPanel>
+
+        </p-tabView>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+<app-footer></app-footer>

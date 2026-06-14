@@ -7,6 +7,19 @@ import {
 
 const search_router = express.Router();
 
+
+// ==========================================
+// DISABLE ALL ROUTES IN THIS ROUTER
+// ==========================================
+
+search_router.use((req: Request, res: Response) => {
+  return res.status(410).json({
+    error: 'Gone',
+    message: 'The professor and class search routes are no longer available.'
+  });
+});
+
+
 const handleSearch = async (
   req: Request,
   res: Response,

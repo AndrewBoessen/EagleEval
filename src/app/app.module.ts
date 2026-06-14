@@ -18,6 +18,9 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TabViewModule } from 'primeng/tabview';
 import { AccordionModule } from 'primeng/accordion';
+import { ChartModule } from 'primeng/chart';
+import { TableModule } from 'primeng/table';
+import { CalendarModule } from 'primeng/calendar';
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
@@ -61,6 +64,9 @@ import { NoDataReviewsComponent } from './Skeletons/no-data-reviews/no-data-revi
 import { NoDataClassComponent } from './Skeletons/no-data-class/no-data-class.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
+import { MockProfessorComponent } from './mock-pages/mock-professor/mock-professor.component';
+import { MockClassComponent } from './mock-pages/mock-class/mock-class.component';
+import { SiteStatsPageComponent } from './site-statistics/site-stats-page/site-stats-page.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +94,9 @@ import { TermsComponent } from './terms/terms.component';
     NoDataClassComponent,
     PrivacyComponent,
     TermsComponent,
+    MockProfessorComponent,
+    MockClassComponent,
+    SiteStatsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,6 +120,9 @@ import { TermsComponent } from './terms/terms.component';
     AccordionModule,
     FormsModule,
     BrowserAnimationsModule,
+    ChartModule,
+    TableModule,
+    CalendarModule
   ],
   providers: [
     ConfirmationService,

@@ -1,0 +1,83 @@
+.heading-modal {
+  flex: 1;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  padding-top: 5px;
+  padding-left: 2rem;
+  font-size: 1.7em;
+  margin-bottom:15px
+}
+
+
+.tagline-modal {
+  text-align: center;
+  opacity: 0.6;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  margin-bottom: 35px;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: #c5bfb0;
+  margin: 0px auto 35px auto;
+
+}
+
+.paragraph-modal {
+  text-align: left;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 35px;
+  width: 800px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+
+.farewell-img {
+  background-image: url("/assets/farewell.jpg");
+  width: 600px;
+  height: auto;
+  aspect-ratio: 12 / 8;
+  background-position: 50% 10%;
+  background-size: cover;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 35px;
+}
+
+
+@media screen and (max-width: 767px) {
+  .farewell-img {
+    width: 400px;
+
+  }
+  .paragraph-modal {
+
+    width: 500px;
+
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .farewell-img {
+    width: 100%;
+
+  }
+  .paragraph-modal {
+
+    width: auto;
+  }
+
+}

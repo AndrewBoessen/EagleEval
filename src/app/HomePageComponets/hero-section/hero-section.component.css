@@ -1,26 +1,28 @@
-.heroSignIn {
-  position: absolute;
-  top: 20px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  padding-right: 20px;
-
-  z-index: 2;
+.hero-button {
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  border: 3.5px solid white;
+  border-radius: 10px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .herosection {
   height: 100vh;
   position: relative;
 }
+
 video {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
+
 .herowrapperlogotext {
   position: absolute;
   top: 0;
@@ -33,11 +35,17 @@ video {
   align-items: center;
   padding-top: 80px;
 }
+
 .navsearch {
   margin-top: 26px;
   margin-bottom: 26px;
   width: 35vw;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .herosectionunderlay {
@@ -45,15 +53,19 @@ video {
   height: 10vh;
   background-color: #c5bfb0;
 }
+
 @media screen and (max-width: 991px) {
   .herowrapperlogotext {
     padding-top: 79px;
   }
-
-  
 }
+
 @media screen and (max-width: 450px) {
   .navsearch {
     width: 90vw;
+  }
+
+  .hero-button {
+    font-size: 16px;
   }
 }
